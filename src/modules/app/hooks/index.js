@@ -1,0 +1,1 @@
+export { useDismissingSplashScreen } from './useDismissingSplashScreen';
