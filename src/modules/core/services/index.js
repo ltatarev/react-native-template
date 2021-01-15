@@ -1,4 +1,4 @@
-export { API_ACTIONS, callApi, prepareBody } from './api';
+export { API_ACTIONS, Api, prepareBody } from './api';
 
 export * as ReduxService from './reduxService';
 export * as ErrorService from './errorAlert';

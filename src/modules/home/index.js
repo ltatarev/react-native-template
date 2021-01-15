@@ -1,3 +1,3 @@
 export { MODULE_NAME } from './const';
 
-export { HomeNavigator } from './navigator';
+export { HomeNavigator, MainNavigator } from './navigator';

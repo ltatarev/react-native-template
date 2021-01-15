@@ -8,7 +8,6 @@ import {
 } from 'modules/navigation';
 import { colors } from 'shared/theme';
 import { Button, Screen, Text } from 'shared/ui';
-import { Header } from '../fragments';
 
 export function HomeScreen(props) {
   const { navigation } = props;
@@ -17,7 +16,7 @@ export function HomeScreen(props) {
 
   return (
     <Screen>
-      <Header />
+      <Text>Home</Text>
     </Screen>
   );
 }

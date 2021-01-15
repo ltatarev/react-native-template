@@ -20,5 +20,3 @@ const coreSlice = createSlice({
 });
 
 export const coreReducer = coreSlice.reducer;
-
-export const CoreActions = coreSlice.actions;

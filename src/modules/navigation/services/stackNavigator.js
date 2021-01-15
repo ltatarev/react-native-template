@@ -1,6 +1,5 @@
 import React from 'react';
 import { CardStyleInterpolators } from '@react-navigation/stack';
-import { HeaderBackButton } from '../fragments';
 
 export const hideHeader = { headerShown: false };
 export const hideHeaderLeft = { headerLeft: null };
@@ -19,5 +18,4 @@ export const defaultScreenOptions = {
   headerTransparent: true,
   headerTitle: null,
   headerTitleStyle: { alignSelf: 'center', textAlign: 'center' },
-  headerLeft: () => <HeaderBackButton />,
 };

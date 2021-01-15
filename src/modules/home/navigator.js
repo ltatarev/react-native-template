@@ -1,7 +1,8 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { TAB_ROUTES } from 'modules/main';
-import { StackNavigatorService } from 'modules/navigation';
+import { StackNavigatorService, TabBar } from 'modules/navigation';
 import { ROUTES } from './const';
 import { HomeScreen } from './screens';
 
@@ -16,3 +17,13 @@ export function HomeNavigator() {
 }
 
 HomeNavigator.routeName = TAB_ROUTES.Home;
+
+const Tab = createBottomTabNavigator();
+
+export function MainNavigator() {
+  return (
+    <Tab.Navigator tabBar={TabBar}>
+      <Tab.Screen name={HomeNavigator.routeName} component={HomeNavigator} />
+    </Tab.Navigator>
+  );
+}

@@ -1,4 +1,7 @@
-import { TAB_ROUTES } from 'modules/main';
+export const TAB_ROUTES = {
+  Home: 'Home',
+  Profile: 'Profile',
+};
 
 export const TABS = {
   [TAB_ROUTES.Home]: {
