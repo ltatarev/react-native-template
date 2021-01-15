@@ -36,4 +36,4 @@
 
 ---
 
-##### Last updated: 1.1.2021.
+##### Last updated: 15.1.2021.
