@@ -1,8 +1,7 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { TAB_ROUTES } from 'modules/main';
-import { StackNavigatorService, TabBar } from 'modules/navigation';
+import { createStackNavigator } from '@react-navigation/stack';
+import { StackNavigatorService, TabBar, TAB_ROUTES } from 'modules/navigation';
 import { ROUTES } from './const';
 import { HomeScreen } from './screens';
 

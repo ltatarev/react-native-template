@@ -1,4 +1,3 @@
-import React from 'react';
 import { CardStyleInterpolators } from '@react-navigation/stack';
 
 export const hideHeader = { headerShown: false };
