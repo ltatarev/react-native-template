@@ -1,4 +1,4 @@
-## 🥡 React Native template
+# 🥡 React Native template
 
 ### Template includes packages with initial set up:
 
@@ -34,6 +34,7 @@
      ┣ 📜 index.js
      ┗ 📜 navigator.js
 
+Each folder should have an `index.js` file which exports folder contents.
 ---
 
-##### Last updated: 15.1.2021.
+##### Last updated: 15.7.2021.

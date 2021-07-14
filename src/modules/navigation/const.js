@@ -5,11 +5,11 @@ export const TAB_ROUTES = {
 
 export const TABS = {
   [TAB_ROUTES.Home]: {
-    title: 'Objave',
-    icon: 'bookmark-multiple-outline',
+    title: 'Home',
+    icon: 'home',
   },
   [TAB_ROUTES.Profile]: {
-    title: 'Profil',
+    title: 'Profile',
     icon: 'account-outline',
   },
 };
