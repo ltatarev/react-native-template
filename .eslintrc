@@ -1,6 +1,5 @@
 {
   "extends": [
-    "airbnb",
     "plugin:react/recommended",
     "plugin:prettier/recommended"
   ],
@@ -8,8 +7,17 @@
   "settings": {
     "import/resolver": {
       "babel-module": {}
+    },
+    "react": {
+      "version": "16.13.1"
     }
   },
+  "plugins": [
+    "react",
+    "import",
+    "unused-imports",
+    "simple-import-sort"
+  ],
   "parserOptions": {
     "ecmaVersion": 2020,
     "sourceType": "module",
@@ -18,29 +26,30 @@
     }
   },
   "rules": {
-    "react/forbid-prop-types": "off",
-    "import/prefer-default-export": "off",
+    "react/require-default-props": 1,
     "react/jsx-filename-extension": "off",
-    "react/display-name": "off",
-    "import/named": "off",
-    "import/order": [
+    "unused-imports/no-unused-imports": "error",
+    "simple-import-sort/imports": [
       "error",
       {
-        "groups": ["builtin", "external", "internal"],
-        "pathGroups": [
-          {
-            "pattern": "react",
-            "group": "external",
-            "position": "before"
-          }
-        ],
-        "pathGroupsExcludedImportTypes": ["react"],
-        "alphabetize": {
-          "order": "asc",
-          "caseInsensitive": true
-        }
+        "groups": [
+          [
+            "^react",
+            "^@?\\w",
+            "^shared(\/.*|$)",
+            "^modules(\/.*|$)",
+            "^\\u0000",
+            "^\\.\\.(?!/?$)",
+            "^\\.\\./?$",
+            "^\\./(?=.*/)(?!/?$)",
+            "^\\.(?!/?$)",
+            "^\\./?$"
+          ]
+        ]
       }
     ],
+    "import/newline-after-import": "error",
+    "simple-import-sort/exports": "error",
     "no-use-before-define": [
       "error",
       {
@@ -49,8 +58,5 @@
     ],
     "react/jsx-one-expression-per-line": "off",
     "no-nested-ternary": "off"
-  },
-  "globals": {
-    "fetch": false
   }
 }

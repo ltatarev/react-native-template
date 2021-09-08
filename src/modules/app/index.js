@@ -1,3 +1,2 @@
-export { App } from './screens';
-
 export { MODULE_NAME } from './const';
+export { App } from './screens';

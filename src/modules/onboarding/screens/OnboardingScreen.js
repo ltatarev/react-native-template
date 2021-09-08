@@ -1,5 +1,5 @@
 import React from 'react';
-import { Screen, Title, Text } from 'shared/ui';
+import { Screen, Text, Title } from 'shared/ui';
 
 export function OnboardingScreen() {
   return (

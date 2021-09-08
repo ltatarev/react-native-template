@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { Pressable, StyleSheet, View, ViewPropTypes } from 'react-native';
+import PropTypes from 'prop-types';
 import { colors } from 'shared/theme';
 import { Icon } from './Icon';
 

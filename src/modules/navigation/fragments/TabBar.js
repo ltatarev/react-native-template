@@ -1,8 +1,8 @@
 import React from 'react';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import _ from 'lodash';
 import PropTypes from 'prop-types';
-import { View, TouchableOpacity, StyleSheet } from 'react-native';
-import { Text, Icon } from 'shared/ui';
+import { Icon, Text } from 'shared/ui';
 import { PlatformUtils } from 'shared/utils';
 import { TabNavigatorService } from '../services';
 
@@ -17,11 +17,8 @@ export function TabBar({ state, descriptors, navigation }) {
     <View style={styles.container}>
       {state.routes.map((route, index) => {
         const isFocused = state.index === index;
-        const {
-          label,
-          iconName,
-          color,
-        } = TabNavigatorService.resolveTabOptions(route.name, isFocused);
+        const { label, iconName, color } =
+          TabNavigatorService.resolveTabOptions(route.name, isFocused);
 
         const onPress = () => {
           const event = navigation.emit({

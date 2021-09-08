@@ -1,6 +1,6 @@
 import React from 'react';
+import { StyleSheet, View } from 'react-native';
 import PropTypes from 'prop-types';
-import { View, StyleSheet } from 'react-native';
 import { colors } from 'shared/theme';
 import { ActivityIndicator } from './ActivityIndicator';
 import { Screen } from './Screen';

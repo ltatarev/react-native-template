@@ -1,6 +1,6 @@
 import React from 'react';
+import { StyleSheet, Text as RNText } from 'react-native';
 import PropTypes from 'prop-types';
-import { Text as RNText, StyleSheet } from 'react-native';
 import { colors } from 'shared/theme';
 
 export function Text(props) {

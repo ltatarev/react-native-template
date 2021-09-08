@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { View, StyleSheet, ViewPropTypes } from 'react-native';
+import { StyleSheet, View, ViewPropTypes } from 'react-native';
 import RNModal from 'react-native-modal';
+import PropTypes from 'prop-types';
 import { colors } from 'shared/theme';
 import { PlatformUtils } from 'shared/utils';
 import { Text } from './Text';

@@ -1,6 +1,6 @@
+import Config from 'react-native-config';
 import { create } from 'apisauce';
 import _ from 'lodash';
-import Config from 'react-native-config';
 
 const { API_BASE_URL } = Config;
 

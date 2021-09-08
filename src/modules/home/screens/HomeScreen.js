@@ -1,9 +1,9 @@
 import React from 'react';
+import { Screen, Text } from 'shared/ui';
 import {
   StackNavigatorService,
   useNavigationOptions,
 } from 'modules/navigation';
-import { Screen, Text } from 'shared/ui';
 
 export function HomeScreen() {
   useNavigationOptions(StackNavigatorService.hideHeader);

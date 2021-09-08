@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import PropTypes from 'prop-types';
 import {
   StyleSheet,
   TextInput as RNTextInput,
   View,
   ViewPropTypes,
 } from 'react-native';
+import PropTypes from 'prop-types';
 import { colors } from 'shared/theme';
 import { Row } from './Row';
 import { Text } from './Text';

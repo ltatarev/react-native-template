@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import PropTypes from 'prop-types';
+import React, { useEffect, useState } from 'react';
 import AnimatedSplash from 'react-native-animated-splash-screen';
+import PropTypes from 'prop-types';
 import { images } from 'shared/assets';
 import { colors } from 'shared/theme';
 

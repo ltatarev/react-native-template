@@ -1,11 +1,11 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {
-  TouchableOpacity,
   StyleSheet,
+  TouchableOpacity,
   View,
   ViewPropTypes,
 } from 'react-native';
+import PropTypes from 'prop-types';
 import { colors } from 'shared/theme';
 import { ActivityIndicator } from './ActivityIndicator';
 import { Icon } from './Icon';
