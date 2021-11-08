@@ -1,56 +1,74 @@
 {
   "extends": [
-    "airbnb",
+    "plugin:prettier/recommended",
     "plugin:react/recommended",
-    "plugin:prettier/recommended"
+    "plugin:react-hooks/recommended"
   ],
   "parser": "babel-eslint",
   "settings": {
     "import/resolver": {
       "babel-module": {}
+    },
+    "react": {
+      "version": "16.13.1"
     }
   },
+  "plugins": [
+    "react",
+    "react-native",
+    "import",
+    "unused-imports",
+    "simple-import-sort"
+  ],
   "parserOptions": {
     "ecmaVersion": 2020,
+    "ecmaFeatures": {
+      "jsx": true
+    },
     "sourceType": "module",
     "babelOptions": {
-      "configFile": "./app/babel.config.js"
+      "configFile": "./babel.config.js"
     }
   },
   "rules": {
-    "react/forbid-prop-types": "off",
-    "import/prefer-default-export": "off",
-    "react/jsx-filename-extension": "off",
-    "react/display-name": "off",
-    "import/named": "off",
-    "import/order": [
-      "error",
-      {
-        "groups": ["builtin", "external", "internal"],
-        "pathGroups": [
-          {
-            "pattern": "react",
-            "group": "external",
-            "position": "before"
-          }
-        ],
-        "pathGroupsExcludedImportTypes": ["react"],
-        "alphabetize": {
-          "order": "asc",
-          "caseInsensitive": true
-        }
-      }
-    ],
     "no-use-before-define": [
       "error",
       {
         "variables": false
       }
     ],
+    "no-console": "warn",
+    "no-nested-ternary": "off",
+    "react/display-name": 0,
+    "react/jsx-filename-extension": "off",
     "react/jsx-one-expression-per-line": "off",
-    "no-nested-ternary": "off"
-  },
-  "globals": {
-    "fetch": false
+    "react/jsx-props-no-spreading": 1,
+    "react/require-default-props": 2,
+    "react-native/no-unused-styles": 2,
+    "react-native/no-inline-styles": 2,
+    "react-native/no-raw-text": 1,
+    "react-native/no-single-element-style-arrays": 2,
+    "simple-import-sort/exports": "error",
+    "simple-import-sort/imports": [
+      "error",
+      {
+        "groups": [
+          [
+            "^react",
+            "^@?\\w",
+            "^(@shoutem)(\/.*|$)",
+            "^shared(\/.*|$)",
+            "^modules(\/.*|$)",
+            "^\\u0000",
+            "^\\.\\.(?!/?$)",
+            "^\\.\\./?$",
+            "^\\./(?=.*/)(?!/?$)",
+            "^\\.(?!/?$)",
+            "^\\./?$"
+          ]
+        ]
+      }
+    ],
+    "unused-imports/no-unused-imports": 1
   }
 }
