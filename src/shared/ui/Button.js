@@ -141,9 +141,6 @@ const styles = StyleSheet.create({
   disabledPrimaryButtonText: {
     opacity: 0.5,
   },
-  row: {
-    flexDirection: 'row',
-  },
   secondary: {
     backgroundColor: colors.buttonSecondary,
     borderWidth: 1,

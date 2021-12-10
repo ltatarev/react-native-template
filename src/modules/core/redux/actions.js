@@ -3,7 +3,7 @@ import { coreSlice } from './slices';
 
 export const CoreActions = coreSlice.actions;
 
-export const callApi = (action) => async (dispatch) => {
+export const callApi = action => async dispatch => {
   dispatch(CoreActions.setLoading(true));
 
   const response = await Api(action.payload);

@@ -82,7 +82,4 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     ...PlatformUtils.ifIPhoneX({ marginBottom: 35 }),
   },
-  center: {
-    alignSelf: 'center',
-  },
 });

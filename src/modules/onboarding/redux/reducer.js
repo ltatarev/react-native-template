@@ -6,7 +6,7 @@ const initialState = {
   verificationCode: null,
 };
 
-export const onboardingReducer = createReducer(initialState, (builder) => {
+export const onboardingReducer = createReducer(initialState, builder => {
   builder.addCase(actions.setUserInfo, (state, action) => ({
     ...state,
     ...action.payload,

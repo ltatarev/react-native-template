@@ -7,5 +7,5 @@ export function useOnFocus(callback) {
     if (isFocused) {
       callback();
     }
-  }, [isFocused]);
+  }, [callback, isFocused]);
 }

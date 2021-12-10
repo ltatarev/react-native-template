@@ -11,7 +11,7 @@ const coreSlice = createSlice({
       error: action.payload,
       loading: false,
     }),
-    setSuccess: (state) => ({
+    setSuccess: state => ({
       ...state,
       error: null,
       loading: false,
