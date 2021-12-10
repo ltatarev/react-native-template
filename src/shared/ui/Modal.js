@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { View, StyleSheet, ViewPropTypes } from 'react-native';
+import { StyleSheet, View, ViewPropTypes } from 'react-native';
 import RNModal from 'react-native-modal';
+import PropTypes from 'prop-types';
 import { colors } from 'shared/theme';
 import { PlatformUtils } from 'shared/utils';
 import { Text } from './Text';
@@ -52,12 +52,7 @@ export const styles = StyleSheet.create({
     ...PlatformUtils.ifIPhoneX({ paddingBottom: 34 }),
   },
   modal: { margin: 0, justifyContent: 'flex-end' },
-  buttonContainer: { flexDirection: 'row', marginVertical: 11 },
   title: { fontSize: 24, fontWeight: 'bold', position: 'relative', top: -10 },
-  description: {
-    marginTop: 22,
-    fontSize: 18,
-  },
   topHandle: {
     alignSelf: 'center',
     backgroundColor: colors.backgroundPrimary,

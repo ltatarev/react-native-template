@@ -1,12 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {
   KeyboardAvoidingView,
+  ScrollView,
   StyleSheet,
   View,
-  ScrollView,
   ViewPropTypes,
 } from 'react-native';
+import PropTypes from 'prop-types';
 import { colors, gutter, iPhoneXPadding } from 'shared/theme';
 import { PlatformUtils } from 'shared/utils';
 

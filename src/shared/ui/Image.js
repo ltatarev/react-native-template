@@ -1,7 +1,7 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { ViewPropTypes } from 'react-native';
 import FastImage from 'react-native-fast-image';
+import PropTypes from 'prop-types';
 
 export function Image({ source, width, height, style }) {
   return (

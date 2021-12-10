@@ -1,8 +1,8 @@
 import React from 'react';
-import _ from 'lodash';
-import PropTypes from 'prop-types';
 import { View, ViewPropTypes } from 'react-native';
 import { MaterialIndicator } from 'react-native-indicators';
+import _ from 'lodash';
+import PropTypes from 'prop-types';
 import { colors } from 'shared/theme';
 
 const INDICATOR_CONFIG = {

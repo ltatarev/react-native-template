@@ -1,6 +1,6 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import RNIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import PropTypes from 'prop-types';
 
 export function Icon(props) {
   const { size, name, color } = props;

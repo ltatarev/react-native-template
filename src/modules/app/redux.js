@@ -4,7 +4,7 @@ import { combineReducers } from 'redux';
 import logger from 'redux-logger';
 import { persistReducer } from 'redux-persist';
 import thunk from 'redux-thunk';
-import { MODULE_NAME as CORE_MODULE, coreReducer } from 'modules/core';
+import { coreReducer, MODULE_NAME as CORE_MODULE } from 'modules/core';
 import {
   MODULE_NAME as ONBOARDING,
   onboardingReducer,

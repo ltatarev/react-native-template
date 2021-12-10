@@ -1,6 +1,6 @@
+import Config from 'react-native-config';
 import { create } from 'apisauce';
 import _ from 'lodash';
-import Config from 'react-native-config';
 
 const { API_BASE_URL } = Config;
 
@@ -28,7 +28,7 @@ const ApiActions = {
   [API_ACTIONS.PATCH]: ApiClient.patch,
 };
 
-export const prepareBody = (body) => JSON.stringify(body);
+export const prepareBody = body => JSON.stringify(body);
 
 export async function Api(actionName, endpoint, params, axiosConfig = {}) {
   if (_.has(ApiActions, actionName)) {
