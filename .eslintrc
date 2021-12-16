@@ -1,8 +1,6 @@
 {
   "extends": [
-    "plugin:prettier/recommended",
-    "plugin:react/recommended",
-    "plugin:react-hooks/recommended"
+    "@menelaia/react-native"
   ],
   "parser": "babel-eslint",
   "settings": {
@@ -17,8 +15,8 @@
     "react",
     "react-native",
     "import",
-    "unused-imports",
-    "simple-import-sort"
+    "simple-import-sort",
+    "unused-imports"
   ],
   "parserOptions": {
     "ecmaVersion": 2020,
@@ -31,57 +29,23 @@
     }
   },
   "rules": {
-    "no-use-before-define": [
-      "error",
-      {
-        "variables": false
-      }
-    ],
-    "no-console": "warn",
-    "no-nested-ternary": "off",
-    "react/display-name": 0,
-    "react/jsx-filename-extension": "off",
-    "react/jsx-one-expression-per-line": "off",
-    "jsx-a11y/img-has-alt": 0,
-    "jsx-a11y/control-has-associated-label": 0,
-    "no-restricted-globals": 0,
-    "prefer-const": ["warn", {
-      "ignoreReadBeforeAssign": true
-    }],
-    "import/order": "off",
-    "import/extensions": 0,
-    "import/no-extraneous-dependencies": 0,
-    "react/no-did-update-set-state": "off",
-    "react/require-default-props": 2,
-    "react/forbid-prop-types": 0,
-    "react/static-property-placement": 0,
-    "react/sort-comp": 0,
-    "react/jsx-props-no-spreading": 0,
-    "react/jsx-no-bind": 0,
-    "react/sort-prop-types": [1, {
-      "callbacksLast": true,
-      "ignoreCase": true,
-      "requiredFirst": true,
-      "sortShapeProp": true,
-      "noSortAlphabetically": false
-    }],
-    "react-native/no-unused-styles": 2,
-    "react-native/no-inline-styles": 2,
-    "react-native/no-raw-text": 1,
-    "react-native/no-single-element-style-arrays": 2,
+    "import/prefer-default-export": 0,
     "simple-import-sort/exports": "error",
     "simple-import-sort/imports": [
       "error",
       {
         "groups": [
           [
+            // Packages. `react` related packages come first.
             "^react",
+            // Side effect imports.
             "^@?\\w",
-            "^shared(\/.*|$)",
-            "^modules(\/.*|$)",
             "^\\u0000",
+            // Parent imports. Put `..` last.
             "^\\.\\.(?!/?$)",
             "^\\.\\./?$",
+            "^",
+            // Other relative imports. Put same-folder imports and `.` last.
             "^\\./(?=.*/)(?!/?$)",
             "^\\.(?!/?$)",
             "^\\./?$"
