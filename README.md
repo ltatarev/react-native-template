@@ -19,6 +19,7 @@
 ## 🗂 Module structure
 
     📦 module
+     ┣ 📂 assets
      ┣ 📂 components
      ┣ 📂 fragments
      ┣ 📂 hooks

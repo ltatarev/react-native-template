@@ -29,30 +29,6 @@
     }
   },
   "rules": {
-    "import/prefer-default-export": 0,
-    "simple-import-sort/exports": "error",
-    "simple-import-sort/imports": [
-      "error",
-      {
-        "groups": [
-          [
-            // Packages. `react` related packages come first.
-            "^react",
-            // Side effect imports.
-            "^@?\\w",
-            "^\\u0000",
-            // Parent imports. Put `..` last.
-            "^\\.\\.(?!/?$)",
-            "^\\.\\./?$",
-            "^",
-            // Other relative imports. Put same-folder imports and `.` last.
-            "^\\./(?=.*/)(?!/?$)",
-            "^\\.(?!/?$)",
-            "^\\./?$"
-          ]
-        ]
-      }
-    ],
-    "unused-imports/no-unused-imports": 1
+    "global-require": "off"
   }
 }
