@@ -1,9 +1,9 @@
 # 🥡 React Native template
 
-### Template includes packages with initial set up:
+## Template includes packages with initial set up
 
 - `react-navigation` v5
-- `react-redux/toolkit/persist/thunk`
+- `react-redux/redux-toolkit/redux-persist/redux-thunk`
 - `react-native-splash-screen` & `animated-splash-screen`
 - `apisauce`
 - `babel/eslint` (module resolver, import order...)
@@ -11,10 +11,10 @@
 
 ## 💾 Steps after cloning
 
-1.  Update app & package names on iOS & Android
-2.  Update app icons & splash screen
-3.  Add assets to `shared/assets`
-4.  Add .env file
+1. Update app & package names on iOS & Android
+2. Update app icons & splash screen
+3. Add assets to `shared/assets`
+4. Add .env file
 
 ## 🗂 Module structure
 
@@ -34,7 +34,8 @@
      ┣ 📜 index.js
      ┗ 📜 navigator.js
 
-Each folder should have an `index.js` file which exports folder contents.
+### Each folder should have an `index.js` file which exports folder contents
+
 ---
 
-##### Last updated: 15.7.2021.
+#### Last updated: 24.7.2022
