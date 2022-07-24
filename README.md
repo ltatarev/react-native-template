@@ -58,6 +58,9 @@ Named exporting is prefered for components, and namespace export for services.
 
 3. Add `react-native-config` and .env file
 4. Add splash screen and app icons
+    - `https://appicon.co/`
+    - `https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html`
+    - `https://github.com/zoontek/react-native-bootsplash`
 5. Add `react-navigation`
 6. Set up redux
 

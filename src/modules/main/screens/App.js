@@ -24,6 +24,7 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
+import { useSplashScreen } from 'shared/hooks';
 
 const Section = ({ children, title }): Node => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -54,6 +55,8 @@ const Section = ({ children, title }): Node => {
 };
 
 export const App: () => Node = () => {
+  useSplashScreen();
+
   const isDarkMode = useColorScheme() === 'dark';
 
   const backgroundStyle = {
