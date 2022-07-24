@@ -7,5 +7,6 @@ Describe features added...
 What things are left to implement or improve...
 
 #### 📺 Tested on following platforms:
+
 - [] Android
 - [] iOS
