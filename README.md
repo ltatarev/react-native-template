@@ -42,17 +42,19 @@ Named exporting is prefered for components, and namespace export for services.
 1. Set up eslint rules and babel config
 2. Set up basic project arhitecture
 
-    📦 src
-     ┣ 📂 modules
-     ┃ ┣ 📂 main
-     ┃ ┣ 📂 ...
-     ┃ ┗ 📜 index.js
-     ┣ 📂 shared
-     ┃ ┣ 📂 services
-     ┃ ┣ 📂 hooks
-     ┃ ┗ 📂 ...
-     ┣ 📂 ui
-     ┗ 📜 index.js
+```
+📦 src
+┣ 📂 modules
+┃ ┣ 📂 main
+┃ ┣ 📂 ...
+┃ ┗ 📜 index.js
+┣ 📂 shared
+┃ ┣ 📂 services
+┃ ┣ 📂 hooks
+┃ ┗ 📂 ...
+┣ 📂 ui
+┗ 📜 index.js
+```
 
 3. Add `react-native-config` and .env file
 4. Add splash screen and app icons
