@@ -8,7 +8,7 @@
       "babel-module": {}
     },
     "react": {
-      "version": "16.13.1"
+      "version": "18.1.0"
     }
   },
   "plugins": [

@@ -1,12 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
-import type { Node } from 'react';
 import React from 'react';
 import {
   SafeAreaView,
@@ -24,9 +15,9 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-import { useSplashScreen } from 'shared/hooks';
+import { useSplashScreen } from 'utils/hooks';
 
-const Section = ({ children, title }): Node => {
+const Section = ({ children, title }) => {
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
@@ -54,7 +45,7 @@ const Section = ({ children, title }): Node => {
   );
 };
 
-export const App: () => Node = () => {
+export const App = () => {
   useSplashScreen();
 
   const isDarkMode = useColorScheme() === 'dark';
