@@ -1,12 +1,12 @@
-### 📌 Feature adds:
+📔  Feature adds:
 
-Describe features added...
+-
 
-#### 💻 Remaining issues/improvements
+📱 Tested on:
 
-What things are left to implement or improve...
+- [ ] iOS simulator
+- [ ] Android simulator
+- [ ] iOS device
+- [ ] Android device
 
-#### 📺 Tested on following platforms:
-
-- [] Android
-- [] iOS
+❔ Possible issues with adding this feature
