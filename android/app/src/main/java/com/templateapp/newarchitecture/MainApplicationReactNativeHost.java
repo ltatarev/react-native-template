@@ -1,4 +1,4 @@
-package com.templateapp.newarchitecture;
+package com.moonquake.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -19,9 +19,9 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.fabric.ReactNativeConfig;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.templateapp.BuildConfig;
-import com.templateapp.newarchitecture.components.MainComponentsRegistry;
-import com.templateapp.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.moonquake.BuildConfig;
+import com.moonquake.newarchitecture.components.MainComponentsRegistry;
+import com.moonquake.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 

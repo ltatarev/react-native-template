@@ -1,4 +1,4 @@
-package com.templateapp.newarchitecture.modules;
+package com.moonquake.newarchitecture.modules;
 
 import com.facebook.jni.HybridData;
 import com.facebook.react.ReactPackage;
