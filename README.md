@@ -1,6 +1,12 @@
 # 🥡 React Native template
 
-## Template includes following packages with initial set up:
+## :arrow_forward: Usage
+
+```sh
+npx react-native init MyApp --template https://github.com/ltatarev/react-native-template.git
+```
+
+## Template includes following packages with initial set up
 
 - `react-navigation` v5
 - `react-redux/redux-toolkit/redux-persist/redux-thunk`
@@ -17,6 +23,7 @@
 
 ## 🗂 Module structure
 
+```md
     📦 module
      ┣ 📂 assets
      ┣ 📂 components
@@ -33,6 +40,7 @@
      ┣ 📜 const.js
      ┣ 📜 index.js
      ┗ 📜 navigator.js
+```
 
 Each folder should have an `index.js` file which exports folder contents that are required by other modules.
 Named exporting is prefered for components, and namespace export for services.
@@ -42,7 +50,7 @@ Named exporting is prefered for components, and namespace export for services.
 1. Set up eslint rules and babel config
 2. Set up basic project arhitecture
 
-```
+```md
 📦 src
 ┣ 📂 modules
 ┃ ┣ 📂 main
@@ -58,9 +66,9 @@ Named exporting is prefered for components, and namespace export for services.
 
 3. Add `react-native-config` and .env file
 4. Add splash screen and app icons
-    - `https://appicon.co/`
-    - `https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html`
-    - `https://github.com/zoontek/react-native-bootsplash`
+   - `https://appicon.co/`
+   - `https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html`
+   - `https://github.com/zoontek/react-native-bootsplash`
 5. Add `react-navigation`
 6. Set up redux
 

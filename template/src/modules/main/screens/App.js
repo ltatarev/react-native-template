@@ -17,7 +17,7 @@ import {
 } from 'react-native/Libraries/NewAppScreen';
 import { useSplashScreen } from 'utils/hooks';
 
-const Section = ({ children, title }) => {
+function Section({ children, title }) {
   const isDarkMode = useColorScheme() === 'dark';
   return (
     <View style={styles.sectionContainer}>
@@ -43,9 +43,9 @@ const Section = ({ children, title }) => {
       </Text>
     </View>
   );
-};
+}
 
-export const App = () => {
+export function App() {
   useSplashScreen();
 
   const isDarkMode = useColorScheme() === 'dark';
@@ -85,7 +85,7 @@ export const App = () => {
       </ScrollView>
     </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   sectionContainer: {

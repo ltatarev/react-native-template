@@ -1,8 +1,5 @@
 {
-  "extends": [
-    "@menelaia/react-native"
-  ],
-  "parser": "babel-eslint",
+  "extends": ["@menelaia/react-native"],
   "settings": {
     "import/resolver": {
       "babel-module": {}
