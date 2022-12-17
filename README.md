@@ -23,22 +23,22 @@ npx react-native init MyApp --template https://github.com/ltatarev/react-native-
 ## 🗂 Module structure
 
 ```md
-    📦 module
-     ┣ 📂 assets
-     ┣ 📂 components
-     ┣ 📂 fragments
-     ┣ 📂 hooks
-     ┣ 📂 redux
-     ┃ ┣ 📜 actions.js
-     ┃ ┣ 📜 index.js
-     ┃ ┣ 📜 slices.js
-     ┃ ┣ 📜 selectors.js
-     ┃ ┗ 📜 reducers.js
-     ┣ 📂 screens
-     ┣ 📂 services
-     ┣ 📜 const.js
-     ┣ 📜 index.js
-     ┗ 📜 navigator.js
+📦 module
+┣ 📂 assets
+┣ 📂 components
+┣ 📂 fragments
+┣ 📂 hooks
+┣ 📂 redux
+┃ ┣ 📜 actions.js
+┃ ┣ 📜 index.js
+┃ ┣ 📜 slices.js
+┃ ┣ 📜 selectors.js
+┃ ┗ 📜 reducers.js
+┣ 📂 screens
+┣ 📂 services
+┣ 📜 const.js
+┣ 📜 index.js
+┗ 📜 navigator.js
 ```
 
 Each folder should have an `index.js` file which exports folder contents that are required by other modules.
@@ -51,11 +51,12 @@ Named exporting is prefered for components, and namespace export for services.
 
 ```md
 📦 src
+┣ 📂 assets
 ┣ 📂 modules
 ┃ ┣ 📂 main
 ┃ ┣ 📂 ...
 ┃ ┗ 📜 index.js
-┣ 📂 shared
+┣ 📂 common
 ┃ ┣ 📂 services
 ┃ ┣ 📂 hooks
 ┃ ┗ 📂 ...
