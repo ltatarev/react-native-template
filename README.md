@@ -11,6 +11,7 @@ npx react-native init MyApp --template https://github.com/ltatarev/react-native-
 - `react-navigation` v6
 - `react-redux/redux-toolkit/redux-persist`
 - `react-native-bootsplash`
+- `react-native-config`
 - `babel/eslint` (module resolver, import order...)
 - GitHub PR template
 
@@ -66,12 +67,12 @@ Named exporting is prefered for components, and namespace export for services.
 
 3. Add `react-native-config` and .env file
 4. Add splash screen and app icons
-   - `https://appicon.co/`
-   - `https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html`
-   - `https://github.com/zoontek/react-native-bootsplash`
+   - [appicon.co](https://appicon.co/)
+   - [Android asset Studio](https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html)
+   - [RN Bootsplash](https://github.com/zoontek/react-native-bootsplash)
 5. Add `react-navigation`
 6. Set up redux
 
 ---
 
-Last updated: 24.7.2022
+Last updated: 17.12.2022
