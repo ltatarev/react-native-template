@@ -8,10 +8,9 @@ npx react-native init MyApp --template https://github.com/ltatarev/react-native-
 
 ## Template includes following packages with initial set up
 
-- `react-navigation` v5
-- `react-redux/redux-toolkit/redux-persist/redux-thunk`
-- `react-native-splash-screen` & `animated-splash-screen`
-- `apisauce`
+- `react-navigation` v6
+- `react-redux/redux-toolkit/redux-persist`
+- `react-native-bootsplash`
 - `babel/eslint` (module resolver, import order...)
 - GitHub PR template
 
