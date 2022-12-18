@@ -28,12 +28,7 @@ export function Text({
     style,
   ];
 
-  if (!children) {
-    return null;
-  }
-
   return (
-    // eslint-disable-next-line react/jsx-props-no-spreading
     <RNText {...otherProps} allowFontScaling={false} style={resolvedTextStyle}>
       {children}
     </RNText>

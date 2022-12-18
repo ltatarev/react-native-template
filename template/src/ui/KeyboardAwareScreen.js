@@ -54,7 +54,7 @@ export function KeyboardAwareScreen({
   // Android will handle sticky footer natively,
   // while on iOS it's best to leave it inside KeyboardAvoidingView
   // to prevent footer being behind the keyboard
-  if (PlatformUtils.isIOS()) {
+  if (PlatformServices.isIOS()) {
     return (
       <SafeAreaView edges={['left']} style={resolvedMainContainerStyle}>
         <KeyboardAvoidingView

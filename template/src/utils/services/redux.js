@@ -1,10 +1,10 @@
-export function createActionType(moduleName, actionType) {
-  return `@@${moduleName}/${actionType}`;
-}
+export function createAction(moduleName, actionName) {
+  const actionType = `@@${moduleName}/${actionName}`;
 
-export function createAction(actionType) {
-  return (payload) => ({
+  const actionCreator = (payload) => ({
     type: actionType,
     payload,
   });
+
+  return [actionType, actionCreator];
 }

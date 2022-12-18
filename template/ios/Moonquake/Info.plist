@@ -57,6 +57,7 @@
 	<false/>
 	<key>UIAppFonts</key>
 	<array>
+		<string>MaterialCommunityIcons.ttf</string>
 		<string>Poppins-Bold.otf</string>
 		<string>Poppins-ExtraBold.otf</string>
 		<string>Poppins-Medium.otf</string>
