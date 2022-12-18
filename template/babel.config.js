@@ -17,9 +17,10 @@ module.exports = {
         extensions: ['.js'],
         alias: {
           assets: './src/assets',
-          common: './src/common',
           modules: './src/modules',
+          theme: './src/theme',
           ui: './src/ui',
+          utils: './src/utils',
         },
       },
     ],

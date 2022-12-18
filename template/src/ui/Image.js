@@ -1,18 +1,15 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import FastImage from 'react-native-fast-image';
 import PropTypes from 'prop-types';
 
 export function Image({
   source, width, height, style,
 }) {
-  const resolvedStyle = useMemo(
-    () => ({
-      width,
-      height,
-      ...style,
-    }),
-    [height, width, style],
-  );
+  const resolvedStyle = {
+    width,
+    height,
+    ...style,
+  };
 
   return (
     <FastImage

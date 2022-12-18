@@ -1,5 +1,7 @@
 # 🥡 React Native template
 
+Modern React Native JS template featuring most used libraries.
+
 ![react-native](https://user-images.githubusercontent.com/38048916/208271632-ae3887ee-0937-4985-b595-99dd78fa09dd.svg)
 ![redux-toolkit](https://user-images.githubusercontent.com/38048916/208271635-a6df4bda-d330-40dc-b6a1-e198bb51db8b.svg)
 ![react-navigation](https://user-images.githubusercontent.com/38048916/208271634-f788eb72-ca75-4c64-9c8f-adb9bbec9bd8.svg)
@@ -12,7 +14,7 @@
 npx react-native init MyApp --template https://github.com/ltatarev/react-native-template.git
 ```
 
-## Template includes following packages with initial set up
+### Template includes following packages with initial set up
 
 - `react-navigation` v6
 - `react-redux/redux-toolkit/redux-persist`
@@ -21,7 +23,7 @@ npx react-native init MyApp --template https://github.com/ltatarev/react-native-
 - `babel/eslint` (module resolver, import order...)
 - GitHub PR template
 
-## 🗂 Module structure
+### 🗂 Module structure
 
 ```md
 📦 module
@@ -42,7 +44,7 @@ npx react-native init MyApp --template https://github.com/ltatarev/react-native-
 ┗ 📜 navigator.js
 ```
 
-Each folder should have an `index.js` file which exports folder contents that are required by other modules.
+Each folder has an `index.js` which exports folder contents that are required by other modules.
 Named exporting is prefered for components, and namespace export for services.
 
 ## 🗂 Setting up new project
@@ -74,5 +76,9 @@ Named exporting is prefered for components, and namespace export for services.
 6. Set up redux
 
 ---
+
+#### To do:
+
+- [] Improve theme
 
 Last updated: 17.12.2022

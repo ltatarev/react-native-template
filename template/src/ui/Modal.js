@@ -1,8 +1,8 @@
 import React from 'react';
-import { StyleSheet, View, ViewPropTypes } from 'react-native';
+import { StyleSheet, View } from 'react-native';
 import RNModal from 'react-native-modal';
 import PropTypes from 'prop-types';
-import { colors } from 'shared/theme';
+import { useTheme } from 'theme';
 import { PlatformServices } from 'utils/services';
 import { Text } from './Text';
 
@@ -12,12 +12,18 @@ export function Modal({
   titleStyle,
   description,
   children,
-  handleModalClose,
+  onModalClose,
   containerStyle,
   center,
   ...otherProps
 }) {
-  const resolvedContainerStyle = [styles.container, containerStyle];
+  const theme = useTheme();
+
+  const resolvedContainerStyle = [
+    styles.container,
+    { backgroundColor: theme['background-color-1'] },
+    containerStyle,
+  ];
 
   const resolvedTitleStyle = [styles.title, titleStyle];
 
@@ -27,12 +33,17 @@ export function Modal({
       isVisible={visible}
       style={styles.modal}
       swipeDirection={['down']}
-      onBackdropPress={handleModalClose}
-      onSwipeComplete={handleModalClose}
+      onBackdropPress={onModalClose}
+      onSwipeComplete={onModalClose}
       {...otherProps}
     >
       <View style={resolvedContainerStyle}>
-        <View style={styles.topHandle} />
+        <View
+          style={[
+            styles.topHandle,
+            { backgroundColor: theme['background-color-1'] },
+          ]}
+        />
         <Text style={resolvedTitleStyle}>{title}</Text>
         {children}
       </View>
@@ -42,7 +53,6 @@ export function Modal({
 
 export const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.backgroundPrimary,
     borderTopLeftRadius: 25,
     borderTopRightRadius: 25,
     paddingBottom: 20,
@@ -57,7 +67,6 @@ export const styles = StyleSheet.create({
   },
   topHandle: {
     alignSelf: 'center',
-    backgroundColor: colors.backgroundPrimary,
     borderRadius: 6,
     width: 50,
     height: 5,
@@ -67,15 +76,15 @@ export const styles = StyleSheet.create({
 });
 
 Modal.propTypes = {
-  visible: PropTypes.bool.isRequired,
-  titleStyle: Text.propTypes.style,
   children: PropTypes.node.isRequired,
-  handleModalClose: PropTypes.func.isRequired,
+  visible: PropTypes.bool.isRequired,
+  onModalClose: PropTypes.func.isRequired,
+  center: PropTypes.bool,
+  containerStyle: PropTypes.object,
+  description: PropTypes.string,
   showTopHandle: PropTypes.bool,
   title: PropTypes.string,
-  description: PropTypes.string,
-  containerStyle: ViewPropTypes.style,
-  center: PropTypes.bool,
+  titleStyle: PropTypes.object,
 };
 
 Modal.defaultProps = {

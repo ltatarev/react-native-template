@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import {
   KeyboardAvoidingView,
   ScrollView,
@@ -15,6 +15,7 @@ import { PlatformServices } from 'utils/services';
 const KEYBOARD_AVOIDING_BEHAVIOUR = PlatformServices.isAndroid()
   ? null
   : 'padding';
+
 const KEYBOARD_DISMISS_MODE = PlatformServices.isIOS()
   ? 'interactive'
   : 'on-drag';
@@ -25,31 +26,21 @@ export function KeyboardAwareScreen({
   renderFooter,
 }) {
   const theme = useTheme();
-
-  const hasFooter = useMemo(
-    () => !!renderFooter && _.isFunction(renderFooter),
-    [renderFooter],
-  );
-
-  const resolvedFooterStyle = useMemo(
-    () => [styles.footer, { backgroundColor: theme['background-color-3'] }],
-    [theme],
-  );
-
-  const resolvedMainContainerStyle = useMemo(
-    () => [
-      styles.mainContainer,
-      { backgroundColor: theme['background-color-3'] },
-    ],
-    [theme],
-  );
-
-  const resolvedContainerStyle = useMemo(
-    () => [styles.container, containerStyle],
-    [containerStyle],
-  );
-
   const headerHeight = useHeaderHeight();
+
+  const hasFooter = !!renderFooter && _.isFunction(renderFooter);
+
+  const resolvedFooterStyle = [
+    styles.footer,
+    { backgroundColor: theme['background-color-3'] },
+  ];
+
+  const resolvedMainContainerStyle = [
+    styles.mainContainer,
+    { backgroundColor: theme['background-color-3'] },
+  ];
+
+  const resolvedContainerStyle = [styles.container, containerStyle];
 
   // Android will handle sticky footer natively,
   // while on iOS it's best to leave it inside KeyboardAvoidingView

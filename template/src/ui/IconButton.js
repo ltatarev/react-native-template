@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import PropTypes from 'prop-types';
 import { useTheme } from 'theme';
@@ -15,15 +15,9 @@ export function IconButton({
 }) {
   const theme = useTheme();
 
-  const resolvedIconColor = useMemo(
-    () => iconColor || theme['color-primary-500'],
-    [iconColor, theme],
-  );
+  const resolvedIconColor = iconColor || theme['color-primary-500'];
 
-  const resolvedButtonStyle = useMemo(
-    () => [styles.button, buttonStyle],
-    [buttonStyle],
-  );
+  const resolvedButtonStyle = [styles.button, buttonStyle];
 
   return (
     <Pressable

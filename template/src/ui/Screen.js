@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React from 'react';
 import {
   ImageBackground, ScrollView, StyleSheet, View,
 } from 'react-native';
@@ -19,42 +19,27 @@ export function Screen({
 }) {
   const theme = useTheme();
 
-  const hasFooter = useMemo(
-    () => !!renderFooter && _.isFunction(renderFooter),
-    [renderFooter],
-  );
+  const hasFooter = !!renderFooter && _.isFunction(renderFooter);
 
-  const resolvedBackgroundStyle = useMemo(
-    () => [styles.imageBackground, backgroundStyle],
-    [backgroundStyle],
-  );
+  const resolvedBackgroundStyle = [styles.imageBackground, backgroundStyle];
 
-  const resolvedMainContainerStyle = useMemo(
-    () => [
-      styles.mainContainer,
-      { backgroundColor: theme['background-color-3'] },
-    ],
-    [theme],
-  );
+  const resolvedMainContainerStyle = [
+    styles.mainContainer,
+    { backgroundColor: theme['background-color-3'] },
+  ];
 
-  const resolvedFooterStyle = useMemo(
-    () => [styles.footer, { backgroundColor: theme['background-color-3'] }],
-    [theme],
-  );
+  const resolvedFooterStyle = [
+    styles.footer,
+    { backgroundColor: theme['background-color-3'] },
+  ];
 
-  const resolvedContainerStyle = useMemo(
-    () => [
-      styles.container,
-      scrollable && styles.scrollableContainer,
-      containerStyle,
-    ],
-    [containerStyle, scrollable],
-  );
+  const resolvedContainerStyle = [
+    styles.container,
+    scrollable && styles.scrollableContainer,
+    containerStyle,
+  ];
 
-  const WrapperComponent = useMemo(
-    () => (scrollable ? ScrollView : View),
-    [scrollable],
-  );
+  const WrapperComponent = scrollable ? ScrollView : View;
 
   function renderContent() {
     if (keyboardAware) {
