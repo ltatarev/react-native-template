@@ -1,4 +1,4 @@
-export const LIGHT_PALETTE = {
+export const LIGHT_PALETTE = Object.freeze({
   'color-primary-100': '#EEE3FD',
   'color-primary-200': '#DBC8FC',
   'color-primary-300': '#C5ABF8',
@@ -61,9 +61,10 @@ export const LIGHT_PALETTE = {
   'color-basic-transparent-400': 'rgba(143, 155, 179, 0.32)',
   'color-basic-transparent-500': 'rgba(143, 155, 179, 0.40)',
   'color-basic-transparent-600': 'rgba(143, 155, 179, 0.48)',
-};
+});
 
-export const LIGHT_THEME = {
+export const LIGHT_THEME = Object.freeze({
+  ...LIGHT_PALETTE,
   'background-color-1': LIGHT_PALETTE['color-basic-100'],
   'background-color-2': LIGHT_PALETTE['color-basic-200'],
   'background-color-3': LIGHT_PALETTE['color-basic-300'],
@@ -72,9 +73,9 @@ export const LIGHT_THEME = {
   'background-secondary-color-2': LIGHT_PALETTE['color-basic-900'],
   'background-secondary-color-3': LIGHT_PALETTE['color-basic-1000'],
   'background-secondary-color-4': LIGHT_PALETTE['color-basic-1100'],
-};
+});
 
-export const DARK_PALETTE = {
+export const DARK_PALETTE = Object.freeze({
   'color-primary-100': '#EEE3FD',
   'color-primary-200': '#DBC8FC',
   'color-primary-300': '#C5ABF8',
@@ -137,9 +138,10 @@ export const DARK_PALETTE = {
   'color-basic-transparent-400': 'rgba(143, 155, 179, 0.32)',
   'color-basic-transparent-500': 'rgba(143, 155, 179, 0.40)',
   'color-basic-transparent-600': 'rgba(143, 155, 179, 0.48)',
-};
+});
 
-export const DARK_THEME = {
+export const DARK_THEME = Object.freeze({
+  ...DARK_PALETTE,
   'background-color-1': DARK_PALETTE['color-basic-800'],
   'background-color-2': DARK_PALETTE['color-basic-900'],
   'background-color-3': DARK_PALETTE['color-basic-1000'],
@@ -148,4 +150,4 @@ export const DARK_THEME = {
   'background-secondary-color-2': DARK_PALETTE['color-basic-200'],
   'background-secondary-color-3': DARK_PALETTE['color-basic-300'],
   'background-secondary-color-4': DARK_PALETTE['color-basic-400'],
-};
+});

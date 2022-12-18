@@ -1,18 +1,21 @@
 import React from 'react';
-import { Text, View } from 'react-native';
-import { useGetPokemonByNameQuery } from '../redux';
+import { StyleSheet } from 'react-native';
+import { Screen, Text } from 'ui';
 
 export function HomeScreen() {
-  const { data, error, isLoading } = useGetPokemonByNameQuery('bulbasaur');
-
   return (
-    <View style={{ flex: 1 }}>
-      <Text>Welcome to your new app!</Text>
-      {isLoading && <Text>loading...</Text>}
-    </View>
+    <Screen containerStyle={style.container}>
+      <Text bold center>
+        Welcome to your new app!
+      </Text>
+    </Screen>
   );
 }
 
-HomeScreen.propTypes = {};
-
-HomeScreen.defaultProps = {};
+const style = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignContent: 'center',
+  },
+});
