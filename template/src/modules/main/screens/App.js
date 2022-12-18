@@ -1,16 +1,30 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { Provider } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
+import { setupListeners } from '@reduxjs/toolkit/query';
+import { persistStore } from 'redux-persist';
+import { PersistGate } from 'redux-persist/integration/react';
 import { useSplashScreen } from 'utils/hooks';
+import { Navigator } from '../navigator';
+import { configureAppStore } from '../redux';
 
 export function App() {
   useSplashScreen();
 
+  const store = configureAppStore();
+  const persistor = persistStore(store);
+  // persistor.purge();
+
+  // optional, but required for refetchOnFocus/refetchOnReconnect behaviors
+  setupListeners(store.dispatch);
+
   return (
-    <NavigationContainer>
-      <View>
-        <Text>Welcome to your new template app!</Text>
-      </View>
-    </NavigationContainer>
+    <Provider store={store}>
+      <PersistGate persistor={persistor}>
+        <NavigationContainer>
+          <Navigator />
+        </NavigationContainer>
+      </PersistGate>
+    </Provider>
   );
 }

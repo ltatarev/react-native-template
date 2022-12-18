@@ -15,12 +15,6 @@ npx react-native init MyApp --template https://github.com/ltatarev/react-native-
 - `babel/eslint` (module resolver, import order...)
 - GitHub PR template
 
-## 💾 Steps after cloning
-
-1. Update app & package names on iOS & Android
-2. Update app icons & splash screen
-3. Add .env file
-
 ## 🗂 Module structure
 
 ```md
