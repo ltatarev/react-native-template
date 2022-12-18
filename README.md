@@ -8,22 +8,24 @@ Modern React Native JS template featuring most used libraries.
 ![eslint](https://user-images.githubusercontent.com/38048916/208271636-204c0b57-9e3c-4fa5-8743-dd4a5cb83011.svg)
 ![react-native-bootsplash](https://user-images.githubusercontent.com/38048916/208271633-3d511c5b-1cc3-4254-bc7a-4e5b9c416723.svg)
 
-## :arrow_forward: Usage
+## 🕵️‍♀️ Usage
 
 ```sh
 npx react-native init MyApp --template https://github.com/ltatarev/react-native-template.git
 ```
 
-### Template includes following packages with initial set up
+> Note: Current template works with React Native `v0.70.4`.
+
+## Template includes following packages with initial set up
 
 - `react-navigation` v6
 - `react-redux/redux-toolkit/redux-persist`
 - `react-native-bootsplash`
 - `react-native-config`
-- `babel/eslint` (module resolver, import order...)
+- `babel/eslint`
 - GitHub PR template
 
-### 🗂 Module structure
+## 🗂 Module structure
 
 ```md
 📦 module
@@ -48,6 +50,8 @@ Each folder has an `index.js` which exports folder contents that are required by
 Named exporting is prefered for components, and namespace export for services.
 
 ## 🗂 Setting up new project
+
+This template was made because I realized that I am bootstrapping every new React Native project equally, so I decided to put all boilerplate I often use into one place. Common steps I usually took:
 
 1. Set up eslint rules and babel config
 2. Set up basic project arhitecture
@@ -75,10 +79,17 @@ Named exporting is prefered for components, and namespace export for services.
 5. Add `react-navigation`
 6. Set up redux
 
+This template proviedes all of the above steps out of the box.
+
 ---
 
-#### To do:
+### ⚙️ To do:
 
-- Improve theme
+- [ ] Improve theming
+- [ ] Add onboarding module
+- [ ] Add more commonly UI components
+- [ ] Add Tab bar navigator
+ 
+---
 
-Last updated: 17.12.2022
+Last updated: 18.12.2022
