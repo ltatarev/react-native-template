@@ -8,13 +8,6 @@
       "version": "18.1.0"
     }
   },
-  "plugins": [
-    "react",
-    "react-native",
-    "import",
-    "simple-import-sort",
-    "unused-imports"
-  ],
   "parserOptions": {
     "ecmaVersion": 2020,
     "ecmaFeatures": {

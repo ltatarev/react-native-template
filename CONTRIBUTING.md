@@ -4,7 +4,7 @@ Contributing to this project should be as easy and transparent as possible.
 
 ## Workflow
 
-We use [GitHub Flow](https://guides.github.com/introduction/flow/), so all code changes happen through pull requests.
+Using [GitHub Flow](https://guides.github.com/introduction/flow/), so all code changes happen through pull requests.
 
 1. Fork the repository and create your branch from `main`.
 2. If you've changed the functionality, update the documentation.
