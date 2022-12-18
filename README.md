@@ -79,6 +79,6 @@ Named exporting is prefered for components, and namespace export for services.
 
 #### To do:
 
-- [] Improve theme
+- Improve theme
 
 Last updated: 17.12.2022
