@@ -1,1 +1,0 @@
-export { useDismissingSplashScreen } from './useDismissingSplashScreen';
