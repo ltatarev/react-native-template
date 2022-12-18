@@ -1,5 +1,5 @@
 module.exports = {
-  placeholderName: 'moonquake',
+  placeholderName: 'Moonquake',
   templateDir: './template',
   postInitScript: './script.js',
 };
