@@ -1,14 +1,13 @@
 {
   "name": "react-native-template",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Modern JS React Native template",
   "scripts": {
     "test": "exit 0"
   },
   "files": [
     "template",
-    "template.config.js",
-    "script.js"
+    "template.config.js"
   ],
   "repository": {
     "type": "git",
