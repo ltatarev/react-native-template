@@ -18,11 +18,11 @@ npx react-native init MyApp --template https://github.com/ltatarev/react-native-
 
 ## Template includes following packages with initial set up
 
-- `react-navigation` v6
-- `react-redux/redux-toolkit/redux-persist`
-- `react-native-bootsplash`
-- `react-native-config`
-- `babel/eslint`
+- [`react-navigation`](https://reactnavigation.org/docs/getting-started/) (v6)
+- [`redux-toolkit`](https://redux-toolkit.js.org/introduction/getting-started) & [`redux-persist`](https://github.com/rt2zz/redux-persist#readme) 
+- [`react-native-bootsplash`](https://github.com/zoontek/react-native-bootsplash)
+- [`react-native-config`](https://github.com/luggit/react-native-config)
+- `babel` & `eslint`
 - GitHub PR template
 
 ## 🗂 Module structure
@@ -86,6 +86,7 @@ This template proviedes all of the above steps out of the box.
 ### ⚙️ To do:
 
 - [ ] Improve theming
+- [ ] Add react-native-config
 - [ ] Add onboarding module
 - [ ] Add more commonly UI components
 - [ ] Add Tab bar navigator
