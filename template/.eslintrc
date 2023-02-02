@@ -1,5 +1,5 @@
 {
-  "extends": ["@menelaia/react-native"],
+  "extends": ["@ltatarev/react-native"],
   "settings": {
     "import/resolver": {
       "babel-module": {}
