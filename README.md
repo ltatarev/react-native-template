@@ -1,6 +1,6 @@
 # 🥡 React Native template
 
-Modern React Native JS template featuring most used libraries.
+Modern React Native JS template featuring most popular libraries.
 
 ![react-native](https://user-images.githubusercontent.com/38048916/208271632-ae3887ee-0937-4985-b595-99dd78fa09dd.svg)
 ![redux-toolkit](https://user-images.githubusercontent.com/38048916/208271635-a6df4bda-d330-40dc-b6a1-e198bb51db8b.svg)
@@ -8,7 +8,9 @@ Modern React Native JS template featuring most used libraries.
 ![eslint](https://user-images.githubusercontent.com/38048916/208271636-204c0b57-9e3c-4fa5-8743-dd4a5cb83011.svg)
 ![react-native-bootsplash](https://user-images.githubusercontent.com/38048916/208271633-3d511c5b-1cc3-4254-bc7a-4e5b9c416723.svg)
 
-## 🕵️‍♀️ Usage
+## 🚀 Usage
+
+Ensure you have all [React Native dependencies](https://facebook.github.io/react-native/docs/getting-started) installed.
 
 ```sh
 npx react-native init MyApp --template https://github.com/ltatarev/react-native-template.git
@@ -16,14 +18,18 @@ npx react-native init MyApp --template https://github.com/ltatarev/react-native-
 
 > Note: Current template works with React Native `v0.70.4`.
 
-## Template includes following packages with initial set up
+## 🕵️‍♀️ Libraries included
 
-- `react-navigation` v6
-- `react-redux/redux-toolkit/redux-persist`
-- `react-native-bootsplash`
-- `react-native-config`
-- `babel/eslint`
-- GitHub PR template
+- __Redux__
+    - [`redux-toolkit`](https://redux-toolkit.js.org/introduction/getting-started)
+    - [`redux-persist`](https://github.com/rt2zz/redux-persist#readme)
+- __Navigation__
+    - [`react-navigation`](https://reactnavigation.org/docs/getting-started/) (v6)
+- __Code Linting__
+- __Splash Screen__
+    - [`react-native-bootsplash`](https://github.com/zoontek/react-native-bootsplash)
+- __Config__
+    - [`react-native-config`](https://github.com/luggit/react-native-config)
 
 ## 🗂 Module structure
 
@@ -86,6 +92,7 @@ This template proviedes all of the above steps out of the box.
 ### ⚙️ To do:
 
 - [ ] Improve theming
+- [ ] Add `react-native-config`
 - [ ] Add onboarding module
 - [ ] Add more commonly UI components
 - [ ] Add Tab bar navigator
