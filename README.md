@@ -16,20 +16,20 @@ Ensure you have all [React Native dependencies](https://facebook.github.io/react
 npx react-native init MyApp --template https://github.com/ltatarev/react-native-template.git
 ```
 
-> Note: Current template works with React Native `v0.70.4`.
+> Note: Current template works with React Native `v0.71.3`.
 
 ## 🕵️‍♀️ Libraries included
 
-- __Redux__
-    - [`redux-toolkit`](https://redux-toolkit.js.org/introduction/getting-started)
-    - [`redux-persist`](https://github.com/rt2zz/redux-persist#readme)
-- __Navigation__
-    - [`react-navigation`](https://reactnavigation.org/docs/getting-started/) (v6)
-- __Code Linting__
-- __Splash Screen__
-    - [`react-native-bootsplash`](https://github.com/zoontek/react-native-bootsplash)
-- __Config__
-    - [`react-native-config`](https://github.com/luggit/react-native-config)
+- **Redux**
+  - [`redux-toolkit`](https://redux-toolkit.js.org/introduction/getting-started)
+  - [`redux-persist`](https://github.com/rt2zz/redux-persist#readme)
+- **Navigation**
+  - [`react-navigation`](https://reactnavigation.org/docs/getting-started/) (v6)
+- **Code Linting**
+- **Splash Screen**
+  - [`react-native-bootsplash`](https://github.com/zoontek/react-native-bootsplash)
+- **Config**
+  - [`react-native-config`](https://github.com/luggit/react-native-config)
 
 ## 🗂 Module structure
 
@@ -96,7 +96,7 @@ This template proviedes all of the above steps out of the box.
 - [ ] Add onboarding module
 - [ ] Add more commonly UI components
 - [ ] Add Tab bar navigator
- 
+
 ---
 
 Last updated: 18.12.2022
