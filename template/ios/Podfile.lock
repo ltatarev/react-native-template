@@ -508,7 +508,7 @@ PODS:
     - SDWebImageWebPCoder (~> 0.8.4)
   - RNGestureHandler (2.12.0):
     - React-Core
-  - RNScreens (3.18.2):
+  - RNScreens (3.23.0):
     - React-Core
     - React-RCTImage
   - SDWebImage (5.11.1):
@@ -767,7 +767,7 @@ SPEC CHECKSUMS:
   RNDeviceInfo: 5795b418ed3451ebcaf39384e6cf51f60cb931c9
   RNFastImage: 5c9c9fed9c076e521b3f509fe79e790418a544e8
   RNGestureHandler: dec4645026e7401a0899f2846d864403478ff6a5
-  RNScreens: 34cc502acf1b916c582c60003dc3089fa01dc66d
+  RNScreens: 6a8a3c6b808aa48dca1780df7b73ea524f602c63
   SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
   SDWebImageWebPCoder: 908b83b6adda48effe7667cd2b7f78c897e5111d
   SocketRocket: f32cd54efbe0f095c4d7594881e52619cfe80b17
@@ -776,4 +776,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 28b48fb57c335e7c4d727bb37f544c1197c11c0c
 
-COCOAPODS: 1.12.0
+COCOAPODS: 1.14.3
