@@ -1,11 +1,14 @@
 import React, { useMemo } from 'react';
 import { StyleSheet, View } from 'react-native';
-import PropTypes from 'prop-types';
 import { useTheme } from 'theme';
 import { ActivityIndicator } from './ActivityIndicator';
-import { Screen } from './Screen';
+import { Screen, ScreenProps } from './Screen';
 
-export function LoadingScreen({ loading, ...otherProps }) {
+interface LoadingScreenProps extends ScreenProps {
+  loading: boolean;
+}
+
+export function LoadingScreen({ loading, ...otherProps }: LoadingScreenProps) {
   const theme = useTheme();
 
   const resolvedOverlayStyle = useMemo(
@@ -23,19 +26,21 @@ export function LoadingScreen({ loading, ...otherProps }) {
 
   return (
     <View style={styles.container}>
-      <Screen {...otherProps} />
+      <Screen {...otherProps}>
+        {/* LoadingScreen does not render children by default */}
+      </Screen>
       {loading && (
         <View style={resolvedOverlayStyle}>
-          <ActivityIndicator color={resolvedActivityIndicatorColor} />
+          <ActivityIndicator
+            color={resolvedActivityIndicatorColor}
+            style={{}}
+            type="large"
+          />
         </View>
       )}
     </View>
   );
 }
-
-LoadingScreen.propTypes = {
-  loading: PropTypes.bool.isRequired,
-};
 
 const styles = StyleSheet.create({
   container: {
@@ -43,12 +48,12 @@ const styles = StyleSheet.create({
     height: 0,
   },
   overlay: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
+    alignItems: 'center',
     bottom: 0,
     justifyContent: 'center',
-    alignItems: 'center',
+    left: 0,
+    position: 'absolute',
+    right: 0,
+    top: 0,
   },
 });

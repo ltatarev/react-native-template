@@ -1,8 +1,7 @@
 import React from 'react';
+import type { ViewStyle } from 'react-native';
 import { View } from 'react-native';
 import { MaterialIndicator } from 'react-native-indicators';
-import _ from 'lodash';
-import PropTypes from 'prop-types';
 import { useTheme } from 'theme';
 
 const INDICATOR_CONFIG = {
@@ -18,11 +17,22 @@ const INDICATOR_CONFIG = {
     size: 48,
     trackWidth: 4,
   },
-};
+} as const;
 
-export function ActivityIndicator({ type, style, ...otherProps }) {
-  const config = _.get(INDICATOR_CONFIG, type);
+type IndicatorType = keyof typeof INDICATOR_CONFIG;
 
+type ActivityIndicatorProps = {
+  style?: ViewStyle;
+  type?: IndicatorType;
+} & React.ComponentProps<typeof MaterialIndicator>;
+
+export function ActivityIndicator({
+  type = 'medium',
+  style,
+  ...otherProps
+}: ActivityIndicatorProps) {
+  const safeType: IndicatorType = Object.keys(INDICATOR_CONFIG).includes(type) && type;
+  const config = INDICATOR_CONFIG[safeType];
   const theme = useTheme();
 
   return (
@@ -35,13 +45,3 @@ export function ActivityIndicator({ type, style, ...otherProps }) {
     </View>
   );
 }
-
-ActivityIndicator.propTypes = {
-  style: PropTypes.object,
-  type: PropTypes.string,
-};
-
-ActivityIndicator.defaultProps = {
-  style: undefined,
-  type: 'medium',
-};

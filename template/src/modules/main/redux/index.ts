@@ -1,7 +1,8 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import type { Middleware, Store } from '@reduxjs/toolkit';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import { pokemonApi } from 'modules/home';
-import logger from 'redux-logger';
+import type { PersistConfig } from 'redux-persist';
 import {
   FLUSH,
   PAUSE,
@@ -12,7 +13,7 @@ import {
   REHYDRATE,
 } from 'redux-persist';
 
-const persistConfig = {
+const persistConfig: PersistConfig<ReturnType<typeof combinedReducers>> = {
   key: 'root',
   storage: AsyncStorage,
 };
@@ -23,20 +24,16 @@ const combinedReducers = combineReducers({
 
 const persistedReducer = persistReducer(persistConfig, combinedReducers);
 
-export function composeMiddlewares() {
-  const coreMiddleware = [];
-
-  if (process.env.NODE_ENV !== 'production') {
-    coreMiddleware.push(logger);
-  }
+export function composeMiddlewares(): Middleware[] {
+  const coreMiddleware: Middleware[] = [];
 
   // Add other module middleware
-  const moduleMiddleware = [];
+  const moduleMiddleware: Middleware[] = [];
 
   return [...coreMiddleware, ...moduleMiddleware];
 }
 
-export function configureAppStore() {
+export function configureAppStore(): Store {
   return configureStore({
     reducer: persistedReducer,
     devTools: process.env.NODE_ENV !== 'production',

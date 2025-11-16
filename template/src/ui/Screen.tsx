@@ -1,25 +1,33 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import {
   ImageBackground, ScrollView, StyleSheet, View,
 } from 'react-native';
-import _ from 'lodash';
-import PropTypes from 'prop-types';
 import { gutter, useTheme } from 'theme';
 import { PlatformServices } from 'utils/services';
-import KeyboardAwareScreen from './KeyboardAwareScreen';
+import { KeyboardAwareScreen } from './KeyboardAwareScreen';
+
+export interface ScreenProps {
+  children: ReactNode;
+  backgroundSource?: number | null;
+  backgroundStyle?: object;
+  containerStyle?: object;
+  keyboardAware?: boolean;
+  renderFooter?: (() => ReactNode) | null;
+  scrollable?: boolean;
+}
 
 export function Screen({
-  backgroundSource,
-  backgroundStyle,
   children,
-  containerStyle,
-  keyboardAware,
-  renderFooter,
-  scrollable,
-}) {
+  backgroundSource = null,
+  backgroundStyle = {},
+  containerStyle = {},
+  keyboardAware = false,
+  renderFooter = null,
+  scrollable = false,
+}: ScreenProps) {
   const theme = useTheme();
 
-  const hasFooter = !!renderFooter && _.isFunction(renderFooter);
+  const hasFooter = !!renderFooter && typeof renderFooter === 'function';
 
   const resolvedBackgroundStyle = [styles.imageBackground, backgroundStyle];
 
@@ -63,7 +71,9 @@ export function Screen({
         >
           {children}
         </WrapperComponent>
-        <View style={resolvedFooterStyle}>{hasFooter && renderFooter()}</View>
+        <View style={resolvedFooterStyle}>
+          {hasFooter && renderFooter && renderFooter()}
+        </View>
       </>
     );
   }
@@ -84,33 +94,7 @@ export function Screen({
   return <View style={resolvedMainContainerStyle}>{renderContent()}</View>;
 }
 
-Screen.propTypes = {
-  children: PropTypes.node.isRequired,
-  backgroundSource: PropTypes.number,
-  backgroundStyle: PropTypes.object,
-  containerStyle: PropTypes.object,
-  keyboardAware: PropTypes.bool,
-  renderFooter: PropTypes.func,
-  scrollable: PropTypes.bool,
-};
-
-Screen.defaultProps = {
-  backgroundSource: null,
-  containerStyle: {},
-  backgroundStyle: {},
-  keyboardAware: false,
-  renderFooter: null,
-  scrollable: false,
-};
-
 const styles = StyleSheet.create({
-  mainContainer: {
-    flex: 1,
-  },
-  imageBackground: {
-    height: PlatformServices.height,
-    width: PlatformServices.width,
-  },
   container: {
     flex: 1,
     marginTop: PlatformServices.getStatusBarHeight(),
@@ -118,6 +102,13 @@ const styles = StyleSheet.create({
   },
   footer: {
     paddingBottom: gutter.small,
+  },
+  imageBackground: {
+    height: PlatformServices.height,
+    width: PlatformServices.width,
+  },
+  mainContainer: {
+    flex: 1,
   },
   scrollableContainer: {
     marginTop: 0,

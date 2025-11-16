@@ -1,8 +1,11 @@
 {
   "extends": ["@ltatarev/react-native"],
   "settings": {
-    "import/resolver": {
-      "babel-module": {}
+  "import/resolver": {
+      "typescript": {
+        "alwaysTryTypes": true,
+        "project": "./template/tsconfig.json"
+      }
     },
     "react": {
       "version": "18.1.0"
@@ -19,6 +22,8 @@
     }
   },
   "rules": {
-    "global-require": "off"
+    "global-require": "off",
+    "react/require-default-props": "off",
+    "@typescript-eslint/no-var-requires": "off"
   }
 }

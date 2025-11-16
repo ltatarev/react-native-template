@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import {
   KeyboardAvoidingView,
   ScrollView,
@@ -6,29 +6,32 @@ import {
   View,
 } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { useHeaderHeight } from '@react-navigation/stack';
-import _ from 'lodash';
-import PropTypes from 'prop-types';
+import { useHeaderHeight } from '@react-navigation/elements';
 import { gutter, useTheme } from 'theme';
 import { PlatformServices } from 'utils/services';
 
 const KEYBOARD_AVOIDING_BEHAVIOUR = PlatformServices.isAndroid()
-  ? null
+  ? undefined
   : 'padding';
 
 const KEYBOARD_DISMISS_MODE = PlatformServices.isIOS()
   ? 'interactive'
   : 'on-drag';
 
+interface KeyboardAwareScreenProps {
+  children: ReactNode;
+  containerStyle?: object;
+  renderFooter?: (() => ReactNode) | null;
+}
+
 export function KeyboardAwareScreen({
   children,
-  containerStyle,
-  renderFooter,
-}) {
+  containerStyle = {},
+  renderFooter = null,
+}: KeyboardAwareScreenProps) {
   const theme = useTheme();
   const headerHeight = useHeaderHeight();
-
-  const hasFooter = !!renderFooter && _.isFunction(renderFooter);
+  const hasFooter = !!renderFooter && typeof renderFooter === 'function';
 
   const resolvedFooterStyle = [
     styles.footer,
@@ -60,7 +63,9 @@ export function KeyboardAwareScreen({
           >
             {children}
           </ScrollView>
-          <View style={resolvedFooterStyle}>{hasFooter && renderFooter()}</View>
+          <View style={resolvedFooterStyle}>
+            {hasFooter && renderFooter && renderFooter()}
+          </View>
         </KeyboardAvoidingView>
       </SafeAreaView>
     );
@@ -78,31 +83,22 @@ export function KeyboardAwareScreen({
       >
         {children}
       </ScrollView>
-      <View style={styles.footer}>{hasFooter && renderFooter()}</View>
+      <View style={styles.footer}>
+        {hasFooter && renderFooter && renderFooter()}
+      </View>
     </KeyboardAvoidingView>
   );
 }
 
-KeyboardAwareScreen.propTypes = {
-  children: PropTypes.node.isRequired,
-  containerStyle: PropTypes.object,
-  renderFooter: PropTypes.func,
-};
-
-KeyboardAwareScreen.defaultProps = {
-  containerStyle: {},
-  renderFooter: null,
-};
-
 const styles = StyleSheet.create({
-  mainContainer: {
-    flex: 1,
-  },
   container: {
     flex: 1,
     paddingHorizontal: gutter.small,
   },
   footer: {
     paddingBottom: gutter.small,
+  },
+  mainContainer: {
+    flex: 1,
   },
 });

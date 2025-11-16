@@ -14,8 +14,8 @@ export function HomeScreen() {
 
 const style = StyleSheet.create({
   container: {
+    alignContent: 'center',
     flex: 1,
     justifyContent: 'center',
-    alignContent: 'center',
   },
 });

@@ -1,24 +1,40 @@
 import React, { useState } from 'react';
-import { StyleSheet, TextInput as RNTextInput, View } from 'react-native';
-import PropTypes from 'prop-types';
+import {
+  StyleProp,
+  StyleSheet,
+  TextInput as RNTextInput,
+  TextStyle,
+  View,
+  ViewStyle,
+} from 'react-native';
 import { useTheme } from 'theme';
 import { Row } from './Row';
 import { Text } from './Text';
 
-export function TextInput({
-  title,
-  error,
-  errorMessage,
-  style,
-  disabled,
-  autoFocus,
-  light,
-  inputContainerStyle,
-  onFocus,
-  ...otherProps
-}) {
-  const theme = useTheme();
+type TextInputProps = {
+  title?: string | null;
+  error?: boolean;
+  errorMessage?: string | null;
+  style?: StyleProp<TextStyle>;
+  disabled?: boolean;
+  autoFocus?: boolean;
+  inputContainerStyle?: StyleProp<ViewStyle>;
+  onFocus?: () => void;
+  [key: string]: unknown;
+};
 
+export function TextInput({
+  title = null,
+  error = false,
+  errorMessage = null,
+  style = undefined,
+  disabled = false,
+  autoFocus = false,
+  inputContainerStyle = undefined,
+  onFocus = undefined,
+  ...otherProps
+}: TextInputProps) {
+  const theme = useTheme();
   const [isFocused, setIsFocused] = useState(autoFocus || false);
 
   const inputStyle = [
@@ -73,7 +89,6 @@ export function TextInput({
         enablesReturnKeyAutomatically
         allowFontScaling={false}
         autoFocus={autoFocus}
-        disabled={disabled}
         editable={!disabled}
         keyboardAppearance="light"
         returnKeyType="next"
@@ -97,48 +112,9 @@ export function TextInput({
   );
 }
 
-TextInput.propTypes = {
-  autoFocus: PropTypes.bool,
-  borderBottom: PropTypes.bool,
-  disabled: PropTypes.bool,
-  error: PropTypes.bool,
-  errorMessage: PropTypes.string,
-  inputContainerStyle: PropTypes.object,
-  light: PropTypes.bool,
-  style: PropTypes.object,
-  title: PropTypes.string,
-  onFocus: PropTypes.func,
-};
-
-TextInput.defaultProps = {
-  title: null,
-  error: false,
-  errorMessage: null,
-  style: undefined,
-  borderBottom: false,
-  autoFocus: false,
-  inputContainerStyle: undefined,
-  onFocus: null,
-  light: false,
-  disabled: false,
-};
-
 const styles = StyleSheet.create({
   container: {
     paddingVertical: 15,
-  },
-  input: {
-    fontSize: 18,
-    paddingBottom: 7,
-    borderWidth: 1,
-    borderRadius: 10,
-    paddingVertical: 8,
-    paddingHorizontal: 5,
-  },
-  title: {
-    fontSize: 13,
-    letterSpacing: 1,
-    paddingBottom: 7,
   },
   errorLabel: {
     flex: 1,
@@ -146,7 +122,20 @@ const styles = StyleSheet.create({
     fontSize: 13,
   },
   errorLabelContainer: {
-    paddingTop: 5,
     height: 20,
+    paddingTop: 5,
+  },
+  input: {
+    borderRadius: 10,
+    borderWidth: 1,
+    fontSize: 18,
+    paddingBottom: 7,
+    paddingHorizontal: 5,
+    paddingVertical: 8,
+  },
+  title: {
+    fontSize: 13,
+    letterSpacing: 1,
+    paddingBottom: 7,
   },
 });

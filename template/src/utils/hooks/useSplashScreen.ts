@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import RNBootSplash from 'react-native-bootsplash';
 
-export function useSplashScreen(...dependencies) {
+export function useSplashScreen() {
   useEffect(() => {
     RNBootSplash.hide({ fade: true });
-  }, [dependencies]);
+  }, []);
 }

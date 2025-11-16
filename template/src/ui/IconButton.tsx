@@ -1,27 +1,38 @@
 import React from 'react';
+import type { StyleProp, ViewStyle } from 'react-native';
 import { Pressable, StyleSheet, View } from 'react-native';
-import PropTypes from 'prop-types';
 import { useTheme } from 'theme';
 import { Icon } from './Icon';
 
-export function IconButton({
+interface IconButtonProps {
+  iconName: string;
+  iconColor?: string | null;
+  iconStyle?: StyleProp<ViewStyle> | null;
+  iconSize?: number;
+  buttonStyle?: StyleProp<ViewStyle> | null;
+  onPress: () => void;
+  disabled?: boolean;
+}
+
+function IconButton({
+  buttonStyle = null,
+  disabled = false,
+  iconColor = null,
   iconName,
-  iconColor,
-  iconStyle,
-  iconSize,
-  buttonStyle,
+  iconSize = 25,
+  iconStyle = null,
   onPress,
-  disabled,
-}) {
+}: IconButtonProps) {
   const theme = useTheme();
-
   const resolvedIconColor = iconColor || theme['color-primary-500'];
-
   const resolvedButtonStyle = [styles.button, buttonStyle];
 
   return (
     <Pressable
-      activeOpacity={0.8}
+      accessibilityHint={`Press the ${iconName} button`}
+      accessibilityLabel={iconName}
+      accessibilityRole="button"
+      accessibilityState={{ disabled }}
       disabled={disabled}
       style={resolvedButtonStyle}
       onPress={onPress}
@@ -33,27 +44,11 @@ export function IconButton({
   );
 }
 
-IconButton.propTypes = {
-  iconName: PropTypes.string.isRequired,
-  onPress: PropTypes.func.isRequired,
-  buttonStyle: PropTypes.object,
-  disabled: PropTypes.bool,
-  iconColor: PropTypes.string,
-  iconSize: PropTypes.number,
-  iconStyle: PropTypes.object,
-};
-
-IconButton.defaultProps = {
-  iconColor: null,
-  iconSize: 25,
-  iconStyle: null,
-  disabled: false,
-  buttonStyle: null,
-};
+export { IconButton };
 
 const styles = StyleSheet.create({
   button: {
-    justifyContent: 'center',
     alignItems: 'center',
+    justifyContent: 'center',
   },
 });

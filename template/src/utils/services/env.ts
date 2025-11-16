@@ -1,4 +1,4 @@
-export function getEnvBool(value) {
+export function getEnvBool(value: string) {
   if (!value || typeof value !== 'string') {
     return false;
   }
@@ -6,7 +6,7 @@ export function getEnvBool(value) {
   return value.toLowerCase() === 'true';
 }
 
-export function getEnvInt(value) {
+export function getEnvInt(value: string) {
   if (!value) {
     return 0;
   }

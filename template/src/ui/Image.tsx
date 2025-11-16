@@ -1,10 +1,19 @@
 import React from 'react';
 import FastImage from 'react-native-fast-image';
-import PropTypes from 'prop-types';
+
+interface ImageProps {
+  source: number;
+  width?: number;
+  height?: number;
+  style?: object;
+}
 
 export function Image({
-  source, width, height, style,
-}) {
+  source,
+  width = 150,
+  height = 150,
+  style = {},
+}: ImageProps) {
   const resolvedStyle = {
     width,
     height,
@@ -19,16 +28,3 @@ export function Image({
     />
   );
 }
-
-Image.propTypes = {
-  source: PropTypes.number.isRequired,
-  height: PropTypes.number,
-  style: PropTypes.object,
-  width: PropTypes.number,
-};
-
-Image.defaultProps = {
-  width: 150,
-  height: 150,
-  style: {},
-};

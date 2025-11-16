@@ -2,18 +2,18 @@ import { Dimensions } from 'react-native';
 
 export const { width, height } = Dimensions.get('window');
 
-export function deviceHeightPercentage(ratio) {
+export function deviceHeightPercentage(ratio: number): number {
   return height * ratio;
 }
 
-export function deviceWidthPercentage(ratio) {
+export function deviceWidthPercentage(ratio: number): number {
   return width * ratio;
 }
 
-const screenHeight = Math.max(width, height);
-const screenWidth = Math.min(width, height);
+const screenHeight: number = Math.max(width, height);
+const screenWidth: number = Math.min(width, height);
 
-export const SCREEN_SIZE = {
+export const SCREEN_SIZE: Record<string, number> = {
   w: screenWidth,
   'w-1/2': screenWidth * 0.5,
   'w-1/3': screenWidth * 0.333,
@@ -30,9 +30,9 @@ export const SCREEN_SIZE = {
   'h-3/4': screenHeight * 0.75,
 };
 
-export const iPhoneXPadding = 34;
+export const iPhoneXPadding: number = 34;
 
-export const gutter = {
+export const gutter: { small: number; medium: number } = {
   small: 25,
   medium: 40,
 };
