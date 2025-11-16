@@ -16,7 +16,26 @@ Ensure you have all [React Native dependencies](https://facebook.github.io/react
 npx react-native init MyApp --template https://github.com/ltatarev/react-native-template.git
 ```
 
-> Note: Current template works with React Native `v0.71.3`.
+> Note: Current template works with React Native `0.82.1`.
+
+
+## Installation
+
+After cloning or creating your app from this template, run the following commands to set up your environment:
+
+```sh
+corepack enable
+yarn
+bundle install
+```
+
+To install iOS pods, use the script provided in package.json:
+
+```sh
+yarn install-pods
+```
+
+This ensures all dependencies are installed correctly for both JS and native code.
 
 ## 🕵️‍♀️ Libraries included
 
@@ -24,7 +43,7 @@ npx react-native init MyApp --template https://github.com/ltatarev/react-native-
   - [`redux-toolkit`](https://redux-toolkit.js.org/introduction/getting-started)
   - [`redux-persist`](https://github.com/rt2zz/redux-persist#readme)
 - **Navigation**
-  - [`react-navigation`](https://reactnavigation.org/docs/getting-started/) (v6)
+  - [`react-navigation`](https://reactnavigation.org/docs/getting-started/) (v7)
 - **Code Linting**
 - **Splash Screen**
   - [`react-native-bootsplash`](https://github.com/zoontek/react-native-bootsplash)
@@ -61,6 +80,15 @@ This template was made because I realized that I am bootstrapping every new Reac
 
 1. Set up eslint rules and babel config
 2. Set up basic project arhitecture
+3. Add `react-native-config` and .env file
+4. Add splash screen and app icons
+   - [appicon.co](https://appicon.co/)
+   - [Android asset Studio](https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html)
+   - [RN Bootsplash](https://github.com/zoontek/react-native-bootsplash)
+5. Add `react-navigation`
+6. Set up redux
+
+This template proviedes all of the above steps out of the box.
 
 ```md
 📦 src
@@ -77,19 +105,9 @@ This template was made because I realized that I am bootstrapping every new Reac
 ┗ 📜 index.js
 ```
 
-3. Add `react-native-config` and .env file
-4. Add splash screen and app icons
-   - [appicon.co](https://appicon.co/)
-   - [Android asset Studio](https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html)
-   - [RN Bootsplash](https://github.com/zoontek/react-native-bootsplash)
-5. Add `react-navigation`
-6. Set up redux
-
-This template proviedes all of the above steps out of the box.
-
 ---
 
-### ⚙️ To do:
+### ⚙️ To do
 
 - [ ] Improve theming
 - [ ] Add `react-native-config`
