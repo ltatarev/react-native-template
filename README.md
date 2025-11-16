@@ -107,14 +107,12 @@ This template proviedes all of the above steps out of the box.
 
 ---
 
-### ⚙️ To do
+### ⚙️ Roadmap
 
-- [ ] Improve theming
+- [ ] Add `react-native-unistyles`
 - [ ] Add `react-native-config`
-- [ ] Add onboarding module
-- [ ] Add more commonly UI components
-- [ ] Add Tab bar navigator
+- [ ] Add more common UI components
 
 ---
 
-Last updated: 18.12.2022
+Last updated: 16.11.2025.
