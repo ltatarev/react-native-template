@@ -3,13 +3,14 @@
   "include": ["**/*.ts", "**/*.tsx"],
   "exclude": ["**/node_modules", "**/Pods"],
   "compilerOptions": {
-    "baseUrl": "./src",
+    "rootDir": "./src",
+    "types": ["jest"],
     "paths": {
-      "modules/*": ["modules/*"],
-      "ui/*": ["ui/*"],
-      "utils/*": ["utils/*"],
-      "theme/*": ["theme/*"],
-      "assets/*": ["assets/*"]
+      "modules/*": ["./modules/*"],
+      "ui/*": ["./ui/*"],
+      "utils/*": ["./utils/*"],
+      "theme/*": ["./theme/*"],
+      "assets/*": ["./assets/*"]
     }
-  }, 
+  }
 }
