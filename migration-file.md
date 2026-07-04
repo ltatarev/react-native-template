@@ -256,6 +256,8 @@ Acceptance:
 
 ### 4. Metro And Babel Runtime Setup
 
+Status: Complete.
+
 Scope:
 
 - Add SVG transformer config to Metro.
