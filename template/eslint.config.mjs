@@ -84,15 +84,6 @@ export default [
   },
   {
     files: [
-      'src/modules/**/redux/**/*.{ts,tsx}',
-      'src/modules/redux/**/*.{ts,tsx}',
-    ],
-    rules: {
-      'no-restricted-imports': 'off',
-    },
-  },
-  {
-    files: [
       '**/*.test.{js,jsx,ts,tsx}',
       '**/*.spec.{js,jsx,ts,tsx}',
       'jest.config.{js,mjs,cjs}',

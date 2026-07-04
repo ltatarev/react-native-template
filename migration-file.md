@@ -469,6 +469,8 @@ Acceptance:
 
 ### 16. Module Public Surface Enforcement
 
+Status: Complete.
+
 Scope:
 
 - Add ESLint `no-restricted-imports` rule to block internal cross-module imports.
