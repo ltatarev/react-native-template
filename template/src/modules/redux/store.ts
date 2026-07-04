@@ -1,6 +1,7 @@
 import type { Middleware } from '@reduxjs/toolkit';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { homeReducer, MODULE_NAME as HOME } from 'modules/home';
+import { MODULE_NAME as HOME } from 'modules/home/const';
+import { homeReducer } from 'modules/home/redux/slice';
 import type { PersistConfig } from 'redux-persist';
 import {
   FLUSH,

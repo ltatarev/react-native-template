@@ -310,6 +310,8 @@ Acceptance:
 
 ### 7. MMKV Storage Adapter
 
+Status: Complete.
+
 Scope:
 
 - Add `src/utils/storage`.
@@ -322,6 +324,8 @@ Acceptance:
 - App code does not import AsyncStorage directly.
 
 ### 8. App Shell Providers
+
+Status: Complete.
 
 Scope:
 
@@ -343,6 +347,8 @@ Acceptance:
 
 ### 9. Stack Navigation Only
 
+Status: Complete.
+
 Scope:
 
 - Keep core navigation to native stack.
@@ -356,6 +362,8 @@ Acceptance:
 - No bottom-tab dependency or setup is present in core.
 
 ### 10. i18n Foundation
+
+Status: Complete.
 
 Scope:
 
@@ -373,6 +381,8 @@ Acceptance:
 - Example feature has no hardcoded user-facing labels.
 
 ### 11. Unistyles Theme Foundation
+
+Status: Complete.
 
 Scope:
 
@@ -397,6 +407,8 @@ Acceptance:
 
 ### 12. Move Shared UI To `theme/ui`
 
+Status: Complete.
+
 Scope:
 
 - Move or replace `src/ui` primitives into `src/theme/ui`.
@@ -418,6 +430,8 @@ Acceptance:
 
 ### 13. Custom Toast Implementation
 
+Status: Complete.
+
 Scope:
 
 - Add visual/runtime toast layer under `src/theme/ui/Toast`.
@@ -431,6 +445,8 @@ Acceptance:
 - Feature code does not import toast internals.
 
 ### 14. Utility Adapters
+
+Status: Complete.
 
 Scope:
 
@@ -447,6 +463,8 @@ Acceptance:
 - Example feature can trigger haptic feedback through the adapter.
 
 ### 15. Neutral Home Feature
+
+Status: Complete.
 
 Scope:
 
@@ -526,6 +544,8 @@ Acceptance:
 
 ### 19. Final Sanity Pass
 
+Status: Complete.
+
 Scope:
 
 - Run:
@@ -539,6 +559,14 @@ Acceptance:
 
 - `yarn sanity` passes, or any remaining failure is explicitly documented with
   the reason.
+
+Validation:
+
+- `yarn lint`: passed.
+- `yarn tsc`: passed.
+- `yarn test:unit`: passed.
+- `yarn madge`: passed with no circular dependencies.
+- `yarn sanity`: passed.
 
 ## Suggested Commit Order
 

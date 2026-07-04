@@ -1,6 +1,10 @@
-import type { RootState } from 'modules/redux';
 import { MODULE_NAME } from '../const';
+import type { HomeState } from './slice';
 
-export function selectHomeInteractionCount(state: RootState) {
+type HomeRootState = {
+  [MODULE_NAME]: HomeState;
+};
+
+export function selectHomeInteractionCount(state: HomeRootState) {
   return state[MODULE_NAME].interactionCount;
 }

@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { MODULE_NAME } from '../const';
 
-type HomeState = {
+export type HomeState = {
   interactionCount: number;
 };
 

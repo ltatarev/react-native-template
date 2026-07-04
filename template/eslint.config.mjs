@@ -83,6 +83,12 @@ export default [
     },
   },
   {
+    files: ['src/modules/redux/store.ts'],
+    rules: {
+      'no-restricted-imports': 'off',
+    },
+  },
+  {
     files: [
       '**/*.test.{js,jsx,ts,tsx}',
       '**/*.spec.{js,jsx,ts,tsx}',
