@@ -1,5 +1,6 @@
 import type { Middleware } from '@reduxjs/toolkit';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { homeReducer, MODULE_NAME as HOME } from 'modules/home';
 import type { PersistConfig } from 'redux-persist';
 import {
   FLUSH,
@@ -14,7 +15,7 @@ import {
 import { reduxStorage } from 'utils/storage';
 
 export const rootReducer = combineReducers({
-  template: (state = {}) => state,
+  [HOME]: homeReducer,
 });
 
 const persistConfig: PersistConfig<ReturnType<typeof rootReducer>> = {
