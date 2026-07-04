@@ -1,10 +1,6 @@
 import { StyleSheet } from 'react-native-unistyles';
-import { DARK_THEME, LIGHT_THEME } from './colors';
-
-export type AppThemes = {
-  dark: typeof DARK_THEME;
-  light: typeof LIGHT_THEME;
-};
+import { darkTheme, lightTheme } from './theme';
+import type { AppThemes } from './types';
 
 declare module 'react-native-unistyles' {
   // eslint-disable-next-line @typescript-eslint/no-empty-object-type
@@ -13,8 +9,8 @@ declare module 'react-native-unistyles' {
 
 StyleSheet.configure({
   themes: {
-    dark: DARK_THEME,
-    light: LIGHT_THEME,
+    dark: darkTheme,
+    light: lightTheme,
   },
   settings: {
     adaptiveThemes: true,

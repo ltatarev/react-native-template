@@ -1,6 +1,6 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { Screen, Text } from '../../../ui';
 
 export function HomeScreen() {
@@ -15,10 +15,11 @@ export function HomeScreen() {
   );
 }
 
-const style = StyleSheet.create({
+const style = StyleSheet.create((theme) => ({
   container: {
     alignContent: 'center',
     flex: 1,
     justifyContent: 'center',
+    paddingHorizontal: theme.gutter.lg,
   },
-});
+}));
