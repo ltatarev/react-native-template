@@ -1,9 +1,17 @@
 {
-    "compilerOptions": {
-      "baseUrl": ".",
-      "paths": {
-        "*": ["./src/*"]
-      }
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "assets": ["src/assets"],
+      "assets/*": ["src/assets/*"],
+      "common": ["src/common"],
+      "common/*": ["src/common/*"],
+      "modules": ["src/modules"],
+      "modules/*": ["src/modules/*"],
+      "theme": ["src/theme"],
+      "theme/*": ["src/theme/*"],
+      "utils": ["src/utils"],
+      "utils/*": ["src/utils/*"]
     }
   }
-  
+}

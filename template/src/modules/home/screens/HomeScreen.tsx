@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet } from 'react-native';
-import { Screen, Text } from 'ui';
+import { Screen, Text } from '../../../ui';
 
 export function HomeScreen() {
   return (

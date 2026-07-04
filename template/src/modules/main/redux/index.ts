@@ -36,7 +36,7 @@ export function composeMiddlewares(): Middleware[] {
 export function configureAppStore(): Store {
   return configureStore({
     reducer: persistedReducer,
-    devTools: process.env.NODE_ENV !== 'production',
+    devTools: __DEV__,
     // Adding the api middleware enables caching, invalidation, polling,
     // and other useful features of `rtk-query`.
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({

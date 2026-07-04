@@ -4,8 +4,8 @@ import { NavigationContainer } from '@react-navigation/native';
 import { setupListeners } from '@reduxjs/toolkit/query';
 import { persistStore } from 'redux-persist';
 import { PersistGate } from 'redux-persist/integration/react';
-import { StatusBar } from 'ui';
 import { useSplashScreen } from 'utils/hooks';
+import { StatusBar } from '../../../ui';
 import { Navigator } from '../navigator';
 import { configureAppStore } from '../redux';
 
