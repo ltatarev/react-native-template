@@ -2,13 +2,13 @@ import React from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { KeyboardProvider } from 'react-native-keyboard-controller';
 import { StyleSheet } from 'react-native-unistyles';
+import { Provider } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { persistor, store } from 'modules/redux';
-import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
-import 'theme/unistyles';
 import { useSplashScreen } from 'utils/hooks';
 import { ToastHost } from 'utils/toast';
+import 'theme/unistyles';
 import { StatusBar } from '../../../ui';
 import { Navigator } from '../navigator';
 

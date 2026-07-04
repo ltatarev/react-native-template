@@ -1,12 +1,15 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { StyleSheet } from 'react-native';
 import { Screen, Text } from '../../../ui';
 
 export function HomeScreen() {
+  const { t } = useTranslation();
+
   return (
     <Screen containerStyle={style.container}>
       <Text bold center>
-        Welcome to your new app!
+        {t('home.welcome')}
       </Text>
     </Screen>
   );

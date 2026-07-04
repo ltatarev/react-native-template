@@ -1,5 +1,5 @@
-import type { Storage } from 'redux-persist';
 import { createMMKV } from 'react-native-mmkv';
+import type { Storage } from 'redux-persist';
 
 const reduxPersistStorage = createMMKV({
   id: 'redux-persist',
