@@ -1,7 +1,7 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet } from 'react-native-unistyles';
-import { Screen, Text } from '../../../ui';
+import { Screen, Text } from 'theme/ui';
 
 export function HomeScreen() {
   const { t } = useTranslation();

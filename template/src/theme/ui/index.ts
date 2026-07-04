@@ -1,4 +1,5 @@
 export { ActivityIndicator } from './ActivityIndicator';
+export { Button } from './Button';
 export { Icon } from './Icon';
 export { IconButton } from './IconButton';
 export { Image } from './Image';
@@ -9,3 +10,5 @@ export { Screen } from './Screen';
 export { StatusBar } from './StatusBar';
 export { Text } from './Text';
 export { TextInput } from './TextInput';
+export { Touchable } from './Touchable';
+export { View } from './View';

@@ -6,10 +6,10 @@ import { Provider } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { persistor, store } from 'modules/redux';
 import { PersistGate } from 'redux-persist/integration/react';
+import { StatusBar } from 'theme/ui';
 import { useSplashScreen } from 'utils/hooks';
 import { ToastHost } from 'utils/toast';
 import 'theme/unistyles';
-import { StatusBar } from '../../../ui';
 import { Navigator } from '../navigator';
 
 export function App() {
