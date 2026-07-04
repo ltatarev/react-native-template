@@ -1,5 +1,8 @@
 {
   "home": {
+    "showToast": "Show toast",
+    "showToastHint": "Shows a short confirmation message",
+    "toastMessage": "The template is ready.",
     "welcome": "Welcome to your new app!"
   }
 }

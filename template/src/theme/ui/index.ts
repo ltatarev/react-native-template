@@ -10,5 +10,7 @@ export { Screen } from './Screen';
 export { StatusBar } from './StatusBar';
 export { Text } from './Text';
 export { TextInput } from './TextInput';
+export type { ToastMessage, ToastTone } from './Toast';
+export { ToastViewport } from './Toast';
 export { Touchable } from './Touchable';
 export { View } from './View';
