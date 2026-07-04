@@ -1,118 +1,176 @@
-# 🥡 React Native template
+# React Native Template
 
-Modern React Native JS template featuring most popular libraries.
+Opinionated production starter for React Native apps. The template includes a
+strict TypeScript setup, Redux Toolkit, stack navigation, MMKV-backed
+persistence, Unistyles theme tokens, i18n, shared UI primitives, and small
+app-facing adapters for native capabilities.
 
-![react-native](https://user-images.githubusercontent.com/38048916/208271632-ae3887ee-0937-4985-b595-99dd78fa09dd.svg)
-![redux-toolkit](https://user-images.githubusercontent.com/38048916/208271635-a6df4bda-d330-40dc-b6a1-e198bb51db8b.svg)
-![react-navigation](https://user-images.githubusercontent.com/38048916/208271634-f788eb72-ca75-4c64-9c8f-adb9bbec9bd8.svg)
-![eslint](https://user-images.githubusercontent.com/38048916/208271636-204c0b57-9e3c-4fa5-8743-dd4a5cb83011.svg)
-![react-native-bootsplash](https://user-images.githubusercontent.com/38048916/208271633-3d511c5b-1cc3-4254-bc7a-4e5b9c416723.svg)
+## Usage
 
-## 🚀 Usage
-
-Ensure you have all [React Native dependencies](https://facebook.github.io/react-native/docs/getting-started) installed.
+Make sure your machine is ready for React Native development, then create a new
+app from the template:
 
 ```sh
 npx react-native init MyApp --template https://github.com/ltatarev/react-native-template.git
 ```
 
-> Note: Current template works with React Native `0.82.1`.
+Current template runtime:
 
+- React Native `0.86.0`
+- React `19.2.3`
+- Node.js `>=22.11.0`
+- Yarn `4.17.0`
 
-## Installation
+## Setup
 
-After cloning or creating your app from this template, run the following commands to set up your environment:
+From a generated app or the `template/` directory in this repository:
 
 ```sh
 corepack enable
 yarn
 bundle install
-```
-
-To install iOS pods, use the script provided in package.json:
-
-```sh
 yarn install-pods
 ```
 
-This ensures all dependencies are installed correctly for both JS and native code.
+Run the app:
 
-## 🕵️‍♀️ Libraries included
-
-- **Redux**
-  - [`redux-toolkit`](https://redux-toolkit.js.org/introduction/getting-started)
-  - [`redux-persist`](https://github.com/rt2zz/redux-persist#readme)
-- **Navigation**
-  - [`react-navigation`](https://reactnavigation.org/docs/getting-started/) (v7)
-- **Code Linting**
-- **Splash Screen**
-  - [`react-native-bootsplash`](https://github.com/zoontek/react-native-bootsplash)
-- **Config**
-  - [`react-native-config`](https://github.com/luggit/react-native-config)
-
-## 🗂 Module structure
-
-```md
-📦 module
-┣ 📂 assets
-┣ 📂 components
-┣ 📂 fragments
-┣ 📂 hooks
-┣ 📂 redux
-┃ ┣ 📜 actions.js
-┃ ┣ 📜 index.js
-┃ ┣ 📜 slices.js
-┃ ┣ 📜 selectors.js
-┃ ┗ 📜 reducers.js
-┣ 📂 screens
-┣ 📂 services
-┣ 📜 const.js
-┣ 📜 index.js
-┗ 📜 navigator.js
+```sh
+yarn start
+yarn ios
+yarn android
 ```
 
-Each folder has an `index.js` which exports folder contents that are required by other modules.
-Named exporting is prefered for components, and namespace export for services.
+## Scripts
 
-## 🗂 Setting up new project
+| Script              | Purpose                                      |
+| ------------------- | -------------------------------------------- |
+| `yarn lint`         | Run ESLint flat config.                      |
+| `yarn tsc`          | Run strict TypeScript without emitting files. |
+| `yarn test:unit`    | Run the unit Jest harness.                   |
+| `yarn madge`        | Check circular dependencies.                 |
+| `yarn madge:image`  | Generate a dependency graph image.           |
+| `yarn sanity`       | Run lint, TypeScript, and Madge checks.      |
+| `yarn install-pods` | Install iOS Pods through Bundler.            |
 
-This template was made because I realized that I am bootstrapping every new React Native project equally, so I decided to put all boilerplate I often use into one place. Common steps I usually took:
+## Architecture
 
-1. Set up eslint rules and babel config
-2. Set up basic project arhitecture
-3. Add `react-native-config` and .env file
-4. Add splash screen and app icons
-   - [appicon.co](https://appicon.co/)
-   - [Android asset Studio](https://romannurik.github.io/AndroidAssetStudio/icons-launcher.html)
-   - [RN Bootsplash](https://github.com/zoontek/react-native-bootsplash)
-5. Add `react-navigation`
-6. Set up redux
+```text
+src/
+├── modules/
+│   ├── home/      # Neutral reference feature
+│   ├── main/      # App shell and root navigator
+│   └── redux/     # Store, persistor, typed hooks
+├── theme/
+│   ├── ui/        # Shared UI primitives
+│   ├── styles.ts
+│   ├── theme.ts
+│   ├── types.ts
+│   └── unistyles.ts
+└── utils/
+    ├── error-handling/
+    ├── haptic-feedback/
+    ├── logger/
+    ├── storage/
+    └── toast.tsx
 
-This template proviedes all of the above steps out of the box.
-
-```md
-📦 src
-┣ 📂 assets
-┣ 📂 modules
-┃ ┣ 📂 main
-┃ ┣ 📂 ...
-┃ ┗ 📜 index.js
-┣ 📂 common
-┃ ┣ 📂 services
-┃ ┣ 📂 hooks
-┃ ┗ 📂 ...
-┣ 📂 ui
-┗ 📜 index.js
+i18n/
+├── en_EN.json
+├── index.ts
+└── resources.ts
 ```
 
----
+The codebase is package-by-feature. Feature modules live under
+`src/modules/<feature>` and expose their public API through
+`src/modules/<feature>/index.ts`.
 
-### ⚙️ Roadmap
+Cross-module imports should use the public module surface:
 
-- [ ] Add `react-native-unistyles`
-- [ ] Add `react-native-config`
-- [ ] Add more common UI components
+```ts
+import { HomeScreen } from 'modules/home';
+```
 
----
+Do not reach into another module's internals:
 
-Last updated: 16.11.2025.
+```ts
+import { HomeScreen } from 'modules/home/screens/HomeScreen';
+```
+
+ESLint enforces this with `no-restricted-imports`.
+
+## Aliases
+
+Aliases are configured in both TypeScript and Babel.
+
+| Alias       | Resolves to     |
+| ----------- | --------------- |
+| `assets/*`  | `src/assets/*`  |
+| `common/*`  | `src/common/*`  |
+| `modules/*` | `src/modules/*` |
+| `theme/*`   | `src/theme/*`   |
+| `utils/*`   | `src/utils/*`   |
+
+## Styling
+
+Styling uses `react-native-unistyles`.
+
+- Import `StyleSheet` from `react-native-unistyles`.
+- Keep shared primitives in `src/theme/ui`.
+- Use tokens from `theme.ts` for colors, typography, gutter, radii, shadow, and
+  z-index.
+- Avoid color literals in feature UI.
+
+Example:
+
+```ts
+const styles = StyleSheet.create(theme => ({
+  title: {
+    color: theme.colors.text,
+    fontSize: theme.typography.fontSize.lg,
+    marginBottom: theme.gutter.md,
+  },
+}));
+```
+
+## State And Persistence
+
+- Root store setup lives in `src/modules/redux`.
+- Use `useAppDispatch` and `useAppSelector` from `modules/redux`.
+- Feature state uses Redux Toolkit slices and selectors.
+- Redux persistence uses MMKV through `utils/storage`.
+
+## Internationalization
+
+i18n is initialized from `src/index.ts`.
+
+- Resources live in `i18n/en_EN.json`.
+- Components use `useTranslation()` from `react-i18next`.
+- User-facing feature text should render through `t(...)`.
+
+## Adapters
+
+Feature code should not import native SDKs directly. Use the app-facing
+adapters in `src/utils`:
+
+- `utils/storage`
+- `utils/toast`
+- `utils/logger`
+- `utils/error-handling`
+- `utils/haptic-feedback`
+
+## Adding A Module
+
+1. Create `src/modules/<name>/const.ts` with `MODULE_NAME`.
+2. Create `src/modules/<name>/index.ts` as the public surface.
+3. Add screens under `screens/`.
+4. Add Redux slice/selectors under `redux/` if the module owns state.
+5. Register the reducer in `modules/redux/store.ts` when needed.
+6. Add text keys to `i18n/en_EN.json`.
+7. Style screens with Unistyles and theme tokens.
+8. Export only the API other modules need from the module barrel.
+
+## Agent Context
+
+Template-specific coding guidance lives in:
+
+- `template/AGENTS.md`
+- `template/CONTEXT.md`

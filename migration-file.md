@@ -506,6 +506,8 @@ Acceptance:
 
 ### 18. README Refresh
 
+Status: Complete.
+
 Scope:
 
 - Update generated-template README.
