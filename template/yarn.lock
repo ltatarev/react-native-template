@@ -2841,7 +2841,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@ltatarev/eslint-config-react@npm:^2.4.0":
+"@ltatarev/eslint-config-react@npm:2.4.1, @ltatarev/eslint-config-react@npm:^2.4.0":
   version: 2.4.1
   resolution: "@ltatarev/eslint-config-react@npm:2.4.1"
   peerDependencies:
@@ -9208,6 +9208,8 @@ __metadata:
     "@babel/plugin-transform-flow-strip-types": "npm:7.19.0"
     "@babel/preset-env": "npm:^7.25.3"
     "@babel/runtime": "npm:^7.25.0"
+    "@eslint/eslintrc": "npm:^2.1.4"
+    "@ltatarev/eslint-config-react": "npm:2.4.1"
     "@ltatarev/eslint-config-react-native": "npm:2.4.1"
     "@react-native-async-storage/async-storage": "npm:2.2.0"
     "@react-native-community/cli": "npm:20.1.0"

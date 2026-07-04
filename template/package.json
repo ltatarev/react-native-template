@@ -8,7 +8,10 @@
     "start": "react-native start",
     "install-pods": "cd ios && bundle exec pod install && cd ..",
     "lint": "eslint .",
-    "sanity": "yarn lint; yarn tsc",
+    "tsc": "tsc --noEmit",
+    "madge": "npx madge -c --ts-config tsconfig.json --extensions tsx --warning .",
+    "madge:image": "npx madge -c --ts-config tsconfig.json --extensions tsx --warning --image graph.svg .",
+    "sanity": "yarn lint; yarn tsc; yarn madge",
     "get-bootsplash": "yarn react-native generate-bootsplash src/assets/logo.png --background=E9E6FB --logo-width=192 --assets-output=src/assets/bootsplash"
   },
   "dependencies": {
@@ -41,6 +44,8 @@
     "@babel/plugin-transform-flow-strip-types": "7.19.0",
     "@babel/preset-env": "^7.25.3",
     "@babel/runtime": "^7.25.0",
+    "@eslint/eslintrc": "^2.1.4",
+    "@ltatarev/eslint-config-react": "2.4.1",
     "@ltatarev/eslint-config-react-native": "2.4.1",
     "@react-native-community/cli": "20.1.0",
     "@react-native-community/cli-platform-android": "20.1.0",
