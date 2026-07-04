@@ -2,12 +2,14 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet } from 'react-native-unistyles';
 import { Button, Screen, Text } from 'theme/ui';
+import { HapticFeedbackService } from 'utils/haptic-feedback';
 import { showToast } from 'utils/toast';
 
 export function HomeScreen() {
   const { t } = useTranslation();
 
   function handleShowToast() {
+    HapticFeedbackService.triggerSelection();
     showToast({
       message: t('home.toastMessage'),
       tone: 'success',
