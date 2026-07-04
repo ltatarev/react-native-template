@@ -1,7 +1,6 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import type { Middleware, Store } from '@reduxjs/toolkit';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { pokemonApi } from 'modules/home';
 import type { PersistConfig } from 'redux-persist';
 import {
   FLUSH,
@@ -19,7 +18,7 @@ const persistConfig: PersistConfig<ReturnType<typeof combinedReducers>> = {
 };
 
 const combinedReducers = combineReducers({
-  [pokemonApi.reducerPath]: pokemonApi.reducer,
+  template: (state = {}) => state,
 });
 
 const persistedReducer = persistReducer(persistConfig, combinedReducers);
@@ -37,15 +36,11 @@ export function configureAppStore(): Store {
   return configureStore({
     reducer: persistedReducer,
     devTools: __DEV__,
-    // Adding the api middleware enables caching, invalidation, polling,
-    // and other useful features of `rtk-query`.
     middleware: (getDefaultMiddleware) => getDefaultMiddleware({
       immutableCheck: false,
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    })
-      .concat(composeMiddlewares())
-      .concat(pokemonApi.middleware),
+    }).concat(composeMiddlewares()),
   });
 }

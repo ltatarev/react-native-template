@@ -232,6 +232,8 @@ Acceptance:
 
 ### 3. Dependency Core Update
 
+Status: Complete.
+
 Scope:
 
 - Remove `react-native-fast-image`.

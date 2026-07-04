@@ -1,5 +1,5 @@
 import React from 'react';
-import RNIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+import { StyleSheet, Text } from 'react-native';
 
 interface IconProps {
   color: string;
@@ -8,5 +8,20 @@ interface IconProps {
 }
 
 export function Icon({ color, name, size }: IconProps) {
-  return <RNIcon color={color} name={name} size={size} />;
+  return (
+    <Text
+      accessibilityElementsHidden
+      importantForAccessibility="no"
+      style={[styles.icon, { color, fontSize: size, lineHeight: size }]}
+    >
+      {name.slice(0, 1).toUpperCase()}
+    </Text>
+  );
 }
+
+const styles = StyleSheet.create({
+  icon: {
+    fontWeight: '700',
+    textAlign: 'center',
+  },
+});

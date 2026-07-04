@@ -25,7 +25,6 @@
 		13B07F961A680F5B00A75B9A /* Moonquake.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Moonquake.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Moonquake/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Moonquake/Info.plist; sourceTree = "<group>"; };
-		15012653294F5F3B00839CEB /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MaterialCommunityIcons.ttf; sourceTree = "<group>"; };
 		15E815572ECA193600078FB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-Moonquake-TemplateAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Moonquake-TemplateAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CEFA82F1FA04ECC8F1FBA7F /* Poppins-ExtraBold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraBold.otf"; path = "../src/assets/fonts/Poppins-ExtraBold.otf"; sourceTree = "<group>"; };
@@ -59,7 +58,6 @@
 			isa = PBXGroup;
 			children = (
 				15E815572ECA193600078FB1 /* AppDelegate.swift */,
-				1501264D294F5F3B00839CEB /* Fonts */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
@@ -68,15 +66,6 @@
 				F841F3B8F9E846609DFC231C /* BootSplash.storyboard */,
 			);
 			name = Moonquake;
-			sourceTree = "<group>";
-		};
-		1501264D294F5F3B00839CEB /* Fonts */ = {
-			isa = PBXGroup;
-			children = (
-				15012653294F5F3B00839CEB /* MaterialCommunityIcons.ttf */,
-			);
-			name = Fonts;
-			path = "../node_modules/react-native-vector-icons/Fonts";
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {

@@ -1,5 +1,5 @@
 import React from 'react';
-import FastImage from 'react-native-fast-image';
+import { Image as RNImage } from 'react-native';
 
 interface ImageProps {
   source: number;
@@ -21,8 +21,9 @@ export function Image({
   };
 
   return (
-    <FastImage
-      resizeMode={FastImage.resizeMode.cover}
+    <RNImage
+      accessibilityIgnoresInvertColors
+      resizeMode="cover"
       source={source}
       style={resolvedStyle}
     />
