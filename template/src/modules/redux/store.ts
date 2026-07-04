@@ -1,4 +1,3 @@
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import type { Middleware } from '@reduxjs/toolkit';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
 import type { PersistConfig } from 'redux-persist';
@@ -12,6 +11,7 @@ import {
   REGISTER,
   REHYDRATE,
 } from 'redux-persist';
+import { reduxStorage } from 'utils/storage';
 
 export const rootReducer = combineReducers({
   template: (state = {}) => state,
@@ -19,7 +19,7 @@ export const rootReducer = combineReducers({
 
 const persistConfig: PersistConfig<ReturnType<typeof rootReducer>> = {
   key: 'root',
-  storage: AsyncStorage,
+  storage: reduxStorage,
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
