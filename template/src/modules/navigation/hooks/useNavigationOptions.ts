@@ -1,8 +1,8 @@
 import { useLayoutEffect } from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { StackNavigationOptions } from '@react-navigation/stack';
+import type { NativeStackNavigationOptions } from '@react-navigation/native-stack';
 
-export function useNavigationOptions(options: StackNavigationOptions) {
+export function useNavigationOptions(options: NativeStackNavigationOptions) {
   const navigation = useNavigation();
 
   useLayoutEffect(() => {

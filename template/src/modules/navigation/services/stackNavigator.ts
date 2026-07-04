@@ -1,20 +1,15 @@
-import { CardStyleInterpolators } from '@react-navigation/stack';
+import type { NativeStackNavigationOptions } from '@react-navigation/native-stack';
 
-export const hideHeader = { headerShown: false };
-export const hideHeaderLeft = { headerLeft: null };
+export const hideHeader: NativeStackNavigationOptions = { headerShown: false };
+export const hideHeaderLeft: NativeStackNavigationOptions = {
+  headerBackVisible: false,
+};
 
-export const defaultScreenOptions = {
-  cardStyleInterpolator: CardStyleInterpolators.forHorizontalIOS,
+export const defaultScreenOptions: NativeStackNavigationOptions = {
+  animation: 'slide_from_right',
   headerStyle: {
-    shadowColor: 'rgba(256,256,256,0)',
-    shadowOpacity: 0,
-    shadowOffset: {
-      height: 0,
-    },
-    shadowRadius: 0,
-    elevation: 0,
+    backgroundColor: 'transparent',
   },
   headerTransparent: true,
-  headerTitle: null,
-  headerTitleStyle: { alignSelf: 'center', textAlign: 'center' },
+  title: '',
 };
