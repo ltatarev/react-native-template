@@ -484,6 +484,8 @@ Acceptance:
 
 ### 17. Template Agent Docs
 
+Status: Complete.
+
 Scope:
 
 - Add lighter `AGENTS.md` adapted from `react-native-instagram-feed`.
