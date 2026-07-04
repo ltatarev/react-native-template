@@ -289,6 +289,8 @@ Acceptance:
 
 ### 6. Root Redux Module
 
+Status: Complete.
+
 Scope:
 
 - Create `src/modules/redux`.
