@@ -9,6 +9,7 @@
     "install-pods": "cd ios && bundle exec pod install && cd ..",
     "lint": "eslint .",
     "tsc": "tsc --noEmit",
+    "test:unit": "jest --config jest.unit.config.js --watchman=false",
     "madge": "npx madge -c --ts-config tsconfig.json --extensions tsx --warning .",
     "madge:image": "npx madge -c --ts-config tsconfig.json --extensions tsx --warning --image graph.svg .",
     "sanity": "yarn lint; yarn tsc; yarn madge",

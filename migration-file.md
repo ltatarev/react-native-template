@@ -273,6 +273,8 @@ Acceptance:
 
 ### 5. Jest Unit Harness
 
+Status: Complete.
+
 Scope:
 
 - Add `jest.unit.config.js`.
