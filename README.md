@@ -11,8 +11,14 @@ Make sure your machine is ready for React Native development, then create a new
 app from the template:
 
 ```sh
-npx react-native init MyApp --template https://github.com/ltatarev/react-native-template.git
+npx @react-native-community/cli@latest init MyApp --template https://github.com/ltatarev/react-native-template.git
 ```
+
+Replace `MyApp` with your app name. If `npx` asks to install
+`@react-native-community/cli`, confirm with `y`.
+
+Do not use `npx react-native init`; React Native now treats that command as
+deprecated and exits before creating the app.
 
 Current template runtime:
 
