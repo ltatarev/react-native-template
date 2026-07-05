@@ -17,7 +17,7 @@ npx react-native init MyApp --template https://github.com/ltatarev/react-native-
 Current template runtime:
 
 - React Native `0.86.0`
-- React `19.2.3`
+- React `19.2.7`
 - Node.js `>=22.11.0`
 - Yarn `4.17.0`
 - Ruby `2.7.7`
@@ -59,6 +59,7 @@ yarn android
 ```text
 src/
 ├── modules/
+│   ├── feature-flag/ # Typed boolean gates
 │   ├── home/      # Neutral reference feature
 │   ├── main/      # App shell and root navigator
 │   └── redux/     # Store, persistor, typed hooks

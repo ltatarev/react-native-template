@@ -6,7 +6,7 @@ architecture vocabulary, read `CONTEXT.md`.
 
 ## Project Snapshot
 
-- Framework: React Native `0.86.0` with React `19.2.3`.
+- Framework: React Native `0.86.0` with React `19.2.7`.
 - Language: TypeScript with `strict: true`.
 - Package manager: Yarn 4.
 - Styling: `react-native-unistyles`.

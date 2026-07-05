@@ -55,7 +55,7 @@ export default [
         },
       },
       react: {
-        version: '18.1.0',
+        version: 'detect',
       },
     },
     rules: {
