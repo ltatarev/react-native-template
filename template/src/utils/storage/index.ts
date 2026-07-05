@@ -1,0 +1,1 @@
+export { reduxStorage } from './reduxStorage';

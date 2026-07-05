@@ -1,0 +1,10 @@
+{
+  "home": {
+    "description": "A small reference feature for state, feedback, and UI tokens.",
+    "interactionCount": "Interactions: {{count}}",
+    "primaryAction": "Try interaction",
+    "primaryActionHint": "Records an interaction and shows feedback",
+    "toastMessage": "Interaction recorded.",
+    "welcome": "Welcome to your new app!"
+  }
+}

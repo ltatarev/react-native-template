@@ -1,7 +1,7 @@
 {
   "name": "react-native-template",
-  "version": "1.0.0",
-  "description": "Modern JS React Native template",
+  "version": "2.1.0",
+  "description": "Modern React Native template",
   "scripts": {
     "test": "exit 0"
   },

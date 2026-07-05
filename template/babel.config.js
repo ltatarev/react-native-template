@@ -1,5 +1,5 @@
 module.exports = {
-  presets: ['module:metro-react-native-babel-preset'],
+  presets: ['module:@react-native/babel-preset'],
   plugins: [
     ['@babel/plugin-transform-flow-strip-types'],
     [
@@ -14,15 +14,22 @@ module.exports = {
       'module-resolver',
       {
         root: ['./src'],
-        extensions: ['.js'],
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
         alias: {
           assets: './src/assets',
+          common: './src/common',
           modules: './src/modules',
           theme: './src/theme',
-          ui: './src/ui',
           utils: './src/utils',
         },
       },
     ],
+    [
+      'react-native-unistyles/plugin',
+      {
+        root: 'src',
+      },
+    ],
+    'react-native-worklets/plugin',
   ],
 };
