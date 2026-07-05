@@ -1,5 +1,4 @@
-import { StyleSheet } from 'react-native-unistyles';
-import { darkTheme, lightTheme } from './theme';
+import { configureAppThemes } from './services';
 import type { AppThemes } from './types';
 
 declare module 'react-native-unistyles' {
@@ -7,12 +6,4 @@ declare module 'react-native-unistyles' {
   export interface UnistylesThemes extends AppThemes {}
 }
 
-StyleSheet.configure({
-  themes: {
-    dark: darkTheme,
-    light: lightTheme,
-  },
-  settings: {
-    adaptiveThemes: true,
-  },
-});
+configureAppThemes();

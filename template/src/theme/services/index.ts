@@ -1,0 +1,1 @@
+export { configureAppThemes } from './configureAppThemes';

@@ -5,14 +5,19 @@
   "scripts": {
     "android": "react-native run-android",
     "ios": "react-native run-ios",
+    "ios:simulator": "react-native run-ios --simulator='iPhone 17 Pro Max'",
     "start": "react-native start",
     "install-pods": "cd ios && bundle exec pod install && cd ..",
+    "pod-install": "bundle check || bundle install && cd ios && LANG=en_US.UTF-8 bundle exec pod install && cd ..",
     "lint": "eslint .",
     "tsc": "tsc --noEmit",
     "test:unit": "jest --config jest.unit.config.js --watchman=false",
     "madge": "npx madge -c --ts-config tsconfig.json --extensions tsx --warning .",
     "madge:image": "npx madge -c --ts-config tsconfig.json --extensions tsx --warning --image graph.svg .",
+    "depcheck": "npx depcheck",
+    "check-updates": "npx npm-check-updates",
     "sanity": "yarn lint; yarn tsc; yarn madge",
+    "sanity:fix": "yarn lint --fix; yarn tsc; yarn madge",
     "get-bootsplash": "yarn react-native-bootsplash generate src/assets/logo.png --platforms=android,ios --background=E9E6FB --logo-width=192 --assets-output=src/assets/bootsplash --plist=ios/Moonquake/Info.plist"
   },
   "dependencies": {

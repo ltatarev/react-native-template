@@ -6,10 +6,10 @@ import { Provider } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { persistor, store } from 'modules/redux';
 import { PersistGate } from 'redux-persist/integration/react';
+import { ThemeProvider } from 'theme/providers';
 import { StatusBar } from 'theme/ui';
 import { useSplashScreen } from 'utils/hooks';
 import { ToastHost } from 'utils/toast';
-import 'theme/unistyles';
 import { Navigator } from '../navigator';
 
 export function App() {
@@ -20,11 +20,13 @@ export function App() {
       <KeyboardProvider>
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
-            <NavigationContainer>
-              <StatusBar />
-              <Navigator />
-              <ToastHost />
-            </NavigationContainer>
+            <ThemeProvider>
+              <NavigationContainer>
+                <StatusBar />
+                <Navigator />
+                <ToastHost />
+              </NavigationContainer>
+            </ThemeProvider>
           </PersistGate>
         </Provider>
       </KeyboardProvider>

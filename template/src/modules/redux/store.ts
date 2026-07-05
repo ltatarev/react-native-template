@@ -1,5 +1,7 @@
 import type { Middleware } from '@reduxjs/toolkit';
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
+import { MODULE_NAME as FEATURE_FLAG } from 'modules/feature-flag/const';
+import { featureFlagReducer } from 'modules/feature-flag/redux/slice';
 import { MODULE_NAME as HOME } from 'modules/home/const';
 import { homeReducer } from 'modules/home/redux/slice';
 import type { PersistConfig } from 'redux-persist';
@@ -16,6 +18,7 @@ import {
 import { reduxStorage } from 'utils/storage';
 
 export const rootReducer = combineReducers({
+  [FEATURE_FLAG]: featureFlagReducer,
   [HOME]: homeReducer,
 });
 
