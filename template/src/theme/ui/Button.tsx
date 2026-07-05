@@ -45,11 +45,10 @@ const styles = StyleSheet.create((theme) => ({
   button: {
     alignItems: 'center',
     backgroundColor: theme.colors.primary,
-    borderRadius: theme.radii.sm,
+    borderRadius: theme.radii.lg,
     justifyContent: 'center',
-    minHeight: 48,
     paddingHorizontal: theme.gutter.lg,
-    paddingVertical: theme.gutter.sm,
+    paddingVertical: theme.gutter.md,
   },
   disabled: {
     opacity: 0.5,

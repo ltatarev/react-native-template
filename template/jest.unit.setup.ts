@@ -18,7 +18,13 @@ jest.mock('react-native', () => ({
 }));
 
 jest.mock('react-native-bootsplash', () => ({
-  hide: jest.fn(),
+  hide: jest.fn().mockResolvedValue(undefined),
+  isVisible: jest.fn(),
+  useHideAnimation: jest.fn().mockReturnValue({
+    brand: { source: 0 },
+    container: {},
+    logo: { source: 0 },
+  }),
 }));
 
 jest.mock('react-native-device-info', () => ({

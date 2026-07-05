@@ -20,6 +20,8 @@ Current template runtime:
 - React `19.2.3`
 - Node.js `>=22.11.0`
 - Yarn `4.17.0`
+- Ruby `2.7.7`
+- CMake for iOS/Hermes pods
 
 ## Setup
 
