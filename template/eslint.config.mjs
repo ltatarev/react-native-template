@@ -1,12 +1,15 @@
 import { FlatCompat } from '@eslint/eslintrc';
 import { createRequire } from 'node:module';
+import { dirname } from 'node:path';
 
 const require = createRequire(import.meta.url);
+const reactNativeConfigPath = require.resolve('@react-native/eslint-config');
 const compat = new FlatCompat({
   baseDirectory: import.meta.dirname,
+  resolvePluginsRelativeTo: dirname(reactNativeConfigPath),
 });
 
-const reactNativeConfig = require('@ltatarev/eslint-config-react-native');
+const reactNativeConfig = require('@react-native/eslint-config');
 
 export default [
   {
@@ -23,6 +26,7 @@ export default [
       'coverage/',
       'dist/',
       '**/dist/',
+      'eslint.config.mjs',
       'ios/Pods/',
       '*.log',
       'vendor/',
