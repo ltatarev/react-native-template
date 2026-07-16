@@ -1,7 +1,7 @@
 import React, { useMemo } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { ActivityIndicator, View } from 'react-native';
+import { StyleSheet } from 'react-native-unistyles';
 import { useTheme } from 'theme';
-import { ActivityIndicator } from './ActivityIndicator';
 import { Screen, ScreenProps } from './Screen';
 
 interface LoadingScreenProps extends ScreenProps {
@@ -33,8 +33,7 @@ export function LoadingScreen({ loading, ...otherProps }: LoadingScreenProps) {
         <View style={resolvedOverlayStyle}>
           <ActivityIndicator
             color={resolvedActivityIndicatorColor}
-            style={{}}
-            type="large"
+            size="large"
           />
         </View>
       )}

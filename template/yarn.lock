@@ -9565,7 +9565,6 @@ __metadata:
     react-native-device-info: "npm:15.0.2"
     react-native-gesture-handler: "npm:3.0.2"
     react-native-haptic-feedback: "npm:^3.0.0"
-    react-native-indicators: "npm:0.17.0"
     react-native-keyboard-controller: "npm:^1.21.13"
     react-native-mmkv: "npm:^4.3.2"
     react-native-modal: "npm:13.0.2"
@@ -10271,7 +10270,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"prop-types@npm:^15.5.10, prop-types@npm:^15.8.1":
+"prop-types@npm:^15.8.1":
   version: 15.8.1
   resolution: "prop-types@npm:15.8.1"
   dependencies:
@@ -10487,18 +10486,6 @@ __metadata:
     react:
       optional: true
   checksum: 10/e29e6e465b1a4dd20aeb14ebb6ef48b86168e166250d201d8e1cb741bbd8063496dd5c7b2874f5ff5240047e41aa2370aa9c8bce35f20d77de650dec1b41282a
-  languageName: node
-  linkType: hard
-
-"react-native-indicators@npm:0.17.0":
-  version: 0.17.0
-  resolution: "react-native-indicators@npm:0.17.0"
-  dependencies:
-    prop-types: "npm:^15.5.10"
-  peerDependencies:
-    react: "*"
-    react-native: "*"
-  checksum: 10/85931fcc873f155e52412d7e0f768575ce00701870ebf873fa9fbe46e2c42f696577fd5a536fa7027f096fe090dd89470ddfe22d7b644df65c3973c6c2985c29
   languageName: node
   linkType: hard
 

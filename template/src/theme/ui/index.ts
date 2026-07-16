@@ -1,4 +1,3 @@
-export { ActivityIndicator } from './ActivityIndicator';
 export { Button } from './Button';
 export { Icon } from './Icon';
 export { IconButton } from './IconButton';
