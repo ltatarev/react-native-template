@@ -16,7 +16,7 @@ export function App() {
   useSplashScreen();
 
   return (
-    <GestureHandlerRootView style={styles.root}>
+    <GestureHandlerRootView>
       <KeyboardProvider>
         <Provider store={store}>
           <PersistGate loading={null} persistor={persistor}>
@@ -33,9 +33,3 @@ export function App() {
     </GestureHandlerRootView>
   );
 }
-
-const styles = StyleSheet.create({
-  root: {
-    flex: 1,
-  },
-});
