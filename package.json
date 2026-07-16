@@ -3,9 +3,10 @@
   "version": "2.1.0",
   "description": "Modern React Native template",
   "scripts": {
-    "test": "exit 0"
+    "test": "node scripts/test-template-package.mjs"
   },
   "files": [
+    "scripts/test-template-package.mjs",
     "template",
     "template.config.js"
   ],
