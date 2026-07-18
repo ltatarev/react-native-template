@@ -1,10 +1,9 @@
 import React, { ReactNode } from 'react';
-import {
-  ImageBackground, ScrollView, StyleSheet, View,
-} from 'react-native';
+import { ImageBackground, ScrollView, View } from 'react-native';
 import { gutter, useTheme } from 'theme';
 import { PlatformServices } from 'utils/services';
 import { KeyboardAwareScreen } from './KeyboardAwareScreen';
+import { StyleSheet } from 'react-native-unistyles';
 
 export interface ScreenProps {
   children: ReactNode;
@@ -54,8 +53,7 @@ export function Screen({
       return (
         <KeyboardAwareScreen
           containerStyle={containerStyle}
-          renderFooter={renderFooter}
-        >
+          renderFooter={renderFooter}>
           {children}
         </KeyboardAwareScreen>
       );
@@ -67,8 +65,7 @@ export function Screen({
           keyboardDismissMode="on-drag"
           showsHorizontalScrollIndicator={false}
           showsVerticalScrollIndicator={false}
-          style={resolvedContainerStyle}
-        >
+          style={resolvedContainerStyle}>
           {children}
         </WrapperComponent>
         <View style={resolvedFooterStyle}>
@@ -83,8 +80,7 @@ export function Screen({
       <View style={resolvedMainContainerStyle}>
         <ImageBackground
           source={backgroundSource}
-          style={resolvedBackgroundStyle}
-        >
+          style={resolvedBackgroundStyle}>
           {renderContent()}
         </ImageBackground>
       </View>
@@ -94,10 +90,10 @@ export function Screen({
   return <View style={resolvedMainContainerStyle}>{renderContent()}</View>;
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create((_theme, rt) => ({
   container: {
     flex: 1,
-    marginTop: PlatformServices.getStatusBarHeight(),
+    paddingTop: rt.insets.top,
     paddingHorizontal: gutter.small,
   },
   footer: {
@@ -113,4 +109,4 @@ const styles = StyleSheet.create({
   scrollableContainer: {
     marginTop: 0,
   },
-});
+}));
