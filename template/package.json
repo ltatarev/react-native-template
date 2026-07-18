@@ -36,7 +36,6 @@
     "react-native-haptic-feedback": "^3.0.0",
     "react-native-keyboard-controller": "^1.21.13",
     "react-native-mmkv": "^4.3.2",
-    "react-native-modal": "13.0.2",
     "react-native-nitro-modules": "^0.33.2",
     "react-native-reanimated": "^4.5.1",
     "react-native-safe-area-context": "5.8.0",

@@ -9567,7 +9567,6 @@ __metadata:
     react-native-haptic-feedback: "npm:^3.0.0"
     react-native-keyboard-controller: "npm:^1.21.13"
     react-native-mmkv: "npm:^4.3.2"
-    react-native-modal: "npm:13.0.2"
     react-native-nitro-modules: "npm:^0.33.2"
     react-native-reanimated: "npm:^4.5.1"
     react-native-safe-area-context: "npm:5.8.0"
@@ -10421,15 +10420,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native-animatable@npm:1.4.0":
-  version: 1.4.0
-  resolution: "react-native-animatable@npm:1.4.0"
-  dependencies:
-    prop-types: "npm:^15.8.1"
-  checksum: 10/df11665d1e5b67cdaf4b9f1e9cfa15e315a2654e3e6850cf1d22ce8c092ee272fe78352f11bea0a4461d58372c6c35cefd2e5619d09928f8fd72972547d74b8a
-  languageName: node
-  linkType: hard
-
 "react-native-bootsplash@npm:^7.3.2":
   version: 7.3.2
   resolution: "react-native-bootsplash@npm:7.3.2"
@@ -10530,18 +10520,6 @@ __metadata:
     react-native: "*"
     react-native-nitro-modules: "*"
   checksum: 10/200eac3939d89cc2182851a2cf7c2bfda519f78c870ed962b70c2873924d77a17e18eb3ecbe817670b01bdc6848eb2c093b4defc79c1aac0f3f0bee3d5408cdb
-  languageName: node
-  linkType: hard
-
-"react-native-modal@npm:13.0.2":
-  version: 13.0.2
-  resolution: "react-native-modal@npm:13.0.2"
-  dependencies:
-    react-native-animatable: "npm:1.4.0"
-  peerDependencies:
-    react: "*"
-    react-native: ">=0.70.0"
-  checksum: 10/61cc7910ac8fba2fda264a4de5519125d69d54dae74b6e1c1244e03d6692de04f186f9888339d82895c672eb5de4354f8edf0c2bdb12f3e1da58c98cc7046957
   languageName: node
   linkType: hard
 

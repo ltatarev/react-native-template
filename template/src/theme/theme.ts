@@ -1,31 +1,30 @@
-import {
-  DARK_PALETTE,
-  DARK_THEME as LEGACY_DARK_THEME,
-  LIGHT_PALETTE,
-  LIGHT_THEME as LEGACY_LIGHT_THEME,
-} from './colors';
+// Add your theme
 
 const typography = {
-  fontFamily: {
-    regular: 'Poppins-Regular',
-    medium: 'Poppins-Medium',
-    bold: 'Poppins-Bold',
-    extraBold: 'Poppins-ExtraBold',
+  fonts: {
+    serif: 'SourceSerif4-Regular',
+    serifItalic: 'SourceSerif4-It',
+    sans: 'Poppins-Regular',
+    sansMedium: 'Poppins-Medium',
   },
   fontSize: {
-    xs: 12,
-    sm: 14,
-    md: 16,
-    lg: 20,
-    xl: 28,
+    xs: 11,
+    sm: 13,
+    md: 15,
+    lg: 17,
+    xl: 22,
+    xxl: 28,
   },
-  lineHeight: {
-    xs: 16,
-    sm: 20,
-    md: 24,
-    lg: 28,
-    xl: 36,
-  },
+  eyebrowLetterSpacing: 0.4,
+  promptLineHeight: 1.4,
+} as const;
+
+const radii = {
+  sm: 8,
+  ctrl: 13,
+  card: 20,
+  frame: 30,
+  chip: 999,
 } as const;
 
 const gutter = {
@@ -36,93 +35,83 @@ const gutter = {
   xl: 32,
 } as const;
 
-const radii = {
-  xs: 4,
-  sm: 8,
-  md: 12,
-  lg: 20,
-  full: 999,
+/** Hairline borders do the work of elevation (§14.4). */
+const borderWidth = 0.5 as const;
+
+const shadow = {
+  /** The only allowed shadow is a functional one (toast/focus). */
+  sm: {
+    elevation: 1,
+    shadowColor: '#000000',
+    shadowOffset: { height: 1, width: 0 },
+    shadowOpacity: 0.08,
+    shadowRadius: 2,
+  },
 } as const;
 
 const zIndex = {
-  base: 0,
-  overlay: 10,
-  modal: 100,
-  toast: 1000,
+  sheet: 50,
+  toast: 100,
 } as const;
 
-const createShadow = (color: string) => ({
-  sm: {
-    elevation: 2,
-    shadowColor: color,
-    shadowOffset: { height: 1, width: 0 },
-    shadowOpacity: 0.08,
-    shadowRadius: 3,
-  },
-  md: {
-    elevation: 6,
-    shadowColor: color,
-    shadowOffset: { height: 4, width: 0 },
-    shadowOpacity: 0.12,
-    shadowRadius: 10,
-  },
-});
+const sharedColors = {
+  /** Coral wax — the one place coral appears in chrome (§14.5). */
+  seal: '#D85A30',
+  sealInner: '#F0997B',
+  danger: '#A0522E',
+  info: '#5C748C',
+  success: '#6E8A52',
+  warning: '#B08D57',
+} as const;
 
-const createTheme = ({
-  background,
-  border,
-  isDark,
-  legacyTheme,
-  palette,
-  surface,
-  text,
-}: {
-  background: string;
-  border: string;
-  isDark: boolean;
-  legacyTheme: typeof LEGACY_LIGHT_THEME | typeof LEGACY_DARK_THEME;
-  palette: typeof LIGHT_PALETTE | typeof DARK_PALETTE;
-  surface: string;
-  text: string;
-}) => ({
-  ...palette,
-  ...legacyTheme,
-  isDark,
+export const lightTheme = {
   colors: {
-    background,
-    border,
-    danger: palette['color-danger-500'],
-    info: palette['color-info-500'],
-    primary: palette['color-primary-500'],
-    success: palette['color-success-500'],
-    surface,
-    text,
-    textMuted: palette['color-basic-600'],
-    warning: palette['color-warning-500'],
+    page: '#EFEBE3',
+    surface: '#FBF9F4',
+    card: '#FFFFFF',
+    hairline: '#E4DED2',
+    hairline2: '#ECE5D8',
+    text: '#2C2A26',
+    text2: '#8C8372',
+    textMuted: '#B4AA98',
+    accent: '#B08D57',
+    onDark: '#FBF9F4',
+    primaryButton: '#2C2A26',
+    onPrimaryButton: '#FBF9F4',
+    socket: '#C9BEA6',
+    background: '#FBF9F4',
+    ...sharedColors,
   },
   typography,
-  gutter,
   radii,
-  shadow: createShadow(palette['color-basic-1100']),
+  gutter,
+  borderWidth,
+  shadow,
   zIndex,
-});
+} as const;
 
-export const lightTheme = createTheme({
-  background: LIGHT_PALETTE['color-basic-100'],
-  border: LIGHT_PALETTE['color-basic-400'],
-  isDark: false,
-  legacyTheme: LEGACY_LIGHT_THEME,
-  palette: LIGHT_PALETTE,
-  surface: LIGHT_PALETTE['color-basic-200'],
-  text: LIGHT_PALETTE['color-basic-900'],
-});
-
-export const darkTheme = createTheme({
-  background: DARK_PALETTE['color-basic-900'],
-  border: DARK_PALETTE['color-basic-700'],
-  isDark: true,
-  legacyTheme: LEGACY_DARK_THEME,
-  palette: DARK_PALETTE,
-  surface: DARK_PALETTE['color-basic-800'],
-  text: DARK_PALETTE['color-basic-100'],
-});
+export const darkTheme = {
+  colors: {
+    page: '#1C1A17',
+    surface: '#26231E',
+    card: '#2E2A24',
+    hairline: '#3A352D',
+    hairline2: '#423C33',
+    text: '#F2EEE6',
+    text2: '#B4AA98',
+    textMuted: '#7C7365',
+    accent: '#C9A876',
+    onDark: '#26231E',
+    primaryButton: '#F2EEE6',
+    onPrimaryButton: '#1C1A17',
+    socket: '#5E5745',
+    background: '#26231E',
+    ...sharedColors,
+  },
+  typography,
+  radii,
+  gutter,
+  borderWidth,
+  shadow,
+  zIndex,
+} as const;
