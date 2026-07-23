@@ -1,15 +1,4 @@
-import { FlatCompat } from '@eslint/eslintrc';
-import { createRequire } from 'node:module';
-import { dirname } from 'node:path';
-
-const require = createRequire(import.meta.url);
-const reactNativeConfigPath = require.resolve('@react-native/eslint-config');
-const compat = new FlatCompat({
-  baseDirectory: import.meta.dirname,
-  resolvePluginsRelativeTo: dirname(reactNativeConfigPath),
-});
-
-const reactNativeConfig = require('@react-native/eslint-config');
+import reactNativeConfig from '@ltatarev/eslint-config-react-native';
 
 export default [
   {
@@ -32,7 +21,7 @@ export default [
       'vendor/',
     ],
   },
-  ...compat.config(reactNativeConfig),
+  ...reactNativeConfig,
   {
     files: ['**/*.{js,jsx,ts,tsx}'],
     languageOptions: {
