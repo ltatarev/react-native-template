@@ -20,7 +20,7 @@ Produce a structured review — no refactored code, just clear findings and prec
 
 **Source of truth**: `AGENTS.md` (full detail), `eslint.config.mjs` + `@ltatarev/eslint-config-react-native` (enforced rules), `CONTEXT.md` (domain/sync terminology).
 
-**Last synced**: 05.07.2026
+**Last synced**: 23.07.2026
 
 ---
 
@@ -323,7 +323,8 @@ through a barrel that re-exports it.
 
 ### Accessibility
 
-Enforced by `eslint-plugin-react-native-a11y` (all rules) + `jsx-a11y`:
+`jsx-a11y` recommended runs via `@ltatarev/eslint-config-react`; the React
+Native accessibility props below are house conventions, not lint-enforced:
 
 - Every interactive element: `accessible`, `accessibilityRole`, `accessibilityLabel`
 - `accessibilityHint` recommended
@@ -383,7 +384,7 @@ When given code to analyze:
 - `react/jsx-sort-props` — prop order
 - `simple-import-sort/imports` — import order
 - `react-native/no-inline-styles`, `no-color-literals`, `no-unused-styles`
-- `react-native-a11y/*` — accessibility
+- `jsx-a11y/*` — accessibility
 - `max-len` — 90 chars
 
 ---
@@ -534,7 +535,7 @@ This skill must stay aligned with the repo. **Update `.agents/skills/code-score/
    - `node_modules/@ltatarev/eslint-config-react-native/index.js` — RN style rules
    - `node_modules/@ltatarev/eslint-config-react/index.js` — import sort, max-len, jsx-sort-props
    - `tsconfig.json` — path aliases
-   - `.prettierrc.json` — formatting
+   - `.prettierrc` — formatting
    - `CONTEXT.md` — template vocabulary and boundaries
    - 2–3 representative “good” files per category (screen, hook, `theme/ui` component)
 
