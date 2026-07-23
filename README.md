@@ -1,11 +1,26 @@
-# React Native Template
+# 📱 React Native Template
 
-Opinionated production starter for React Native apps. The template includes a
-strict TypeScript setup, Redux Toolkit, stack navigation, MMKV-backed
-persistence, Unistyles theme tokens, i18n, shared UI primitives, and small
-app-facing adapters for native capabilities.
+![react native](https://img.shields.io/badge/React%20Native-0.86.0-61dafb?style=flat-square)
+![react](https://img.shields.io/badge/React-19.2.7-c084fc?style=flat-square)
+![node](https://img.shields.io/badge/Node-%3E%3D22.11-6e8a52?style=flat-square)
+![license](https://img.shields.io/badge/license-MIT-64748b?style=flat-square)
 
-## Usage
+An opinionated production starter for React Native apps — strict TypeScript,
+Redux Toolkit, stack navigation, MMKV-backed persistence, Unistyles theme
+tokens, i18n, shared UI primitives, and small app-facing adapters around native
+capabilities.
+
+It ships an `AGENTS.md` / `CLAUDE.md` pair and a bundled set of `SKILL.md` files,
+so coding agents get the project's conventions and review procedures the moment
+you generate an app. Pair it with the [💖 Companion skills](#-companion-skills)
+for the full library.
+
+```sh
+npx @react-native-community/cli@latest init MyApp \
+  --template https://github.com/ltatarev/react-native-template.git
+```
+
+## ⚡ Usage
 
 Make sure your machine is ready for React Native development, then create a new
 app from the template:
@@ -29,7 +44,7 @@ Current template runtime:
 - Ruby `2.7.7`
 - CMake for iOS/Hermes pods
 
-## Setup
+## 🛠️ Setup
 
 From a generated app or the `template/` directory in this repository:
 
@@ -48,19 +63,19 @@ yarn ios
 yarn android
 ```
 
-## Scripts
+## 📜 Scripts
 
-| Script              | Purpose                                      |
-| ------------------- | -------------------------------------------- |
-| `yarn lint`         | Run ESLint flat config.                      |
+| Script              | Purpose                                       |
+| ------------------- | --------------------------------------------- |
+| `yarn lint`         | Run ESLint flat config.                       |
 | `yarn tsc`          | Run strict TypeScript without emitting files. |
-| `yarn test:unit`    | Run the unit Jest harness.                   |
-| `yarn madge`        | Check circular dependencies.                 |
-| `yarn madge:image`  | Generate a dependency graph image.           |
-| `yarn sanity`       | Run lint, TypeScript, and Madge checks.      |
-| `yarn install-pods` | Install iOS Pods through Bundler.            |
+| `yarn test:unit`    | Run the unit Jest harness.                    |
+| `yarn madge`        | Check circular dependencies.                  |
+| `yarn madge:image`  | Generate a dependency graph image.            |
+| `yarn sanity`       | Run lint, TypeScript, and Madge checks.       |
+| `yarn install-pods` | Install iOS Pods through Bundler.             |
 
-## Architecture
+## 🏗️ Architecture
 
 ```text
 src/
@@ -106,7 +121,7 @@ import { HomeScreen } from 'modules/home/screens/HomeScreen';
 
 ESLint enforces this with `no-restricted-imports`.
 
-## Aliases
+## 🧭 Aliases
 
 Aliases are configured in both TypeScript and Babel.
 
@@ -118,7 +133,7 @@ Aliases are configured in both TypeScript and Babel.
 | `theme/*`   | `src/theme/*`   |
 | `utils/*`   | `src/utils/*`   |
 
-## Styling
+## 🎨 Styling
 
 Styling uses `react-native-unistyles`.
 
@@ -140,14 +155,14 @@ const styles = StyleSheet.create(theme => ({
 }));
 ```
 
-## State And Persistence
+## 🗃️ State And Persistence
 
 - Root store setup lives in `src/modules/redux`.
 - Use `useAppDispatch` and `useAppSelector` from `modules/redux`.
 - Feature state uses Redux Toolkit slices and selectors.
 - Redux persistence uses MMKV through `utils/storage`.
 
-## Internationalization
+## 🌍 Internationalization
 
 i18n is initialized from `src/index.ts`.
 
@@ -155,7 +170,7 @@ i18n is initialized from `src/index.ts`.
 - Components use `useTranslation()` from `react-i18next`.
 - User-facing feature text should render through `t(...)`.
 
-## Adapters
+## 🔌 Adapters
 
 Feature code should not import native SDKs directly. Use the app-facing
 adapters in `src/utils`:
@@ -166,7 +181,7 @@ adapters in `src/utils`:
 - `utils/error-handling`
 - `utils/haptic-feedback`
 
-## Adding A Module
+## ➕ Adding A Module
 
 1. Create `src/modules/<name>/const.ts` with `MODULE_NAME`.
 2. Create `src/modules/<name>/index.ts` as the public surface.
@@ -177,9 +192,44 @@ adapters in `src/utils`:
 7. Style screens with Unistyles and theme tokens.
 8. Export only the API other modules need from the module barrel.
 
-## Agent Context
+## 🤖 Agent context
 
-Template-specific coding guidance lives in:
+Template-specific guidance ships inside the project so agents pick it up from a
+generated app's root:
 
-- `template/AGENTS.md`
-- `template/CONTEXT.md`
+- `template/AGENTS.md` / `template/CLAUDE.md` — conventions, anti-patterns, commands
+- `template/CONTEXT.md` — vocabulary and module boundaries
+- `template/.agents/skills/` and `template/.claude/` — bundled review and
+  scaffolding skills (e.g. `code-score`, `domain-modeling`, `gitmoji`)
+
+See [💖 Companion skills](#-companion-skills) for the full, subscribable library.
+
+## 💖 Companion skills
+
+[`ltatarev/skills`](https://github.com/ltatarev/skills) — the **adora** plugin —
+is a Claude Code marketplace of agent skills that encode this template's
+conventions: building UI, scaffolding feature modules, writing tests, validating
+changes, iOS widgets, launch screens, plus a commit and ticket workflow set.
+Paired with this template they need no configuration — the module anatomy, the
+`theme/ui` kit, and the Jest unit harness they target are all already here.
+
+Install the whole bundle in Claude Code:
+
+```bash
+/plugin marketplace add ltatarev/skills
+/plugin install adora@adora-skills
+```
+
+Skills then resolve as `/adora:<skill-name>`. Update with
+`/plugin marketplace update adora-skills`.
+
+Prefer to pick individual skills into a project (also works with other
+Agent-Skills-standard harnesses)? Use the `skills.sh` installer instead:
+
+```bash
+npx skills@latest add ltatarev/skills
+```
+
+## 💀 License
+
+MIT © [ltatarev](https://github.com/ltatarev)
