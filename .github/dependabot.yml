@@ -1,0 +1,67 @@
+version: 2
+updates:
+  # React Native app dependencies (template/package.json + template/yarn.lock)
+  - package-ecosystem: npm
+    directory: /template
+    schedule:
+      interval: weekly
+    open-pull-requests-limit: 10
+    labels:
+      - dependencies
+    # RN core is version-locked; bump majors deliberately via `react-native upgrade`.
+    ignore:
+      - dependency-name: react-native
+        update-types:
+          - version-update:semver-major
+      - dependency-name: react
+        update-types:
+          - version-update:semver-major
+      - dependency-name: react-test-renderer
+        update-types:
+          - version-update:semver-major
+      - dependency-name: '@react-native/*'
+        update-types:
+          - version-update:semver-major
+    groups:
+      react-navigation:
+        patterns:
+          - '@react-navigation/*'
+      babel:
+        patterns:
+          - '@babel/*'
+          - babel-*
+      react-native-community:
+        patterns:
+          - '@react-native/*'
+          - '@react-native-community/*'
+      types:
+        patterns:
+          - '@types/*'
+      dev-dependencies:
+        dependency-type: development
+        update-types:
+          - minor
+          - patch
+      production-minor-patch:
+        dependency-type: production
+        update-types:
+          - minor
+          - patch
+
+  # Bundler for the iOS tooling gems (template/Gemfile + template/Gemfile.lock)
+  - package-ecosystem: bundler
+    directory: /template
+    schedule:
+      interval: weekly
+    labels:
+      - dependencies
+      - ios
+
+  # GitHub Actions used by the repo's CI workflows
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
+    labels:
+      - dependencies
+      - ci
