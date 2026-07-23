@@ -1,7 +1,6 @@
 import React from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { KeyboardProvider } from 'react-native-keyboard-controller';
-import { StyleSheet } from 'react-native-unistyles';
 import { Provider } from 'react-redux';
 import { NavigationContainer } from '@react-navigation/native';
 import { persistor, store } from 'modules/redux';
