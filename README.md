@@ -1,3 +1,5 @@
+![cover](./cover.png)
+
 # 📱 React Native Template
 
 ![react native](https://img.shields.io/badge/React%20Native-0.86.0-61dafb?style=flat-square)
