@@ -1,6 +1,7 @@
 export * from './gutter';
 export * from './hooks';
 export * from './providers';
+export * from './redux';
 export * from './scales';
 export * from './services';
 export * from './styles';

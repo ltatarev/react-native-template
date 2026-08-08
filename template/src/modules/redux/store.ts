@@ -15,11 +15,22 @@ import {
   REGISTER,
   REHYDRATE,
 } from 'redux-persist';
+import { MODULE_NAME as THEME } from 'theme/redux/const';
+import { themeReducer } from 'theme/redux/slice';
 import { reduxStorage } from 'utils/storage';
 
+/**
+ * The root reducer.
+ *
+ * This is the one file allowed to import a module's internals — a slice is not
+ * part of a module's public surface, and the alternative is every module
+ * re-exporting its reducer for a single consumer. ESLint's boundary rule is
+ * switched off here for exactly that reason.
+ */
 export const rootReducer = combineReducers({
   [FEATURE_FLAG]: featureFlagReducer,
   [HOME]: homeReducer,
+  [THEME]: themeReducer,
 });
 
 const persistConfig: PersistConfig<ReturnType<typeof rootReducer>> = {
@@ -41,7 +52,7 @@ function composeMiddlewares(): Middleware[] {
 export const store = configureStore({
   reducer: persistedReducer,
   devTools: __DEV__,
-  middleware: (getDefaultMiddleware) => {
+  middleware: getDefaultMiddleware => {
     const defaultMiddleware = getDefaultMiddleware({
       immutableCheck: false,
       serializableCheck: {
