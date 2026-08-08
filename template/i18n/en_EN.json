@@ -7,6 +7,11 @@
     "toastMessage": "Interaction recorded.",
     "welcome": "Welcome to your new app!"
   },
+  "onboarding": {
+    "body": "Replace this flow with whatever the app needs to ask for first.",
+    "continue": "Get started",
+    "title": "Hello"
+  },
   "ui": {
     "confirmDialog": {
       "cancel": "Cancel"
