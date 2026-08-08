@@ -1,117 +1,108 @@
-// Add your theme
+/**
+ * The app's two themes.
+ *
+ * Replace the palettes; keep the token names. Every component in `theme/ui`
+ * reads colors by role (`surface`, `text2`, `hairline`) rather than by hue, so
+ * a new palette is one edit here and nothing else.
+ *
+ * Shared scales — spacing, radii, type, motion — live in `scales.ts` because
+ * both themes reuse them unchanged.
+ */
+import {
+  borderWidth,
+  durations,
+  gutter,
+  motion,
+  radii,
+  shadow,
+  size,
+  typography,
+  zIndex,
+} from './scales';
 
-const typography = {
-  fonts: {
-    serif: 'SourceSerif4-Regular',
-    serifItalic: 'SourceSerif4-It',
-    sans: 'Poppins-Regular',
-    sansMedium: 'Poppins-Medium',
-  },
-  fontSize: {
-    xs: 11,
-    sm: 13,
-    md: 15,
-    lg: 17,
-    xl: 22,
-    xxl: 28,
-  },
-  eyebrowLetterSpacing: 0.4,
-  promptLineHeight: 1.4,
-} as const;
-
-const radii = {
-  sm: 8,
-  ctrl: 13,
-  card: 20,
-  frame: 30,
-  chip: 999,
-} as const;
-
-const gutter = {
-  xs: 4,
-  sm: 8,
-  md: 16,
-  lg: 24,
-  xl: 32,
-} as const;
-
-/** Hairline borders do the work of elevation (§14.4). */
-const borderWidth = 0.5 as const;
-
-const shadow = {
-  /** The only allowed shadow is a functional one (toast/focus). */
-  sm: {
-    elevation: 1,
-    shadowColor: '#000000',
-    shadowOffset: { height: 1, width: 0 },
-    shadowOpacity: 0.08,
-    shadowRadius: 2,
-  },
-} as const;
-
-const zIndex = {
-  sheet: 50,
-  toast: 100,
-} as const;
-
+/** Roles that mean the same thing in both themes. */
 const sharedColors = {
-  /** Coral wax — the one place coral appears in chrome (§14.5). */
-  seal: '#D85A30',
-  sealInner: '#F0997B',
   danger: '#A0522E',
   info: '#5C748C',
   success: '#6E8A52',
   warning: '#B08D57',
 } as const;
 
-export const lightTheme = {
-  colors: {
-    page: '#EFEBE3',
-    surface: '#FBF9F4',
-    card: '#FFFFFF',
-    hairline: '#E4DED2',
-    hairline2: '#ECE5D8',
-    text: '#2C2A26',
-    text2: '#8C8372',
-    textMuted: '#B4AA98',
-    accent: '#B08D57',
-    onDark: '#FBF9F4',
-    primaryButton: '#2C2A26',
-    onPrimaryButton: '#FBF9F4',
-    socket: '#C9BEA6',
-    background: '#FBF9F4',
-    ...sharedColors,
-  },
-  typography,
-  radii,
-  gutter,
+const scales = {
   borderWidth,
+  durations,
+  gutter,
+  motion,
+  radii,
   shadow,
+  size,
+  typography,
   zIndex,
 } as const;
 
+export const lightTheme = {
+  name: 'light',
+  /**
+   * Stated rather than derived, so a component can branch on it without
+   * asking the OS. `StatusBar` and any surface that has to pick a contrasting
+   * treatment read this.
+   */
+  isDark: false,
+  colors: {
+    /** The ground behind everything. */
+    page: '#EFEBE3',
+    /** A panel sitting on the page. */
+    surface: '#FBF9F4',
+    /** A panel that recedes: a track, a well, an inactive segment. */
+    surfaceMuted: '#E4DED2',
+    /** A card raised off a surface. */
+    card: '#FFFFFF',
+    /** Scrim behind a modal or sheet. */
+    overlay: 'rgba(28, 26, 23, 0.4)',
+    hairline: '#E4DED2',
+    hairline2: '#ECE5D8',
+    text: '#2C2A26',
+    /** Secondary copy: metadata, notes, captions. */
+    text2: '#8C8372',
+    /** The quietest legible step: placeholders, disabled labels. */
+    textMuted: '#B4AA98',
+    accent: '#B08D57',
+    /** Accent at low opacity: a selected chip, an icon well. */
+    accentSoft: '#EDE3D2',
+    /** Text and icons drawn on top of `accent`. */
+    onAccent: '#FBF9F4',
+    /** Text and icons drawn on a dark surface in either theme. */
+    onDark: '#FBF9F4',
+    primaryButton: '#2C2A26',
+    onPrimaryButton: '#FBF9F4',
+    background: '#FBF9F4',
+    ...sharedColors,
+  },
+  ...scales,
+} as const;
+
 export const darkTheme = {
+  name: 'dark',
+  isDark: true,
   colors: {
     page: '#1C1A17',
     surface: '#26231E',
+    surfaceMuted: '#332E27',
     card: '#2E2A24',
+    overlay: 'rgba(0, 0, 0, 0.6)',
     hairline: '#3A352D',
     hairline2: '#423C33',
     text: '#F2EEE6',
     text2: '#B4AA98',
     textMuted: '#7C7365',
     accent: '#C9A876',
-    onDark: '#26231E',
+    accentSoft: '#3B3327',
+    onAccent: '#1C1A17',
+    onDark: '#FBF9F4',
     primaryButton: '#F2EEE6',
     onPrimaryButton: '#1C1A17',
-    socket: '#5E5745',
     background: '#26231E',
     ...sharedColors,
   },
-  typography,
-  radii,
-  gutter,
-  borderWidth,
-  shadow,
-  zIndex,
+  ...scales,
 } as const;

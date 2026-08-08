@@ -1,16 +1,18 @@
 import React from 'react';
 import { StatusBar as RNStatusBar } from 'react-native';
-import { useTheme } from 'theme';
+import { useTheme } from '../hooks';
 
-const STATUS_BAR_COLOR = 'dark-content';
-
+/**
+ * The bar takes its contrast from the active theme rather than being fixed, so
+ * an explicit light/dark choice reaches it too. Mounted once, by the app shell.
+ */
 export function StatusBar() {
   const theme = useTheme();
 
   return (
     <RNStatusBar
-      backgroundColor={theme['background-color-1']}
-      barStyle={STATUS_BAR_COLOR}
+      backgroundColor={theme.colors.page}
+      barStyle={theme.isDark ? 'light-content' : 'dark-content'}
     />
   );
 }

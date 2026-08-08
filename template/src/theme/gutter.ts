@@ -1,3 +1,11 @@
+/**
+ * Device metrics.
+ *
+ * Spacing lives on the theme (`theme.gutter`, defined in `scales.ts`) — this
+ * file is only for the screen dimensions that layout math needs outside a
+ * `StyleSheet`. Prefer `rt.insets` / `rt.screen` from Unistyles inside styles;
+ * these read once at module load and do not follow a rotation.
+ */
 import { Dimensions } from 'react-native';
 
 export const { width, height } = Dimensions.get('window');
@@ -28,11 +36,4 @@ export const SCREEN_SIZE: Record<string, number> = {
   'h-1/4': screenHeight * 0.25,
   'h-2/4': screenHeight * 0.5,
   'h-3/4': screenHeight * 0.75,
-};
-
-export const iPhoneXPadding: number = 34;
-
-export const gutter: { small: number; medium: number } = {
-  small: 25,
-  medium: 40,
 };
