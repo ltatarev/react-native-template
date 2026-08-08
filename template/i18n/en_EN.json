@@ -12,6 +12,21 @@
     "continue": "Get started",
     "title": "Hello"
   },
+  "settings": {
+    "about": {
+      "group": "About",
+      "version": "Version"
+    },
+    "appearance": {
+      "dark": "Dark",
+      "group": "Appearance",
+      "label": "Theme",
+      "light": "Light",
+      "note": "System follows your device setting.",
+      "system": "System"
+    },
+    "title": "Settings"
+  },
   "ui": {
     "confirmDialog": {
       "cancel": "Cancel"
