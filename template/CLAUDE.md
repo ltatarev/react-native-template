@@ -2,11 +2,12 @@
 
 Purpose: keep AI coding assistants aligned with this React Native template.
 Prefer these project conventions over generic React Native advice. For the
-architecture vocabulary, read `CONTEXT.md`.
+architecture vocabulary, read `CONTEXT.md`. For the shape a capability takes when
+the product needs one the template does not ship, read `docs/growing-the-app.md`.
 
 ## Project Snapshot
 
-- Framework: React Native `0.86.0` with React `19.2.7`.
+- Framework: React Native `0.86` with React `19.2`.
 - Language: TypeScript with `strict: true`.
 - Package manager: Yarn 4.
 - Styling: `react-native-unistyles`.
@@ -14,6 +15,7 @@ architecture vocabulary, read `CONTEXT.md`.
 - Navigation: React Navigation native stack only.
 - Internationalization: `react-i18next`, resources under `i18n/`.
 - Persistence: redux-persist backed by MMKV through `utils/storage`.
+- Shared UI primitives: `theme/ui`.
 - Common pure helpers: `src/common`.
 - Feature flags: `modules/feature-flag`.
 - Native/external capabilities: wrap them in `utils/*` adapters.
@@ -57,24 +59,38 @@ The codebase is package-by-feature.
 
 ```text
 src/
-├── common/      # Pure shared hooks and types
+├── common/        # Pure shared hooks, types, and helpers
+│   ├── hooks/
+│   ├── types/
+│   └── utils/
 ├── modules/
-│   ├── feature-flag/ # Typed boolean gates
-│   ├── home/      # Neutral reference feature
-│   ├── main/      # App shell and root navigator
-│   └── redux/     # Root store and typed Redux hooks
+│   ├── design-system/ # Primitive gallery (development only)
+│   ├── feature-flag/  # Typed boolean gates
+│   ├── home/          # Neutral reference feature
+│   ├── main/          # App shell and root navigator
+│   ├── navigation/    # Route helpers, screen options, navigation ref
+│   ├── onboarding/    # First-run gate
+│   ├── redux/         # Root store and typed Redux hooks
+│   └── settings/      # Appearance and about
 ├── theme/
-│   ├── providers/ # Theme initialization providers
-│   ├── services/  # Theme setup and platform adapters
+│   ├── hooks/     # useTheme, useAppearanceSync
+│   ├── providers/ # Theme initialization
+│   ├── redux/     # Persisted appearance mode
+│   ├── services/  # Theme setup
 │   ├── ui/        # Shared UI primitives
+│   ├── gutter.ts  # Device metrics
+│   ├── scales.ts  # Spacing, radii, type, motion, size, z-index
 │   ├── styles.ts
-│   ├── theme.ts
+│   ├── theme.ts   # The two palettes
 │   ├── types.ts
 │   └── unistyles.ts
 └── utils/
+    ├── app-state/
     ├── error-handling/
     ├── haptic-feedback/
+    ├── hooks/
     ├── logger/
+    ├── services/
     ├── storage/
     └── toast.tsx
 
@@ -91,7 +107,12 @@ i18n/
 - Cross-module imports use `modules/<name>`.
 - Do not import `modules/<name>/<internal-file>` from another module.
 - ESLint enforces public-surface imports with `no-restricted-imports`.
+  `modules/redux/store.ts` is the one exemption: a slice is not part of a
+  module's public surface, and the root reducer is its only consumer.
 - If another module needs something, export it from that module's `index.ts`.
+- A route name two modules both need goes in `modules/navigation/routes.ts`,
+  which depends on nothing. That is what keeps sibling features from importing
+  each other just to navigate.
 
 Common module subfolders:
 
@@ -104,6 +125,17 @@ Common module subfolders:
 - `persist/`, `merge/`, `sync/`, or `orchestration/` only when the module owns
   that specialized behavior.
 
+### App Shell
+
+`modules/main/screens/App.tsx` owns provider order and nothing else. The order is
+load-bearing and documented in that file; read it before changing it.
+
+Global runtime hosts (`ToastHost`, and anything like it) are siblings of the
+navigator, not children of a screen: they belong to the app, so they survive
+navigation and float over every route at the same height. A host that renders
+`null` and only runs effects is a normal and preferred shape for app-level work —
+a foreground refresh, a sync, a notification handler.
+
 ### State
 
 - Root Redux setup lives in `src/modules/redux`.
@@ -113,6 +145,8 @@ Common module subfolders:
   module public surface when other modules need them.
 - Feature flags live in `modules/feature-flag`; add flags in `const.ts` and
   read them through selectors.
+- Nothing that reads state renders before `PersistGate` — otherwise it paints
+  once with defaults and again with the real values.
 
 ### React And Hooks
 
@@ -123,6 +157,9 @@ Common module subfolders:
 - Include all values used by `useCallback` and `useMemo` dependency arrays.
 - Use `React.memo`, `useMemo`, and `useCallback` when they protect real work or
   stable references; do not add them mechanically.
+- A hook that takes a callback and subscribes to something holds the callback in
+  a ref, so an inline closure does not resubscribe every render. See
+  `useOnFocus` and `utils/app-state`.
 - Use `FlatList` for long lists.
 
 ### React Native And Worklets
@@ -137,26 +174,54 @@ Common module subfolders:
 ### Styling And UI
 
 - Import `StyleSheet` from `react-native-unistyles`.
-- Shared UI primitives live in `theme/ui`.
-- Feature screens import shared primitives from `theme/ui`, not from internal
-  primitive files.
-- Use theme tokens for colors, typography, spacing, radii, shadows, and z-index.
+- Shared UI primitives live in `theme/ui`. Feature screens import them from
+  `theme/ui`, never from an internal primitive file.
+- Reach for an existing primitive before writing markup: `Screen`, `Text`,
+  `View`, `Row`, `Touchable`, `Button`, `IconButton`, `Icon`, `Card`, `Divider`,
+  `Pill`, `SectionHeader`, `EmptyState`, `Skeleton`, `ProgressBar`, `Switch`,
+  `TextInput`, `Sheet`, `ConfirmDialog`, `LoadingScreen`.
+- `modules/design-system`'s gallery renders all of them in the live theme. Add a
+  new primitive to it, and look at both themes there before a feature uses it.
+- Every screen's outer element is `Screen`. It owns the page background, insets,
+  scrolling, and keyboard handling — do not reassemble that stack per screen.
+- Every string goes through `Text`, with `size`/`color`/`bold` props rather than
+  a font family or a hex in a stylesheet.
+- Use theme tokens for colors, typography, spacing, radii, shadows, motion,
+  sizes, and z-index. Spacing is `theme.gutter`; motion is `theme.motion`.
 - Do not add color literals to feature UI.
 - Keep user-facing text in `i18n`.
 - Dynamic prop-derived styles are acceptable when a value truly depends on
-  runtime data, but static layout belongs in `StyleSheet.create`.
+  runtime data, but static layout belongs in `StyleSheet.create`. Prefer
+  Unistyles `variants` over a style function when the value is one of a set.
 - Do not use single-element style arrays.
+
+### Motion And Accessibility
+
+- Animations run on the UI thread through Reanimated.
+- Every animation honors Reduce Motion. Reanimated layout animations do it
+  themselves; anything hand-driven checks `useReducedMotion` from `theme/ui`.
+- Springs and press-scales come from `theme.motion`, so the whole app moves the
+  same way. `usePressScale` and `useModalPresence` in `theme/ui/motion.ts` are
+  the two shapes almost everything needs.
+- A control with no visible label needs `accessibilityLabel` — `IconButton`
+  requires one.
+- Decoration is hidden from assistive tech (`Divider`, `Icon`, `Skeleton` do this
+  already); the control or region around it carries the label.
+- A progress or busy state announces its real values, not just its appearance.
 
 ### Adapters
 
 Feature code should not import native SDKs or external capability packages
 directly. Use app-facing adapters:
 
-- `utils/storage` for persisted storage.
+- `utils/storage` for persisted storage, and `appPreferences` for values read
+  before the first frame.
 - `utils/toast` for imperative toast messages.
 - `utils/logger` for logging.
 - `utils/error-handling` for error capture and messages.
 - `utils/haptic-feedback` for native haptics.
+- `utils/app-state` for foreground/background transitions.
+- `utils/services` for platform checks and app version.
 - Document new storage instances and key namespaces in
   `src/utils/storage/README.md`.
 
@@ -171,6 +236,8 @@ directly. Use app-facing adapters:
 - Prefer `undefined` for optional values.
 - Use explicit parameter and return types for exported functions, thunks,
   utilities, and non-trivial callbacks.
+- Name a magic number as a module constant with a comment saying why it is that
+  number.
 - Let ESLint sort imports and exports.
 - Keep Redux Toolkit Immer mutations named `state` or `draft`.
 - Do not leave direct `console` calls in production code paths.
@@ -188,6 +255,7 @@ Let lint and Prettier shape import order and style order.
 ## Docs
 
 - Use `CONTEXT.md` for project vocabulary and boundaries.
+- Use `docs/growing-the-app.md` before adding a capability package.
 - Add ADRs under `docs/adr/` for decisions that change module ownership,
   persistence, native behavior, or long-lived product semantics.
 - Keep troubleshooting notes in `troubleshooting.md` when a setup/build issue

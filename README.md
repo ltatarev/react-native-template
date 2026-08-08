@@ -81,21 +81,31 @@ yarn android
 
 ```text
 src/
+├── common/            # Pure shared hooks, types, helpers
 ├── modules/
-│   ├── feature-flag/ # Typed boolean gates
-│   ├── home/      # Neutral reference feature
-│   ├── main/      # App shell and root navigator
-│   └── redux/     # Store, persistor, typed hooks
+│   ├── design-system/ # Primitive gallery (development only)
+│   ├── feature-flag/  # Typed boolean gates
+│   ├── home/          # Neutral reference feature
+│   ├── main/          # App shell and root navigator
+│   ├── navigation/    # Route helpers, screen options, navigation ref
+│   ├── onboarding/    # First-run gate
+│   ├── redux/         # Store, persistor, typed hooks
+│   └── settings/      # Appearance and about
 ├── theme/
+│   ├── redux/     # Persisted appearance mode
 │   ├── ui/        # Shared UI primitives
+│   ├── gutter.ts  # Device metrics
+│   ├── scales.ts  # Spacing, radii, type, motion, size, z-index
 │   ├── styles.ts
-│   ├── theme.ts
+│   ├── theme.ts   # The two palettes
 │   ├── types.ts
 │   └── unistyles.ts
 └── utils/
+    ├── app-state/
     ├── error-handling/
     ├── haptic-feedback/
     ├── logger/
+    ├── services/
     ├── storage/
     └── toast.tsx
 
@@ -141,9 +151,11 @@ Styling uses `react-native-unistyles`.
 
 - Import `StyleSheet` from `react-native-unistyles`.
 - Keep shared primitives in `src/theme/ui`.
-- Use tokens from `theme.ts` for colors, typography, gutter, radii, shadow, and
-  z-index.
+- Use tokens from `theme.ts` (the two palettes) and `scales.ts` (gutter,
+  typography, radii, motion, size, shadow, z-index).
 - Avoid color literals in feature UI.
+- Appearance is `system` / `light` / `dark`, persisted in `theme/redux` and
+  pushed into Unistyles by `useAppearanceSync`.
 
 Example:
 
@@ -177,22 +189,48 @@ i18n is initialized from `src/index.ts`.
 Feature code should not import native SDKs directly. Use the app-facing
 adapters in `src/utils`:
 
-- `utils/storage`
+- `utils/storage` — Redux Persist storage, plus `appPreferences` for values read
+  before the first frame
 - `utils/toast`
 - `utils/logger`
 - `utils/error-handling`
 - `utils/haptic-feedback`
+- `utils/app-state` — foreground/background transitions
+- `utils/services` — platform checks, app version
+
+`docs/growing-the-app.md` describes the shape each of the common next
+capabilities takes — bottom tabs, native sheets, notifications, SQLite, image
+picking, widgets, subscriptions — none of which the template installs.
+
+## 🧱 UI primitives
+
+`theme/ui` ships the set every app re-derives otherwise:
+
+`Screen`, `Text`, `View`, `Row`, `Touchable`, `Button`, `IconButton`, `Icon`,
+`Card`, `Divider`, `Pill`, `SectionHeader`, `EmptyState`, `Skeleton`,
+`ProgressBar`, `Switch`, `TextInput`, `Sheet`, `ConfirmDialog`, `LoadingScreen`,
+`StatusBar`, `KeyboardAwareScrollView`, plus the toast viewport.
+
+`modules/design-system`'s gallery screen renders all of them in the live theme —
+add a new primitive there, and review both themes in one pass. Motion presets
+(`usePressScale`, `useModalPresence`) come from `theme/ui/motion.ts` and every
+animation honors Reduce Motion.
 
 ## ➕ Adding A Module
 
-1. Create `src/modules/<name>/const.ts` with `MODULE_NAME`.
+1. Create `src/modules/<name>/const.ts` with `MODULE_NAME` and route names built
+   from `RouteService.constructRouteName`.
 2. Create `src/modules/<name>/index.ts` as the public surface.
-3. Add screens under `screens/`.
+3. Add screens under `screens/`, built from `theme/ui` primitives.
 4. Add Redux slice/selectors under `redux/` if the module owns state.
 5. Register the reducer in `modules/redux/store.ts` when needed.
-6. Add text keys to `i18n/en_EN.json`.
-7. Style screens with Unistyles and theme tokens.
+6. Register routes in `modules/main/navigator.tsx`.
+7. Add text keys to `i18n/en_EN.json`.
 8. Export only the API other modules need from the module barrel.
+
+A route name two modules both need goes in `modules/navigation/routes.ts`, which
+depends on nothing — that is what keeps sibling features from importing each other
+just to navigate.
 
 ## 🤖 Agent context
 
@@ -201,6 +239,7 @@ generated app's root:
 
 - `template/AGENTS.md` / `template/CLAUDE.md` — conventions, anti-patterns, commands
 - `template/CONTEXT.md` — vocabulary and module boundaries
+- `template/docs/growing-the-app.md` — the shape each common next capability takes
 - `template/.agents/skills/` and `template/.claude/` — bundled review and
   scaffolding skills (e.g. `code-score`, `domain-modeling`, `gitmoji`)
 
