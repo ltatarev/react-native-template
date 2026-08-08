@@ -1,35 +1,56 @@
 # Storage Architecture
 
-This template keeps persistence behind app-facing adapters so feature modules do
-not depend on storage SDKs directly.
+Persistence sits behind app-facing adapters so feature modules never depend on
+a storage SDK directly.
 
 ## Storage Instances
+
+Two MMKV instances, split by lifecycle rather than by feature.
 
 ### Redux Storage
 
 - **Instance**: `createMMKV({ id: 'redux-persist' })`
 - **Location**: `src/utils/storage/reduxStorage.ts`
-- **Purpose**: Stores Redux Persist state under the `root` key.
-- **Access**: Imported as `reduxStorage` by `modules/redux/store.ts`.
+- **Purpose**: backs Redux Persist, which stores the app snapshot under `root`.
+- **Access**: imported as `reduxStorage` by `modules/redux/store.ts` only.
 
-Add new MMKV instances only when the data has a different lifecycle, privacy
-boundary, or sync behavior from Redux state.
+### App Preferences
+
+- **Instance**: `createMMKV({ id: 'app-preferences' })`
+- **Location**: `src/utils/storage/appPreferences.ts`
+- **Purpose**: values that have to be readable synchronously before the first
+  frame, or that must outlive a Redux Persist purge or migration.
+- **Access**: `appPreferences` from `utils/storage`.
+
+Keep the two apart. Clearing or migrating app state should never disturb a value
+read at module load, and a value read at module load cannot wait on rehydration.
+
+Add a third instance only when data has a genuinely different lifecycle, privacy
+boundary, or sync behavior — not merely because it belongs to a different
+feature.
 
 ## Key Naming
 
-- Redux Persist owns the `root` key.
-- Feature modules should not read or write Redux Persist keys directly.
-- App preferences should use explicit, namespaced keys such as
-  `theme.preference` or `onboarding.completed`.
+- Redux Persist owns the `root` key. Nothing else reads or writes it.
+- App preferences use namespaced, dotted keys: `onboarding.completed`,
+  `theme.preference`, `review.lastPromptedAt`.
+- Register every key below as it is added, so a key is never reused for two
+  meanings across releases.
 
-## Usage
+| Key | Type | Written by | Meaning |
+| --- | ---- | ---------- | ------- |
+| _(none yet)_ | | | |
 
-Feature code should prefer one of these paths:
+## Choosing Where State Lives
 
-- Redux state for UI and product state that belongs in the app snapshot.
-- A small `utils/*` adapter for preferences, credentials, files, or native SDKs.
-- A module-owned service when the behavior is specific to one feature.
+- **Redux** — UI and product state that belongs in the app snapshot, and that
+  the UI re-renders from.
+- **App preferences** — a flag or a small value read before React mounts, or one
+  that must survive a state reset.
+- **A `utils/*` adapter** — credentials, files, or anything behind a native SDK.
+- **A module-owned service** — behavior specific to one feature, with its own
+  storage shape (a database, a cache directory).
 
-Avoid importing `react-native-mmkv`, AsyncStorage, or file-system packages from
-screens and components. Wrap those capabilities first, then export the smallest
-API the feature needs.
+Screens and components should not import `react-native-mmkv`, AsyncStorage, or a
+filesystem package. Wrap the capability first, then export the smallest API the
+feature needs.
