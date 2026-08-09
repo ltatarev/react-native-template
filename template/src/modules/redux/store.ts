@@ -19,6 +19,7 @@ import {
 } from 'redux-persist';
 import { MODULE_NAME as THEME } from 'theme/redux/const';
 import { themeReducer } from 'theme/redux/slice';
+import { devToolsEnhancer } from 'utils/devtools';
 import { reduxStorage } from 'utils/storage';
 
 /**
@@ -65,6 +66,18 @@ export const store = configureStore({
 
     return defaultMiddleware.concat(composeMiddlewares());
   },
+  /*
+   * Every action and every state snapshot, sent to whatever is inspecting the
+   * app. The enhancer only calls through in a release bundle, so it is added
+   * unconditionally — see `utils/devtools`.
+   *
+   * Below `middleware` and not above it: `configureStore` infers the middleware
+   * tuple from whichever of the two it reads first, and reading this one first
+   * pins that tuple to the default and rejects `composeMiddlewares` with a
+   * "target allows only 1 element" error that names neither.
+   */
+  enhancers: getDefaultEnhancers =>
+    getDefaultEnhancers().concat(devToolsEnhancer),
 });
 
 export const persistor = persistStore(store);

@@ -15,6 +15,7 @@ import { flexStyle } from 'theme/styles';
 import { StatusBar } from 'theme/ui';
 import { useSplashScreen } from 'utils/hooks';
 import { ToastHost } from 'utils/toast';
+import { DevToolsHost } from '../components/DevToolsHost';
 import { Navigator } from '../navigator';
 
 /**
@@ -47,6 +48,14 @@ export function App() {
   return (
     <GestureHandlerRootView style={flexStyle}>
       <SafeAreaProvider initialMetrics={initialWindowMetrics}>
+        {/*
+          Renders nothing, and nothing at all in a release bundle: it is what
+          lets the debugger — and an agent over `rozenite agent` — read the
+          store and both MMKV instances. Outside the providers because it
+          depends on none of them, and above `PersistGate` so it is connected
+          before rehydration rather than after it.
+        */}
+        <DevToolsHost />
         <KeyboardProvider>
           <Provider store={store}>
             <PersistGate loading={null} persistor={persistor}>

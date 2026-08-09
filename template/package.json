@@ -7,6 +7,7 @@
     "ios": "react-native run-ios",
     "ios:simulator": "react-native run-ios --simulator='iPhone 17 Pro Max'",
     "start": "react-native start",
+    "start:debug": "WITH_ROZENITE=true react-native start",
     "install-pods": "cd ios && bundle exec pod install && cd ..",
     "pod-install": "bundle check || bundle install && cd ios && LANG=en_US.UTF-8 bundle exec pod install && cd ..",
     "lint": "eslint .",
@@ -63,6 +64,9 @@
     "@react-native/babel-preset": "0.86.0",
     "@react-native/metro-config": "0.86.0",
     "@react-native/typescript-config": "0.86.0",
+    "@rozenite/metro": "^1.13.0",
+    "@rozenite/mmkv-plugin": "^1.13.0",
+    "@rozenite/redux-devtools-plugin": "^1.13.0",
     "@types/jest": "^29.5.13",
     "@types/react": "^19.2.17",
     "@types/react-test-renderer": "^19.1.0",
@@ -76,6 +80,7 @@
     "prettier": "^3.9.6",
     "react-native-svg-transformer": "^1.5.3",
     "react-test-renderer": "19.2.8",
+    "rozenite": "^1.13.0",
     "typescript": "^5.8.3"
   },
   "jest": {

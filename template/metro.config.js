@@ -1,4 +1,5 @@
 const { getDefaultConfig, mergeConfig } = require('@react-native/metro-config');
+const { withRozenite } = require('@rozenite/metro');
 
 const defaultConfig = getDefaultConfig(__dirname);
 const {
@@ -21,4 +22,9 @@ const config = {
   },
 };
 
-module.exports = mergeConfig(defaultConfig, config);
+// Rozenite is off unless the dev server is started with WITH_ROZENITE=true
+// (`yarn start:debug`). An agent session takes over the debugger connection,
+// so a normal `yarn start` keeps React Native DevTools to itself.
+module.exports = withRozenite(mergeConfig(defaultConfig, config), {
+  enabled: process.env.WITH_ROZENITE === 'true',
+});
