@@ -252,6 +252,27 @@ Prettier settings:
 
 Let lint and Prettier shape import order and style order.
 
+## Live Debugging
+
+The running app can be inspected from the shell through Rozenite, so an agent
+reads console logs, network calls and React renders directly instead of asking
+for a screenshot of the debugger.
+
+- Start Metro with `yarn start:debug` (`WITH_ROZENITE=true`). A plain
+  `yarn start` leaves Rozenite off, and the agent CLI answers 404.
+- Drive it with the `rozenite-agent` skill in `.claude/skills/`: create a
+  session, then call a domain. The built-in ones are `console`, `network`,
+  `react`, `performance` and `memory`; the app also serves `redux-devtools`
+  and `mmkv`.
+- Opening a session disconnects React Native DevTools — the platform allows one
+  debugger connection at a time. Stop the session to get the DevTools back.
+- `utils/devtools` is the only place that imports `@rozenite/*`. The Redux
+  enhancer is on the store, and the MMKV panel is mounted by `DevToolsHost` in
+  the shell. Every plugin swaps itself for a no-op in a release bundle, so none
+  of it is gated on `__DEV__` by hand.
+- Adding a panel means adding its plugin to `utils/devtools`, not importing a
+  `@rozenite/*` package into feature code.
+
 ## Docs
 
 - Use `CONTEXT.md` for project vocabulary and boundaries.
