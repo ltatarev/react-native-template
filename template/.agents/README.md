@@ -1,21 +1,24 @@
-# 💖 Companion skills
+# 💖 Skills for non-Claude harnesses
 
-This folder holds the skills bundled with the template under `skills/`
-(`code-score`, `domain-modeling`, `gitmoji`, `grill-me`, `grill-with-docs`,
-`grilling`). For the full, subscribable library, install the **adora** plugin
-from [`ltatarev/skills`](https://github.com/ltatarev/skills) in Claude Code:
+This template ships its skills under `../.claude/skills/` and registers the rest
+as a Claude Code plugin (see `../.claude/README.md`). Nothing is mirrored here —
+duplicated copies only drift.
 
-```bash
-/plugin marketplace add ltatarev/skills
-/plugin install adora@adora-skills
-```
-
-Skills then resolve as `/adora:<skill-name>`; update with
-`/plugin marketplace update adora-skills`.
-
-Not on Claude Code? The same skills install into any Agent-Skills-standard
-harness via the `skills.sh` picker:
+Cursor, Codex, Zed, opencode, Gemini CLI and the other Agent-Skills-standard
+harnesses install the same library themselves:
 
 ```bash
 npx skills@latest add ltatarev/skills
 ```
+
+The picker lets you choose which skills and which harness directories to write
+to. To match what this template vendors:
+
+```bash
+npx skills@latest add ltatarev/skills \
+  --skill add-feature --skill build-ui --skill validate-change \
+  --agent <your-harness> --copy -y
+```
+
+Run `npx skills@latest add ltatarev/skills --list` to see everything available,
+and `npx skills@latest update` to refresh what you installed.

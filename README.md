@@ -12,10 +12,10 @@ Redux Toolkit, stack navigation, MMKV-backed persistence, Unistyles theme
 tokens, i18n, shared UI primitives, and small app-facing adapters around native
 capabilities.
 
-It ships an `AGENTS.md` / `CLAUDE.md` pair and a bundled set of `SKILL.md` files,
-so coding agents get the project's conventions and review procedures the moment
-you generate an app. Pair it with the [💖 Companion skills](#-companion-skills)
-for the full library.
+It ships an `AGENTS.md` / `CLAUDE.md` pair, four vendored skills, and a plugin
+registration for the rest, so coding agents get the project's conventions and
+procedures the moment you generate an app. See
+[💖 Companion skills](#-companion-skills).
 
 ```sh
 npx @react-native-community/cli@latest init MyApp \
@@ -240,10 +240,11 @@ generated app's root:
 - `template/AGENTS.md` / `template/CLAUDE.md` — conventions, anti-patterns, commands
 - `template/CONTEXT.md` — vocabulary and module boundaries
 - `template/docs/growing-the-app.md` — the shape each common next capability takes
-- `template/.agents/skills/` and `template/.claude/` — bundled review and
-  scaffolding skills (e.g. `code-score`, `domain-modeling`, `gitmoji`)
+- `template/.claude/skills/` — vendored skills: `add-feature`, `build-ui`,
+  `validate-change`, `rozenite-agent`
+- `template/.claude/settings.json` — registers the rest of the library as a plugin
 
-See [💖 Companion skills](#-companion-skills) for the full, subscribable library.
+See [💖 Companion skills](#-companion-skills) for how the two fit together.
 
 ## 💖 Companion skills
 
@@ -254,18 +255,32 @@ changes, iOS widgets, launch screens, plus a commit and ticket workflow set.
 Paired with this template they need no configuration — the module anatomy, the
 `theme/ui` kit, and the Jest unit harness they target are all already here.
 
-Install the whole bundle in Claude Code:
+A generated app gets them two ways.
+
+**Vendored.** `add-feature`, `build-ui` and `validate-change` are copied into
+`template/.claude/skills/` and pinned in `template/skills-lock.json`, alongside
+`rozenite-agent` for the live-debugging setup. They are committed, so they work
+on a fresh clone with no install step. Refresh them with:
+
+```bash
+npx skills@latest update
+```
+
+**As a plugin.** `template/.claude/settings.json` registers the `adora-skills`
+marketplace and enables the `adora` plugin, so opening a generated app in Claude
+Code prompts you to trust and install the full library. It then resolves as
+`/adora:<skill-name>` — `write-tests`, `verify`, `commit-changes`, `gitmoji`,
+`unistyles`, `truesheet-usage`, `domain-model`, `grill-plan`, `ticket-shaping`,
+`implement-ticket`, `ios-widget`, `bootsplash`, `xcode-cloud`. By hand:
 
 ```bash
 /plugin marketplace add ltatarev/skills
 /plugin install adora@adora-skills
+/plugin marketplace update adora-skills
 ```
 
-Skills then resolve as `/adora:<skill-name>`. Update with
-`/plugin marketplace update adora-skills`.
-
-Prefer to pick individual skills into a project (also works with other
-Agent-Skills-standard harnesses)? Use the `skills.sh` installer instead:
+On a harness other than Claude Code, install the same library with the
+`skills.sh` picker — see `template/.agents/README.md`:
 
 ```bash
 npx skills@latest add ltatarev/skills

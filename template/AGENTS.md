@@ -273,6 +273,28 @@ for a screenshot of the debugger.
 - Adding a panel means adding its plugin to `utils/devtools`, not importing a
   `@rozenite/*` package into feature code.
 
+## Skills
+
+Four skills are vendored in `.claude/skills/` and tracked in `skills-lock.json`,
+so they work on a fresh clone with no install step:
+
+- `add-feature` — scaffolding a module, screen, slice, or route within the
+  package-by-feature boundaries described above.
+- `build-ui` — building screens and components to the `theme/ui` + Unistyles +
+  i18n + accessibility standard described above.
+- `validate-change` — the check-selection and handoff procedure for a change.
+- `rozenite-agent` — driving the running app through Rozenite (see Live
+  Debugging).
+
+Reach for them rather than re-deriving the conventions from this file.
+
+The rest of the library comes from the `adora` plugin, registered in
+`.claude/settings.json` and resolving as `/adora:<skill-name>` — `write-tests`,
+`verify`, `commit-changes`, `gitmoji`, `unistyles`, `truesheet-usage`,
+`domain-model`, `grill-plan`, `ticket-shaping`, `implement-ticket`,
+`ios-widget`, `bootsplash`, `xcode-cloud`. If a `/adora:` skill does not
+resolve, the plugin is not installed yet; `.claude/README.md` says how.
+
 ## Docs
 
 - Use `CONTEXT.md` for project vocabulary and boundaries.
