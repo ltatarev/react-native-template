@@ -1,0 +1,13 @@
+{
+  "extraKnownMarketplaces": {
+    "adora-skills": {
+      "source": {
+        "source": "github",
+        "repo": "ltatarev/skills"
+      }
+    }
+  },
+  "enabledPlugins": {
+    "adora@adora-skills": true
+  }
+}
