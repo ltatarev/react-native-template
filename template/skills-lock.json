@@ -1,11 +1,29 @@
 {
   "version": 1,
   "skills": {
+    "add-feature": {
+      "source": "ltatarev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/add-feature/SKILL.md",
+      "computedHash": "d7b442a328623a567e0bd67b0246652e94908341f6153b369596f8714ef4535f"
+    },
+    "build-ui": {
+      "source": "ltatarev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/build-ui/SKILL.md",
+      "computedHash": "14f348bf174f0e3c4e004823e01a35a364486b9c81f143d53e4d9e1acecfd468"
+    },
     "rozenite-agent": {
       "source": "callstackincubator/rozenite",
       "sourceType": "github",
       "skillPath": "packages/cli/skills/rozenite-agent/SKILL.md",
       "computedHash": "3423f76c01e8daeefca11e317ec18f46c01188ed3cac0615f89e9fe44e29b278"
+    },
+    "validate-change": {
+      "source": "ltatarev/skills",
+      "sourceType": "github",
+      "skillPath": "skills/validate-change/SKILL.md",
+      "computedHash": "03c485fefad7e0edad10789549afa53dc0a0e75e32de69929ce6714ea890efba"
     }
   }
 }
