@@ -5,18 +5,22 @@ a storage SDK directly.
 
 ## Storage Instances
 
-Two MMKV instances, split by lifecycle rather than by feature.
+Two MMKV instances, split by lifecycle rather than by feature. Both are created
+once in `src/utils/storage/instances.ts`, keyed by the id they carry on disk —
+v4 does not hand an id back off an instance, so that record is the only way
+anything downstream (including the `utils/devtools` MMKV panel) can say which
+store a key came from. Nothing outside `instances.ts` calls `createMMKV`.
 
 ### Redux Storage
 
-- **Instance**: `createMMKV({ id: 'redux-persist' })`
+- **Instance**: `storageInstances['redux-persist']`
 - **Location**: `src/utils/storage/reduxStorage.ts`
 - **Purpose**: backs Redux Persist, which stores the app snapshot under `root`.
 - **Access**: imported as `reduxStorage` by `modules/redux/store.ts` only.
 
 ### App Preferences
 
-- **Instance**: `createMMKV({ id: 'app-preferences' })`
+- **Instance**: `storageInstances['app-preferences']`
 - **Location**: `src/utils/storage/appPreferences.ts`
 - **Purpose**: values that have to be readable synchronously before the first
   frame, or that must outlive a Redux Persist purge or migration.

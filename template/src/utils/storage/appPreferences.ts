@@ -1,6 +1,6 @@
-import { createMMKV } from 'react-native-mmkv';
+import { storageInstances } from './instances';
 
-const preferences = createMMKV({ id: 'app-preferences' });
+const preferences = storageInstances['app-preferences'];
 
 export type AppPreferences = {
   /** Parsed JSON, or `undefined` when the key is unset or unreadable. */
