@@ -7,7 +7,7 @@ the product needs one the template does not ship, read `docs/growing-the-app.md`
 
 ## Project Snapshot
 
-- Framework: React Native `0.86` with React `19.2`.
+- Framework: React Native `0.87` with React `19.2`.
 - Language: TypeScript with `strict: true`.
 - Package manager: Yarn 4.
 - Styling: `react-native-unistyles`.
