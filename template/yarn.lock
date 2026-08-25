@@ -6822,17 +6822,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"i18next@npm:^25.7.4":
-  version: 25.10.10
-  resolution: "i18next@npm:25.10.10"
-  dependencies:
-    "@babel/runtime": "npm:^7.29.2"
+"i18next@npm:^26.4.0":
+  version: 26.4.0
+  resolution: "i18next@npm:26.4.0"
   peerDependencies:
-    typescript: ^5 || ^6
+    typescript: ^5 || ^6 || ^7
   peerDependenciesMeta:
     typescript:
       optional: true
-  checksum: 10/ee4f6ba360902a2f0550cfeef234c9e68a67487b575d204e89bdf2f2db647934aa3900a39c64174b9201a8979e455d0bf8f56b57934c34fc8f9aa3b430cb152d
+  checksum: 10/22368a457a67391ab11ffd95acf0eed306cce27fdcc8828206acd9eb0ec5993e403db34edf95ec5a45d6e3914c03153b0e8509b589a77536127a6a1622970c78
   languageName: node
   linkType: hard
 
@@ -8719,7 +8717,7 @@ __metadata:
     eslint: "npm:^9.39.5"
     eslint-import-resolver-babel-module: "npm:^5.3.2"
     eslint-import-resolver-typescript: "npm:^4.4.5"
-    i18next: "npm:^25.7.4"
+    i18next: "npm:^26.4.0"
     jest: "npm:^29.6.3"
     metro-react-native-babel-preset: "npm:0.77.0"
     prettier: "npm:^3.9.6"
