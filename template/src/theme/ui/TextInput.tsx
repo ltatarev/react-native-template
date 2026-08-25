@@ -1,7 +1,7 @@
 import React, { forwardRef, useState } from 'react';
 import type {
   StyleProp,
-  TextInput as RNTextInputType,
+  TextInputInstance,
   TextInputProps as RNTextInputProps,
   ViewStyle,
 } from 'react-native';
@@ -29,7 +29,7 @@ export type TextInputProps = RNTextInputProps & {
  * a different one, so the layout never shifts as the reader types. The error
  * message replaces the hint in the same slot for the same reason.
  */
-export const TextInput = forwardRef<RNTextInputType, TextInputProps>(
+export const TextInput = forwardRef<TextInputInstance, TextInputProps>(
   function TextInput(
     {
       accessibilityLabel,
