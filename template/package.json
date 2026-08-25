@@ -55,7 +55,7 @@
     "@babel/plugin-transform-classes": "7.20.2",
     "@babel/plugin-transform-flow-strip-types": "7.19.0",
     "@babel/preset-env": "^7.29.7",
-    "@babel/runtime": "^7.29.7",
+    "@babel/runtime": "^8.0.0",
     "@ltatarev/eslint-config-react-native": "3.0.4",
     "@react-native-community/cli": "20.2.0",
     "@react-native-community/cli-platform-android": "20.2.0",
