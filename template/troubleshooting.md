@@ -12,6 +12,14 @@
   machine.
 - Use `yarn pod-install` after native dependency changes.
 - If Xcode opens the wrong project, open the `.xcworkspace`, not `.xcodeproj`.
+- After a React Native upgrade, `pod install` keeps the old prebuilt core,
+  because `Podfile.lock` pins `React-Core-prebuilt` and
+  `ReactNativeDependencies`. The Swift build then fails on APIs from the new
+  version. Run
+  `bundle exec pod update React-Core-prebuilt ReactNativeDependencies --no-repo-update`
+  in `ios/`.
+- On Ruby 3.2 or later, Bundler resolves `CFPropertyList` 3.0.8, because
+  3.0.9 declares `required_ruby_version < 3.2`. Keep 3.0.8 in `Gemfile.lock`.
 
 ## Android
 
@@ -19,6 +27,9 @@
   generated native files are stale.
 - Check `android/app/src/main/res/values/strings.xml` when app naming looks
   wrong after template replacement.
+- If Gradle reports `NDK at .../ndk/<version> did not have a source.properties
+  file`, an NDK install stopped before it finished. Delete that directory and
+  build again, so Gradle installs the NDK again.
 
 ## Validation
 

@@ -10,6 +10,7 @@
 		0C80B921A6F3F58F76C31292 /* libPods-Moonquake.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-Moonquake.a */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		15E815582ECA193600078FB1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E815572ECA193600078FB1 /* AppDelegate.swift */; };
+		15E8155A2ECA193600078FB1 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 15E815592ECA193600078FB1 /* SceneDelegate.swift */; };
 		467834A8B63A42D49DC9DE30 /* Poppins-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = A7351DDB4F824513B1989C00 /* Poppins-Regular.otf */; };
 		75E072A06A3949AB9093C400 /* Poppins-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 88939297D0384E9D88024079 /* Poppins-Medium.otf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
@@ -26,6 +27,7 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = Moonquake/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Moonquake/Info.plist; sourceTree = "<group>"; };
 		15E815572ECA193600078FB1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		15E815592ECA193600078FB1 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-Moonquake-TemplateAppTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Moonquake-TemplateAppTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2CEFA82F1FA04ECC8F1FBA7F /* Poppins-ExtraBold.otf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Poppins-ExtraBold.otf"; path = "../src/assets/fonts/Poppins-ExtraBold.otf"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-Moonquake.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Moonquake.debug.xcconfig"; path = "Target Support Files/Pods-Moonquake/Pods-Moonquake.debug.xcconfig"; sourceTree = "<group>"; };
@@ -58,6 +60,7 @@
 			isa = PBXGroup;
 			children = (
 				15E815572ECA193600078FB1 /* AppDelegate.swift */,
+				15E815592ECA193600078FB1 /* SceneDelegate.swift */,
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
@@ -305,6 +308,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				15E815582ECA193600078FB1 /* AppDelegate.swift in Sources */,
+				15E8155A2ECA193600078FB1 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -331,7 +335,6 @@
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
-					"-ld64",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.moonquake;
 				PRODUCT_NAME = Moonquake;
@@ -362,7 +365,6 @@
 					"$(inherited)",
 					"-ObjC",
 					"-lc++",
-					"-ld64",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.moonquake;
 				PRODUCT_NAME = Moonquake;
@@ -422,7 +424,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -496,7 +498,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",

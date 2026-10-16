@@ -2,9 +2,9 @@
 
 # 📱 React Native Template
 
-![react native](https://img.shields.io/badge/React%20Native-0.87.0-61dafb?style=flat-square)
-![react](https://img.shields.io/badge/React-19.2.7-c084fc?style=flat-square)
-![node](https://img.shields.io/badge/Node-%3E%3D22.11-6e8a52?style=flat-square)
+![react native](https://img.shields.io/badge/React%20Native-0.88.0-61dafb?style=flat-square)
+![react](https://img.shields.io/badge/React-19.3.0-c084fc?style=flat-square)
+![node](https://img.shields.io/badge/Node-%3E%3D22.13-6e8a52?style=flat-square)
 ![license](https://img.shields.io/badge/license-MIT-64748b?style=flat-square)
 
 An opinionated production starter for React Native apps — strict TypeScript,
@@ -39,9 +39,9 @@ deprecated and exits before creating the app.
 
 Current template runtime:
 
-- React Native `0.87.0`
-- React `19.2.7`
-- Node.js `>=22.11.0`
+- React Native `0.88.0`
+- React `19.3.0`
+- Node.js `>=22.13.0`
 - Yarn `4.17.0`
 - Ruby `2.7.7`
 - CMake for iOS/Hermes pods
