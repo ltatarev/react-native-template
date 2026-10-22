@@ -63,7 +63,7 @@
     "@react-native/babel-preset": "0.87.0",
     "@react-native/metro-config": "0.87.0",
     "@react-native/typescript-config": "0.87.0",
-    "@rozenite/metro": "^1.13.0",
+    "@rozenite/metro": "^2.5.0",
     "@rozenite/mmkv-plugin": "^1.13.0",
     "@rozenite/redux-devtools-plugin": "^1.13.0",
     "@types/jest": "^29.5.13",
