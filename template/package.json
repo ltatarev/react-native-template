@@ -79,7 +79,7 @@
     "prettier": "^3.9.6",
     "react-native-svg-transformer": "^1.5.3",
     "react-test-renderer": "19.2.8",
-    "rozenite": "^1.13.0",
+    "rozenite": "^2.5.0",
     "typescript": "^6.0.3"
   },
   "jest": {

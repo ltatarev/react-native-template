@@ -1673,6 +1673,31 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@electron-internal/extract-zip@npm:^1.0.1":
+  version: 1.0.5
+  resolution: "@electron-internal/extract-zip@npm:1.0.5"
+  checksum: 10/f67a2ae62ab78df306e5ec38e917fed8faf87053cf13aa5d29784ed7da6d7b96b358b3559be1b6fa98d75636593dfed23ad89a8aafff5ffac01c3c88abdd0291
+  languageName: node
+  linkType: hard
+
+"@electron/get@npm:^5.0.0":
+  version: 5.1.0
+  resolution: "@electron/get@npm:5.1.0"
+  dependencies:
+    debug: "npm:^4.1.1"
+    env-paths: "npm:^3.0.0"
+    graceful-fs: "npm:^4.2.11"
+    progress: "npm:^2.0.3"
+    semver: "npm:^7.6.3"
+    sumchecker: "npm:^3.0.1"
+    undici: "npm:^7.24.4"
+  dependenciesMeta:
+    undici:
+      optional: true
+  checksum: 10/e9ff8716d1f777a09aee8efe7761b5b6db1c0f572222cf10b8cf4d4f1f88c71c131ec41880030ee9c00ed00e55953e0d07e2cc12f526c98a985bc828c3861ec4
+  languageName: node
+  linkType: hard
+
 "@emnapi/core@npm:1.10.0":
   version: 1.10.0
   resolution: "@emnapi/core@npm:1.10.0"
@@ -3162,13 +3187,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rozenite/agent-sdk@npm:1.13.0":
-  version: 1.13.0
-  resolution: "@rozenite/agent-sdk@npm:1.13.0"
+"@rozenite/agent-sdk@npm:2.5.0":
+  version: 2.5.0
+  resolution: "@rozenite/agent-sdk@npm:2.5.0"
   dependencies:
-    "@rozenite/agent-shared": "npm:1.13.0"
+    "@rozenite/agent-shared": "npm:2.5.0"
+    "@rozenite/tools": "npm:2.5.0"
     tslib: "npm:^2.3.0"
-  checksum: 10/3db5f134d7b25ee2fd668065a86341f1770f2cf13f38e04baa0201be0fcb281ddacee3cdfb2a5b498fa8efec2c83cd2b04f0fbddbf260375debbab3de92da257
+  checksum: 10/3c9ed3fa4bff7548af8e63a8532873b62fb5aae9126be088c9202ff20b02413808b67b77b34c9994c9a8e609fdc38821a4e3df92812997e177740a1f5d9c8fd4
   languageName: node
   linkType: hard
 
@@ -3178,6 +3204,27 @@ __metadata:
   dependencies:
     tslib: "npm:^2.3.0"
   checksum: 10/c76a8d36d5601c376d15574c0d1a9f793bc5421a852ce4094266bb4279206ecf48198616ecb38f30874b035c300f6160ddfb7225bc7250c62da7c7bdbb42e363
+  languageName: node
+  linkType: hard
+
+"@rozenite/agent-shared@npm:2.5.0":
+  version: 2.5.0
+  resolution: "@rozenite/agent-shared@npm:2.5.0"
+  dependencies:
+    "@rozenite/tools": "npm:2.5.0"
+    tslib: "npm:^2.3.0"
+  checksum: 10/1ee97bbecbbda6e3ce97c96e1c823500f1aeac1e77050cf61ee7e85bcc7c7a8de2b98aeb8a9535352d29f53e300b891a35ead24ace672946107270356a338bc4
+  languageName: node
+  linkType: hard
+
+"@rozenite/electron-app@npm:2.5.0":
+  version: 2.5.0
+  resolution: "@rozenite/electron-app@npm:2.5.0"
+  dependencies:
+    electron: "npm:^44.4.2"
+  bin:
+    rozenite-electron-app: ./bin/launch.js
+  checksum: 10/7471e7420a9243bb1767a3407b3f7b38e26badf32a7e119fa81bef487feb115bfb2e37f3dea7ec3a1d2e07a771d323bfafa8f38ed8061dfafaa845ca1b274c3e
   languageName: node
   linkType: hard
 
@@ -3265,6 +3312,13 @@ __metadata:
   version: 1.13.0
   resolution: "@rozenite/tools@npm:1.13.0"
   checksum: 10/941fa2dc7d905703451c9ce19d2e1ab5dbd133bb5e2520b9b29dc14e44e9cd06f211c8ae3e51a168b8846caab11e98baaad52e20c1dfcadde14b715e8dd618f7
+  languageName: node
+  linkType: hard
+
+"@rozenite/tools@npm:2.5.0":
+  version: 2.5.0
+  resolution: "@rozenite/tools@npm:2.5.0"
+  checksum: 10/fde3da68c8b49613fa8f497d7e8ad14e30f81d8d42212f55b6effd28a0977203bd2f922d0f2271bab384d0c25333137e9730104bbc141bcb9e38af6340efb3ee
   languageName: node
   linkType: hard
 
@@ -3605,6 +3659,15 @@ __metadata:
   dependencies:
     undici-types: "npm:~8.3.0"
   checksum: 10/3829dd8c82e7d4858f3cc946ec9e5133c9fa39a0a9173874a6392230665121b42dac1b134e5e10ee132a5487293708c77df253cf41a125e9fd838cc3af72d700
+  languageName: node
+  linkType: hard
+
+"@types/node@npm:^24.9.0":
+  version: 24.19.2
+  resolution: "@types/node@npm:24.19.2"
+  dependencies:
+    undici-types: "npm:>=7.24.0 <7.24.7"
+  checksum: 10/5bc31df093f2866db0a2f9df0a1e99c2a46c3154ca2dc62ee14bde7af216d6361e4737e1023880921007ccb326b8559980e239e18a6fa927cda507da9383225c
   languageName: node
   linkType: hard
 
@@ -5457,6 +5520,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"electron@npm:^44.4.2":
+  version: 44.9.0
+  resolution: "electron@npm:44.9.0"
+  dependencies:
+    "@electron-internal/extract-zip": "npm:^1.0.1"
+    "@electron/get": "npm:^5.0.0"
+    "@types/node": "npm:^24.9.0"
+  bin:
+    electron: cli.js
+    install-electron: install.js
+  checksum: 10/3be350ac70529e8bba92c9abf7ac2afa419af68a3e05095b83bb3b8bb489c6c92cf1201e1fb2d1b0518217b5a59c466803641c5419d0dadb8f455fe56e83e7fb
+  languageName: node
+  linkType: hard
+
 "emittery@npm:^0.13.1":
   version: 0.13.1
   resolution: "emittery@npm:0.13.1"
@@ -5503,6 +5580,13 @@ __metadata:
   version: 2.2.1
   resolution: "env-paths@npm:2.2.1"
   checksum: 10/65b5df55a8bab92229ab2b40dad3b387fad24613263d103a97f91c9fe43ceb21965cd3392b1ccb5d77088021e525c4e0481adb309625d0cb94ade1d1fb8dc17e
+  languageName: node
+  linkType: hard
+
+"env-paths@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "env-paths@npm:3.0.0"
+  checksum: 10/b2b0a0d0d9931a13d279c22ed94d78648a1cc5f408f05d47ff3e0c1616f0aa0c38fb33deec5e5be50497225d500607d57f9c8652c4d39c2f2b7608cd45768128
   languageName: node
   linkType: hard
 
@@ -6692,7 +6776,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graceful-fs@npm:^4.1.3, graceful-fs@npm:^4.1.6, graceful-fs@npm:^4.2.0, graceful-fs@npm:^4.2.4, graceful-fs@npm:^4.2.6, graceful-fs@npm:^4.2.9":
+"graceful-fs@npm:^4.1.3, graceful-fs@npm:^4.1.6, graceful-fs@npm:^4.2.0, graceful-fs@npm:^4.2.11, graceful-fs@npm:^4.2.4, graceful-fs@npm:^4.2.6, graceful-fs@npm:^4.2.9":
   version: 4.2.11
   resolution: "graceful-fs@npm:4.2.11"
   checksum: 10/bf152d0ed1dc159239db1ba1f74fdbc40cb02f626770dcd5815c427ce0688c2635a06ed69af364396da4636d0408fcf7d4afdf7881724c3307e46aff30ca49e2
@@ -8777,7 +8861,7 @@ __metadata:
     react-test-renderer: "npm:19.2.8"
     redux: "npm:^5.0.1"
     redux-persist: "npm:6.0.0"
-    rozenite: "npm:^1.13.0"
+    rozenite: "npm:^2.5.0"
     typescript: "npm:^6.0.3"
   languageName: unknown
   linkType: soft
@@ -9444,6 +9528,13 @@ __metadata:
   version: 7.0.0
   resolution: "proc-log@npm:7.0.0"
   checksum: 10/97cd9f4a8a0d84e42ee91e106e5ba5edcb954521e8dbe26ee6ad31396e5c12cc2be5e5b6be7b53fa5a69959afbacd32719106e2d6f45802e34b31d9a3a01ec20
+  languageName: node
+  linkType: hard
+
+"progress@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "progress@npm:2.0.3"
+  checksum: 10/e6f0bcb71f716eee9dfac0fe8a2606e3704d6a64dd93baaf49fbadbc8499989a610fe14cf1bc6f61b6d6653c49408d94f4a94e124538084efd8e4cf525e0293d
   languageName: node
   linkType: hard
 
@@ -10217,24 +10308,27 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rozenite@npm:^1.13.0":
-  version: 1.13.0
-  resolution: "rozenite@npm:1.13.0"
+"rozenite@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "rozenite@npm:2.5.0"
   dependencies:
     "@clack/prompts": "npm:^0.11.0"
-    "@rozenite/agent-sdk": "npm:1.13.0"
-    "@rozenite/agent-shared": "npm:1.13.0"
-    "@rozenite/tools": "npm:1.13.0"
+    "@rozenite/agent-sdk": "npm:2.5.0"
+    "@rozenite/agent-shared": "npm:2.5.0"
+    "@rozenite/electron-app": "npm:2.5.0"
+    "@rozenite/tools": "npm:2.5.0"
     commander: "npm:^14.0.0"
     ejs: "npm:^3.1.10"
     is-unicode-supported: "npm:^2.1.0"
     nano-spawn: "npm:^1.0.2"
     picocolors: "npm:^1.1.1"
     validate-npm-package-name: "npm:^6.0.1"
-    ws: "npm:^8.18.3"
+  dependenciesMeta:
+    "@rozenite/electron-app":
+      optional: true
   bin:
-    rozenite: bin.js
-  checksum: 10/2370a9a3625dd7bdf1638386af9c8eff84520785b4cfbe536809bf5d8cd3c4f1ddffdc733b9e0625f321f508c5884c69a8db5c55beb4915bdb755d5bd3ae02a0
+    rozenite: ./bin.js
+  checksum: 10/bb593348e57f8e0a0ed3ac894f66e7d71e42d7765fa72e8a1b14222fffbc5922e04120b467c3889e4f292ed2154b743a6a9a08dad0e7b09b10179951ab1e6c6f
   languageName: node
   linkType: hard
 
@@ -10318,7 +10412,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:^7.1.3, semver@npm:^7.3.5, semver@npm:^7.5.2, semver@npm:^7.5.3, semver@npm:^7.5.4, semver@npm:^7.7.1, semver@npm:^7.7.2, semver@npm:^7.7.3, semver@npm:^7.7.4, semver@npm:^7.8.5":
+"semver@npm:^7.1.3, semver@npm:^7.3.5, semver@npm:^7.5.2, semver@npm:^7.5.3, semver@npm:^7.5.4, semver@npm:^7.6.3, semver@npm:^7.7.1, semver@npm:^7.7.2, semver@npm:^7.7.3, semver@npm:^7.7.4, semver@npm:^7.8.5":
   version: 7.8.5
   resolution: "semver@npm:7.8.5"
   bin:
@@ -10986,6 +11080,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"sumchecker@npm:^3.0.1":
+  version: 3.0.1
+  resolution: "sumchecker@npm:3.0.1"
+  dependencies:
+    debug: "npm:^4.1.0"
+  checksum: 10/5c69776ce2b53040c952cfbca0f7b487b1ee993c55b6d5523f674ec075f30e031fd84b6706dc8ccc4deb9761b58f9925be8806a316e5eedff2286bb48cb75044
+  languageName: node
+  linkType: hard
+
 "supports-color@npm:^7.1.0":
   version: 7.2.0
   resolution: "supports-color@npm:7.2.0"
@@ -11274,10 +11377,24 @@ __metadata:
   languageName: node
   linkType: hard
 
+"undici-types@npm:>=7.24.0 <7.24.7":
+  version: 7.24.6
+  resolution: "undici-types@npm:7.24.6"
+  checksum: 10/defc9538b952e3c15b8526596c591f7c1f0c7605ad27a2b7feddbea7ef2e3003f3eda2cdb051a3cb1a2185e3893100fd9cb925c799db99d48131ea63b5233d10
+  languageName: node
+  linkType: hard
+
 "undici-types@npm:~8.3.0":
   version: 8.3.0
   resolution: "undici-types@npm:8.3.0"
   checksum: 10/6681d2837ac75a75ac1cc46090aa2b8ddc7c6b8ecc295a6cdb06838752a730da3d8afeecf05e5ab7903160eafad3a8b6ffa1927e5ded260590f4d4fef18646d5
+  languageName: node
+  linkType: hard
+
+"undici@npm:^7.24.4":
+  version: 7.30.1
+  resolution: "undici@npm:7.30.1"
+  checksum: 10/306a28e4c715652a0e2cd59bcc98cf8b6083b989151054fafaac27bdab6f2bc7e0f33f5847f72f5ba257971226372d04705e0e984b26b42a03271d5a35eb99b1
   languageName: node
   linkType: hard
 
