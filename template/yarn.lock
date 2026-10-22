@@ -3162,6 +3162,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rozenite/agent-bridge@npm:2.5.0":
+  version: 2.5.0
+  resolution: "@rozenite/agent-bridge@npm:2.5.0"
+  dependencies:
+    "@rozenite/agent-shared": "npm:2.5.0"
+    "@rozenite/plugin-bridge": "npm:2.5.0"
+    tslib: "npm:^2.3.0"
+  peerDependencies:
+    react: ">=17"
+  checksum: 10/8d5db3fafcb11ed96f3523d3bf068566f9ac5c1e0b84080e14699405b975baa7e46b1217aa8e28b1a480f33efc304a3bb049fa641127585e2c9533c2084ac9bb
+  languageName: node
+  linkType: hard
+
 "@rozenite/agent-sdk@npm:1.13.0":
   version: 1.13.0
   resolution: "@rozenite/agent-sdk@npm:1.13.0"
@@ -3178,6 +3191,16 @@ __metadata:
   dependencies:
     tslib: "npm:^2.3.0"
   checksum: 10/c76a8d36d5601c376d15574c0d1a9f793bc5421a852ce4094266bb4279206ecf48198616ecb38f30874b035c300f6160ddfb7225bc7250c62da7c7bdbb42e363
+  languageName: node
+  linkType: hard
+
+"@rozenite/agent-shared@npm:2.5.0":
+  version: 2.5.0
+  resolution: "@rozenite/agent-shared@npm:2.5.0"
+  dependencies:
+    "@rozenite/tools": "npm:2.5.0"
+    tslib: "npm:^2.3.0"
+  checksum: 10/1ee97bbecbbda6e3ce97c96e1c823500f1aeac1e77050cf61ee7e85bcc7c7a8de2b98aeb8a9535352d29f53e300b891a35ead24ace672946107270356a338bc4
   languageName: node
   linkType: hard
 
@@ -3234,21 +3257,32 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rozenite/redux-devtools-plugin@npm:^1.13.0":
-  version: 1.13.0
-  resolution: "@rozenite/redux-devtools-plugin@npm:1.13.0"
+"@rozenite/plugin-bridge@npm:2.5.0":
+  version: 2.5.0
+  resolution: "@rozenite/plugin-bridge@npm:2.5.0"
+  dependencies:
+    tslib: "npm:^2.3.0"
+  peerDependencies:
+    react: ">=17"
+  checksum: 10/8c89608e0b02053c3b48fa249408f9d41c7be0688204feec23ba1f76beb47ca2978bf4c35791a027b3198a47ec4cbdf5116447eaad39a2da4ff478dce84526c7
+  languageName: node
+  linkType: hard
+
+"@rozenite/redux-devtools-plugin@npm:^2.5.0":
+  version: 2.5.0
+  resolution: "@rozenite/redux-devtools-plugin@npm:2.5.0"
   dependencies:
     "@redux-devtools/instrument": "npm:^2.2.0"
     "@redux-devtools/utils": "npm:^3.1.1"
-    "@rozenite/agent-bridge": "npm:1.13.0"
-    "@rozenite/agent-shared": "npm:1.13.0"
-    "@rozenite/plugin-bridge": "npm:1.13.0"
-    "@rozenite/tools": "npm:1.13.0"
+    "@rozenite/agent-bridge": "npm:2.5.0"
+    "@rozenite/agent-shared": "npm:2.5.0"
+    "@rozenite/plugin-bridge": "npm:2.5.0"
+    "@rozenite/tools": "npm:2.5.0"
     jsan: "npm:^3.1.14"
   peerDependencies:
     react: "*"
     react-native: "*"
-  checksum: 10/18bbc5cb02593fcae8bc65928892f1bd279643ef2bb58601ed5fe45fae2551025348451da4dac560dd98ba538d3f648d118355cf8abdc986e92038745d9cd122
+  checksum: 10/3e18020ef159c4345d5a36aeab29f194a6b9f83bb967d609735634cf4ee5f54b9aceda956017611e65b0be083396f2b264d89be14e15eb3b1cbfd56a17dd74cd
   languageName: node
   linkType: hard
 
@@ -3265,6 +3299,13 @@ __metadata:
   version: 1.13.0
   resolution: "@rozenite/tools@npm:1.13.0"
   checksum: 10/941fa2dc7d905703451c9ce19d2e1ab5dbd133bb5e2520b9b29dc14e44e9cd06f211c8ae3e51a168b8846caab11e98baaad52e20c1dfcadde14b715e8dd618f7
+  languageName: node
+  linkType: hard
+
+"@rozenite/tools@npm:2.5.0":
+  version: 2.5.0
+  resolution: "@rozenite/tools@npm:2.5.0"
+  checksum: 10/fde3da68c8b49613fa8f497d7e8ad14e30f81d8d42212f55b6effd28a0977203bd2f922d0f2271bab384d0c25333137e9730104bbc141bcb9e38af6340efb3ee
   languageName: node
   linkType: hard
 
@@ -8743,7 +8784,7 @@ __metadata:
     "@reduxjs/toolkit": "npm:^2.12.0"
     "@rozenite/metro": "npm:^1.13.0"
     "@rozenite/mmkv-plugin": "npm:^1.13.0"
-    "@rozenite/redux-devtools-plugin": "npm:^1.13.0"
+    "@rozenite/redux-devtools-plugin": "npm:^2.5.0"
     "@types/jest": "npm:^29.5.13"
     "@types/react": "npm:^19.2.17"
     "@types/react-test-renderer": "npm:^19.1.0"
