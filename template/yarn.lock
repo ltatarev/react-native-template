@@ -208,10 +208,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/helper-plugin-utils@npm:^7.0.0, @babel/helper-plugin-utils@npm:^7.10.4, @babel/helper-plugin-utils@npm:^7.12.13, @babel/helper-plugin-utils@npm:^7.14.5, @babel/helper-plugin-utils@npm:^7.18.6, @babel/helper-plugin-utils@npm:^7.18.9, @babel/helper-plugin-utils@npm:^7.19.0, @babel/helper-plugin-utils@npm:^7.20.2, @babel/helper-plugin-utils@npm:^7.28.6, @babel/helper-plugin-utils@npm:^7.29.7, @babel/helper-plugin-utils@npm:^7.8.0, @babel/helper-plugin-utils@npm:^7.8.3":
+"@babel/helper-plugin-utils@npm:^7.0.0, @babel/helper-plugin-utils@npm:^7.10.4, @babel/helper-plugin-utils@npm:^7.12.13, @babel/helper-plugin-utils@npm:^7.14.5, @babel/helper-plugin-utils@npm:^7.18.6, @babel/helper-plugin-utils@npm:^7.18.9, @babel/helper-plugin-utils@npm:^7.20.2, @babel/helper-plugin-utils@npm:^7.28.6, @babel/helper-plugin-utils@npm:^7.29.7, @babel/helper-plugin-utils@npm:^7.8.0, @babel/helper-plugin-utils@npm:^7.8.3":
   version: 7.29.7
   resolution: "@babel/helper-plugin-utils@npm:7.29.7"
   checksum: 10/6d16929fe5c792bbc8e4d67e18d7c1be69d2f18992deaa3d94dc26541fec662e83cbeeaf7553c6867d068eb7aed4e0d5e3e137c1dd4d5bcfa286f8d772f1f457
+  languageName: node
+  linkType: hard
+
+"@babel/helper-plugin-utils@npm:^8.0.1":
+  version: 8.0.1
+  resolution: "@babel/helper-plugin-utils@npm:8.0.1"
+  peerDependencies:
+    "@babel/core": ^8.0.0
+  checksum: 10/d9c8b9dc626640233a52d4fec0e31766a5dbcd5c9b799bd6e3c9efa6e73f0f8e389395fea33f00bce395482c2a4b99fa73d74c59720f3c8cbd019ba9ea82ad6a
   languageName: node
   linkType: hard
 
@@ -583,7 +592,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-syntax-flow@npm:^7.12.1, @babel/plugin-syntax-flow@npm:^7.18.0, @babel/plugin-syntax-flow@npm:^7.18.6, @babel/plugin-syntax-flow@npm:^7.29.7":
+"@babel/plugin-syntax-flow@npm:^7.12.1, @babel/plugin-syntax-flow@npm:^7.18.0, @babel/plugin-syntax-flow@npm:^7.29.7":
   version: 7.29.7
   resolution: "@babel/plugin-syntax-flow@npm:7.29.7"
   dependencies:
@@ -591,6 +600,17 @@ __metadata:
   peerDependencies:
     "@babel/core": ^7.0.0-0
   checksum: 10/3e03792bb20d4a0f2610df5d5af6c2ec8cbb5096a7576b24027eca60ac2b9e3a183d48255e4156fa94768322d82b13e77623f785ef556660de1c0efc5708e52a
+  languageName: node
+  linkType: hard
+
+"@babel/plugin-syntax-flow@npm:^8.0.1":
+  version: 8.0.1
+  resolution: "@babel/plugin-syntax-flow@npm:8.0.1"
+  dependencies:
+    "@babel/helper-plugin-utils": "npm:^8.0.1"
+  peerDependencies:
+    "@babel/core": ^8.0.0
+  checksum: 10/30111635bd1cf7186b7b2e64689355418fb51683ecffa2c2caa07866da6ff11fd7496e4a604e0aa9d7c487952ebf74f08a30bfcf19d8748a1d77e41e0b6f3823
   languageName: node
   linkType: hard
 
@@ -982,15 +1002,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-transform-flow-strip-types@npm:7.19.0":
-  version: 7.19.0
-  resolution: "@babel/plugin-transform-flow-strip-types@npm:7.19.0"
+"@babel/plugin-transform-flow-strip-types@npm:8.0.1":
+  version: 8.0.1
+  resolution: "@babel/plugin-transform-flow-strip-types@npm:8.0.1"
   dependencies:
-    "@babel/helper-plugin-utils": "npm:^7.19.0"
-    "@babel/plugin-syntax-flow": "npm:^7.18.6"
+    "@babel/helper-plugin-utils": "npm:^8.0.1"
+    "@babel/plugin-syntax-flow": "npm:^8.0.1"
   peerDependencies:
-    "@babel/core": ^7.0.0-0
-  checksum: 10/f2b48953c7a1b60989d1210d9c16e534976a733f2b8e89035b31938ed8ab7cb96a5279de4e7548dc67ab263ec5b9ab8d74b26870b556acba08e70c07926c38a8
+    "@babel/core": ^8.0.0
+  checksum: 10/4924907f9a93a0c6175e08efaf1b4be4979ec2f467c0e35e94f06772e5d699f5ebf9aa8f5b64a4eef938f87bfde9e0807f0a0cfa404346ef7f0c06e89dd93c99
   languageName: node
   linkType: hard
 
@@ -8726,7 +8746,7 @@ __metadata:
     "@babel/plugin-proposal-class-properties": "npm:7.18.6"
     "@babel/plugin-proposal-export-namespace-from": "npm:7.18.9"
     "@babel/plugin-transform-classes": "npm:7.20.2"
-    "@babel/plugin-transform-flow-strip-types": "npm:7.19.0"
+    "@babel/plugin-transform-flow-strip-types": "npm:8.0.1"
     "@babel/preset-env": "npm:^7.29.7"
     "@babel/runtime": "npm:^7.29.7"
     "@ltatarev/eslint-config-react-native": "npm:3.0.4"
