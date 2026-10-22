@@ -3162,6 +3162,19 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@rozenite/agent-bridge@npm:2.1.0":
+  version: 2.1.0
+  resolution: "@rozenite/agent-bridge@npm:2.1.0"
+  dependencies:
+    "@rozenite/agent-shared": "npm:2.1.0"
+    "@rozenite/plugin-bridge": "npm:2.1.0"
+    tslib: "npm:^2.3.0"
+  peerDependencies:
+    react: ">=17"
+  checksum: 10/d56a05e2a11d73e2461cc7f6b4d4b047ae04949995b5e4689968e828aa5afe356eca41207525aae10799ea96731142c1f22e1d9c988c918559ee4ee7cb56c561
+  languageName: node
+  linkType: hard
+
 "@rozenite/agent-sdk@npm:1.13.0":
   version: 1.13.0
   resolution: "@rozenite/agent-sdk@npm:1.13.0"
@@ -3178,6 +3191,15 @@ __metadata:
   dependencies:
     tslib: "npm:^2.3.0"
   checksum: 10/c76a8d36d5601c376d15574c0d1a9f793bc5421a852ce4094266bb4279206ecf48198616ecb38f30874b035c300f6160ddfb7225bc7250c62da7c7bdbb42e363
+  languageName: node
+  linkType: hard
+
+"@rozenite/agent-shared@npm:2.1.0":
+  version: 2.1.0
+  resolution: "@rozenite/agent-shared@npm:2.1.0"
+  dependencies:
+    tslib: "npm:^2.3.0"
+  checksum: 10/c0523b1b50afb1092e5fc11d58f71535da60cdb663c05fa5845dc0b4e09105f6de1b15e71e50275749afd394189e404c460ae425fc33377a7cb349fe7aa2e835
   languageName: node
   linkType: hard
 
@@ -3207,19 +3229,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@rozenite/mmkv-plugin@npm:^1.13.0":
-  version: 1.13.0
-  resolution: "@rozenite/mmkv-plugin@npm:1.13.0"
+"@rozenite/mmkv-plugin@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "@rozenite/mmkv-plugin@npm:2.1.0"
   dependencies:
-    "@rozenite/agent-bridge": "npm:1.13.0"
-    "@rozenite/agent-shared": "npm:1.13.0"
-    "@rozenite/plugin-bridge": "npm:1.13.0"
+    "@rozenite/agent-bridge": "npm:2.1.0"
+    "@rozenite/agent-shared": "npm:2.1.0"
+    "@rozenite/plugin-bridge": "npm:2.1.0"
     nanoevents: "npm:^9.1.0"
   peerDependencies:
     react: "*"
     react-native: "*"
     react-native-mmkv: "*"
-  checksum: 10/a1d7df9595a9615fff33f451c16919b1e059a624124f945e72138af828f01ee86078e4e4b1fe880cb2a757edd6139811c026b5b7ca3afaed76b1f438d4cd96cc
+  checksum: 10/4eb2faffced3e8e15fab26e9606b93b33240cbdaeffd7966bf8bd7834ff73c311ca9f50ae3519c3f3daa08617a473a4f25709f385a3e9aea81744362a5ae2521
   languageName: node
   linkType: hard
 
@@ -3231,6 +3253,17 @@ __metadata:
   peerDependencies:
     react: ">=17"
   checksum: 10/377da816dd81390f9c8f7036cac349bde0586784e55ef0ebefcb63b8b5fc84d9f397f3a6abf3a374721f5cf02cb075e1bdafac959c66d049846582433512bc06
+  languageName: node
+  linkType: hard
+
+"@rozenite/plugin-bridge@npm:2.1.0":
+  version: 2.1.0
+  resolution: "@rozenite/plugin-bridge@npm:2.1.0"
+  dependencies:
+    tslib: "npm:^2.3.0"
+  peerDependencies:
+    react: ">=17"
+  checksum: 10/0e41d4c7024d811fb0bf2dcb40eb07d137b8872774ec666814ff1c57e4978df7d8daf6aa49c90a4b9b035513339111ba715a144e50a4601653f54c66b87acc2b
   languageName: node
   linkType: hard
 
@@ -8742,7 +8775,7 @@ __metadata:
     "@react-navigation/native-stack": "npm:7.18.6"
     "@reduxjs/toolkit": "npm:^2.12.0"
     "@rozenite/metro": "npm:^1.13.0"
-    "@rozenite/mmkv-plugin": "npm:^1.13.0"
+    "@rozenite/mmkv-plugin": "npm:^2.1.0"
     "@rozenite/redux-devtools-plugin": "npm:^1.13.0"
     "@types/jest": "npm:^29.5.13"
     "@types/react": "npm:^19.2.17"
