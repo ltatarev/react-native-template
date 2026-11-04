@@ -1,9 +1,17 @@
 import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { StyleSheet } from 'react-native-unistyles';
+import { useNavigation } from '@react-navigation/native';
+import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { HOME_ROUTE } from 'modules/navigation';
 import { useAppDispatch } from 'modules/redux';
 import { Button, Icon, Screen, Text, View } from 'theme/ui';
 import { onboardingActions } from '../redux';
+
+/** The routes this screen navigates to — see `HomeScreen` for why. */
+type WelcomeNavigation = NativeStackNavigationProp<{
+  [HOME_ROUTE]: undefined;
+}>;
 
 /**
  * The first-run flow, as one screen.
@@ -14,10 +22,14 @@ import { onboardingActions } from '../redux';
  */
 export function WelcomeScreen() {
   const dispatch = useAppDispatch();
+  const navigation = useNavigation<WelcomeNavigation>();
   const { t } = useTranslation();
 
   function handleContinue() {
     dispatch(onboardingActions.complete());
+    // The navigator reads `completed` only for its initial route, so leave the
+    // flow here. A reset, not a push: the back gesture must not return to it.
+    navigation.reset({ index: 0, routes: [{ name: HOME_ROUTE }] });
   }
 
   return (

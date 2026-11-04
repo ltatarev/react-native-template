@@ -1,8 +1,8 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { DESIGN_SYSTEM_ROUTE, GalleryScreen } from 'modules/design-system';
-import { HomeScreen, MODULE_NAME as HOME_ROUTE } from 'modules/home';
-import { StackNavigatorService } from 'modules/navigation';
+import { HomeScreen } from 'modules/home';
+import { HOME_ROUTE, StackNavigatorService } from 'modules/navigation';
 import {
   ONBOARDING_ROUTE,
   selectOnboardingCompleted,
@@ -21,8 +21,8 @@ const Stack = createNativeStackNavigator();
  * navigation, and deep links resolve the same way in both states.
  *
  * `initialRouteName` is all the gate needs — flipping `completed` while the app
- * is open does not re-mount the navigator, and the flow navigates on from
- * itself when it finishes.
+ * is open does not re-mount the navigator, so the flow resets the stack to
+ * `HOME_ROUTE` itself when it finishes.
  */
 export function Navigator() {
   const onboardingCompleted = useAppSelector(selectOnboardingCompleted);

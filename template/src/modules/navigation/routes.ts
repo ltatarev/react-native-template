@@ -11,4 +11,8 @@
  * Names follow `<module>/<Screen>`, which is what `constructRouteName` builds.
  */
 
-export {};
+/**
+ * The app's base route, once first-run is complete. Onboarding resets the stack
+ * to it, and the root navigator registers `HomeScreen` under it.
+ */
+export const HOME_ROUTE = 'home';
