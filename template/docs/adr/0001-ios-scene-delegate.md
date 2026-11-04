@@ -36,6 +36,8 @@ declares one scene configuration that points to `SceneDelegate`.
 - `AppDelegate` declares `window`, and `SceneDelegate` sets it to the scene's
   window. Some native libraries read `UIApplication.shared.delegate.window`.
 - `UIViewControllerBasedStatusBarAppearance` is `YES`. With the iOS 27 SDK,
-  `StatusBar` style and visibility work only with this value (RN 0.88.1).
+  `StatusBar` style and visibility work only with this value (RN 0.88.1). The
+  top screen's view controller then decides the style, so the root navigator
+  sets `statusBarStyle` from the theme.
 - The app supports one scene only (`UIApplicationSupportsMultipleScenes` is
   `false`).

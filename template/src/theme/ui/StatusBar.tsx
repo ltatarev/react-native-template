@@ -10,6 +10,10 @@ import { useTheme } from '../hooks';
  * `backgroundColor` prop, and under edge-to-edge the bar is transparent by
  * design: what shows through it is the page itself, which `Screen` already
  * paints out to the top inset.
+ *
+ * On iOS the native stack also sets the style: with view-controller-based
+ * status bar appearance, the top screen's view controller decides. See the root
+ * navigator in `modules/main`.
  */
 export function StatusBar() {
   const theme = useTheme();

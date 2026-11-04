@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { DESIGN_SYSTEM_ROUTE, GalleryScreen } from 'modules/design-system';
 import { HomeScreen } from 'modules/home';
@@ -10,6 +10,7 @@ import {
 } from 'modules/onboarding';
 import { useAppSelector } from 'modules/redux';
 import { SETTINGS_ROUTE, SettingsScreen } from 'modules/settings';
+import { useTheme } from 'theme';
 
 const Stack = createNativeStackNavigator();
 
@@ -26,11 +27,23 @@ const Stack = createNativeStackNavigator();
  */
 export function Navigator() {
   const onboardingCompleted = useAppSelector(selectOnboardingCompleted);
+  const theme = useTheme();
+
+  // iOS asks the top screen's view controller for the status bar style, because
+  // `UIViewControllerBasedStatusBarAppearance` is YES (the iOS 27 SDK needs it).
+  // Without a style here, the bar keeps the system style in the dark theme.
+  const screenOptions = useMemo(
+    () => ({
+      ...StackNavigatorService.hideHeader,
+      statusBarStyle: theme.isDark ? ('light' as const) : ('dark' as const),
+    }),
+    [theme.isDark],
+  );
 
   return (
     <Stack.Navigator
       initialRouteName={onboardingCompleted ? HOME_ROUTE : ONBOARDING_ROUTE}
-      screenOptions={StackNavigatorService.hideHeader}>
+      screenOptions={screenOptions}>
       <Stack.Screen component={WelcomeScreen} name={ONBOARDING_ROUTE} />
       <Stack.Screen component={HomeScreen} name={HOME_ROUTE} />
       <Stack.Screen
