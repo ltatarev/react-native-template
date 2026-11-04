@@ -9,8 +9,8 @@ Accepted
 React Native 0.88 adds UIScene lifecycle support. The community template now
 starts React Native from a `SceneDelegate`, and its `AppDelegate` does nothing.
 Apple deprecates the app-delegate window lifecycle, and new iOS APIs expect
-scenes. The 0.88 release is non-breaking, so the old `AppDelegate` start still
-works.
+scenes. An app built with the iOS 27 SDK does not launch without the UIScene
+life cycle, so the old `AppDelegate` start works only on older SDKs.
 
 ## Decision
 
@@ -22,8 +22,8 @@ declares one scene configuration that points to `SceneDelegate`.
 
 ## Considered
 
-- Keep the `AppDelegate` start. This works on 0.88, but a generated app then
-  differs from `npx @react-native-community/cli init` output.
+- Keep the `AppDelegate` start. This works on 0.88 with an older SDK, but the
+  app does not launch when it is built with the iOS 27 SDK.
 - Move to a `SceneDelegate`. A generated app matches upstream and the
   bootsplash README.
 
@@ -33,5 +33,9 @@ declares one scene configuration that points to `SceneDelegate`.
   `SceneDelegate`, not in `AppDelegate`.
 - Deep links go through `scene(_:openURLContexts:)` and
   `scene(_:continue:)`. `application(_:open:options:)` no longer receives them.
+- `AppDelegate` declares `window`, and `SceneDelegate` sets it to the scene's
+  window. Some native libraries read `UIApplication.shared.delegate.window`.
+- `UIViewControllerBasedStatusBarAppearance` is `YES`. With the iOS 27 SDK,
+  `StatusBar` style and visibility work only with this value (RN 0.88.1).
 - The app supports one scene only (`UIApplicationSupportsMultipleScenes` is
   `false`).

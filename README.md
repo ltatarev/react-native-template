@@ -2,8 +2,8 @@
 
 # 📱 React Native Template
 
-![react native](https://img.shields.io/badge/React%20Native-0.88.0-61dafb?style=flat-square)
-![react](https://img.shields.io/badge/React-19.3.0-c084fc?style=flat-square)
+![react native](https://img.shields.io/badge/React%20Native-0.88.1-61dafb?style=flat-square)
+![react](https://img.shields.io/badge/React-19.3.1-c084fc?style=flat-square)
 ![node](https://img.shields.io/badge/Node-%3E%3D22.13-6e8a52?style=flat-square)
 ![license](https://img.shields.io/badge/license-MIT-64748b?style=flat-square)
 
@@ -39,8 +39,8 @@ deprecated and exits before creating the app.
 
 Current template runtime:
 
-- React Native `0.88.0`
-- React `19.3.0`
+- React Native `0.88.1`
+- React `19.3.1`
 - Node.js `>=22.13.0`
 - Yarn `4.17.0`
 - Ruby `2.7.7`
