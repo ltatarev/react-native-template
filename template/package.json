@@ -65,7 +65,7 @@
     "@react-native/typescript-config": "0.88.1",
     "@rozenite/metro": "^1.13.0",
     "@rozenite/mmkv-plugin": "^1.13.0",
-    "@rozenite/redux-devtools-plugin": "^1.13.0",
+    "@rozenite/redux-devtools-plugin": "^2.5.0",
     "@types/jest": "^29.5.13",
     "@types/react": "^19.3.0",
     "@types/react-test-renderer": "^19.3.0",
